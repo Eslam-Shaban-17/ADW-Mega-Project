@@ -1,0 +1,50 @@
+// Welcome to DAX query view! Learn more about DAX queries at https://aka.ms/dax-queries.
+// Right-click on tables, columns, or measures in the data pane to access quick queries, or ask Copilot for help writing DAX.
+
+-- =============================================
+-- Define Revenue measures
+-- =============================================
+
+DEFINE 
+    // 01. Revenue Metrics
+    MEASURE MyMeasures[Total Tax] = SUM(FactSales[TotalTax-Fixed])
+    MEASURE MyMeasures[Total Freight] = SUM(FactSales[TotalFreight-Fixed])
+    MEASURE MyMeasures[Subtotal Amount] = SUM(FactSales[LineTotal])
+    // Revenue (Line-level with allocated tax & freight)
+    MEASURE MyMeasures[Total Revenue] = [Subtotal Amount] + [Total Freight] + [Total Tax]
+    // Alternative: Order-level revenue (exact match with accounting)
+    // 1at way
+    // MEASURE MyMeasures[Total Revenue (Order Level)] =
+    // SUMX(
+    // VALUES(FactSales[SalesOrderID]),
+    // CALCULATE(MAX(FactSales[TotalDue]))
+    // )
+    //second way
+    MEASURE MyMeasures[Total Revenue (order-level)]=
+    SUMX(
+        SUMMARIZECOLUMNS(
+        FactSales[SalesOrderID],
+        "Total Revenue (order-level)",
+        MAX(FactSales[TotalDue])
+        ),
+        [Total Revenue (order-level)]
+    )
+    // Validation: Check difference between methods
+    MEASURE MyMeasures[Revenue Variance] = [Total Revenue (Order-level)] - [Total Revenue]
+    // MEASURE MyMeasures[Revenue Variance2] = [Total Revenue (order-level)] - [Total Revenue]
+
+-- =============================================
+-- Query: Evaluate Revenue metrics
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    "Total Freight", [Total Freight],
+    "Total Tax", [Total Tax],
+    "Subtotal Amount", [Subtotal Amount],
+    "Total Revenue", [Total Revenue],
+    // "Total Revenue (Order Level)",[Total Revenue (Order Level)],
+    "Total Revenue (order-level)",[Total Revenue (order-level)],
+    "Revenue Variance", [Revenue Variance]
+    // "Revenue Variance2", [Revenue Variance2]
+)
+

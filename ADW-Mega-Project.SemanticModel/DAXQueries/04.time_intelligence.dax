@@ -1,0 +1,64 @@
+ -- =============================================
+-- Define Time Intelligence measures
+-- =============================================
+ DEFINE	
+	// 04. Time Intelligence Metrics
+    // Year-over-Year (YoY)
+    MEASURE MyMeasures[Revenue LY] = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+    MEASURE MyMeasures[Revenue YoY %] = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY], 0)
+    // Month-over-Month (MoM)
+    MEASURE MyMeasures[Revenue PM] = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, MONTH))
+    MEASURE MyMeasures[MoM %] = DIVIDE([Total Revenue] - [Revenue PM], [Revenue PM], 0)
+    // Quarter-over-Quarter (QoQ)
+    MEASURE MyMeasures[Revenue PQ] = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, QUARTER))
+    MEASURE MyMeasures[Revenue QoQ %] = DIVIDE([Total Revenue] - [Revenue PQ], [Revenue PQ], 0)
+    // Year-to-Date
+    MEASURE MyMeasures[Revenue YTD] = TOTALYTD([Total Revenue], DimDate[Date])   
+    MEASURE MyMeasures[Orders YTD] = CALCULATE([Total Orders], DATESYTD(DimDate[Date]))
+    // Previous Year YTD (for comparison)
+    MEASURE MyMeasures[Revenue PYTD] = CALCULATE([Revenue YTD], SAMEPERIODLASTYEAR(DimDate[Date]))
+    MEASURE MyMeasures[YTD vs PYTD %] = DIVIDE([Revenue YTD] - [Revenue PYTD], [Revenue PYTD], 0)
+    // Moving Averages
+    MEASURE MyMeasures[Revenue 3M Avg] =
+        CALCULATE([Total Revenue],
+            DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -3, MONTH)
+        ) / 3
+    MEASURE MyMeasures[Revenue 12M Avg] =
+    CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -12, MONTH)
+    ) / 12
+    // Rolling 12 months total
+    MEASURE MyMeasures[Revenue R12M] =
+    CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -12, MONTH)
+    )
+
+-- =============================================
+-- Evaluate: Show results grouped by Year and Month
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    DimDate[Year],
+    DimDate[MonthName],
+    DimDate[MonthNum],
+    "Total Revenue", [Total Revenue],
+    "Revenue LY", [Revenue LY],
+    "Revenue YoY %", [Revenue YoY %],
+    "Revenue PM", [Revenue PM],
+    "MoM %", [MoM %],
+    "Revenue PQ", [Revenue PQ],
+    "Revenue QoQ %", [Revenue QoQ %],
+    "Revenue YTD", [Revenue YTD],
+    "Revenue PYTD", [Revenue PYTD],
+    "YTD vs PYTD %", [YTD vs PYTD %],
+    "Revenue 3M Avg", [Revenue 3M Avg],
+    "Revenue 12M Avg", [Revenue 12M Avg],
+    "Revenue R12M", [Revenue R12M]
+)
+
+ORDER BY
+    DimDate[Year],
+    DimDate[MonthNum],
+    DimDate[MonthName]

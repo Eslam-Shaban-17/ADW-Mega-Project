@@ -1,0 +1,60 @@
+table DimVendor
+	lineageTag: 5a5c245b-6846-44e7-b48a-99a4e4c9a630
+
+	column VendorID
+		dataType: int64
+		formatString: 0
+		lineageTag: 9896a283-a6fc-453b-bc23-d4af9ab36efb
+		summarizeBy: none
+		sourceColumn: VendorID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VendorName
+		dataType: string
+		lineageTag: b5565577-5b98-4a56-bbce-c0e4535847e4
+		summarizeBy: none
+		sourceColumn: VendorName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditRating
+		dataType: int64
+		formatString: 0
+		lineageTag: 30e17a9c-be03-4870-997c-96993b423f46
+		summarizeBy: none
+		sourceColumn: CreditRating
+
+		annotation SummarizationSetBy = Automatic
+
+	column PreferredVendorStatus
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a2af18e3-54db-4872-848c-ffc2ca2e963a
+		summarizeBy: none
+		sourceColumn: PreferredVendorStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 34c449b6-1eb5-4aa6-8ffd-4edea9d19dfa
+		summarizeBy: none
+		sourceColumn: ActiveFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimVendor = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimVendor = Source{[Schema="dbo",Item="vw_DimVendor"]}[Data]
+				in
+				    dbo_vw_DimVendor
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

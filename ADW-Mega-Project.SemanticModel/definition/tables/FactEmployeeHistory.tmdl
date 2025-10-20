@@ -1,0 +1,83 @@
+table FactEmployeeHistory
+	lineageTag: f5c63dbc-bca7-4d2d-9a53-089282db0616
+
+	column BusinessEntityID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 396c1d0f-6aea-4e66-8ea7-b2065e454c09
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 073ba4f4-fc90-4699-b7d0-18e4b827d358
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShiftID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 210a2e62-fbf8-4413-b038-af301d343f21
+		summarizeBy: none
+		sourceColumn: ShiftID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 331dca11-171a-4a76-bb7b-63d551473875
+		summarizeBy: none
+		sourceColumn: StartDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EndDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5fd97589-4ab6-43dd-941e-df37c5d0c2ef
+		summarizeBy: none
+		sourceColumn: EndDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsCurrentEmployee
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d442554-3281-4e38-a38b-ee1641827c9e
+		summarizeBy: sum
+		sourceColumn: IsCurrentEmployee
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactEmployeeHistory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_FactEmployeeHistory = Source{[Schema="dbo",Item="vw_FactEmployeeHistory"]}[Data]
+				in
+				    dbo_vw_FactEmployeeHistory
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

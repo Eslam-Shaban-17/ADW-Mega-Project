@@ -1,0 +1,32 @@
+-- =============================================
+-- Define Territory Metrics
+-- =============================================
+    DEFINE
+	//07. Product Metrics
+   // Territory revenue ranking
+	MEASURE MyMeasures[Territory Revenue Rank] =
+	RANKX(
+	ALL(DimTerritory[TerritoryName]),
+	[Total Revenue],
+	,
+	DESC,
+	DENSE
+	)
+	// Territory contribution to total
+	MEASURE MyMeasures[Territory Revenue %] =
+	DIVIDE(
+	[Total Revenue],
+	CALCULATE([Total Revenue], ALL(DimTerritory)),
+	0
+	)
+-- =============================================
+-- Evaluate: Territory Revenue Performance
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    DimTerritory[TerritoryName],
+    "Total Revenue", [Total Revenue],
+    "Territory Revenue %", [Territory Revenue %],
+    "Territory Revenue Rank", [Territory Revenue Rank]
+)
+ORDER BY [Total Revenue] DESC

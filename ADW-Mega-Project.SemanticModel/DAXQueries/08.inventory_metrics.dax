@@ -1,0 +1,117 @@
+-- =============================================
+-- Company-Wide Inventory KPIs
+-- =============================================
+DEFINE
+    // Total stock for current product
+    MEASURE MyMeasures[Total Stock] =
+        SUM(FactInventory[Quantity])   
+    // Inventory value for current product
+    MEASURE MyMeasures[Total Inventory Value] =
+        SUM(FactInventory[InventoryValue])
+    MEASURE MyMeasures[Low Stock Items Count] =
+        CALCULATE(
+            DISTINCTCOUNT(FactInventory[ProductID]),
+            FactInventory[Quantity] < 100
+        )
+    MEASURE MyMeasures[Out of Stock Items] =
+        CALCULATE(
+            DISTINCTCOUNT(FactInventory[ProductID]),
+            FactInventory[Quantity] = 0
+        )
+    MEASURE MyMeasures[Overstocked Items] =
+        CALCULATE(
+            DISTINCTCOUNT(FactInventory[ProductID]),
+            FactInventory[Quantity] >= 500
+        )
+    MEASURE MyMeasures[Total Products in Inventory] =
+        DISTINCTCOUNT(FactInventory[ProductID])
+    MEASURE MyMeasures[Avg Stock per Product] =
+        DIVIDE([Total Stock], [Total Products in Inventory], 0)
+           // Product Inventory Turnover
+    MEASURE MyMeasures[Inventory Turnover] =
+        VAR ProductCOGS = [Total COGS]
+        VAR AvgInventoryValue = [Total Inventory Value]
+        RETURN
+            DIVIDE(ProductCOGS, AvgInventoryValue, 0)
+--------------------------------------------------------------------
+-- =============================================
+-- Define: Inventory Metrics (Product-Level)
+-- =============================================
+    // Stock status for current product
+    MEASURE MyMeasures[Stock Status] =
+        VAR CurrentStock = [Total Inventory Value]
+        RETURN
+            SWITCH(
+                TRUE(),
+                CurrentStock = 0, "Out of Stock",
+                CurrentStock < 50, "Critical",
+                CurrentStock < 100, "Low",
+                CurrentStock < 500, "Normal",
+                "Overstocked"
+            )
+    // Days of supply (product-specific)
+    MEASURE MyMeasures[Days of Supply] =
+        VAR CurrentStock = [Total Inventory Value]
+        VAR DailySales = 
+            CALCULATE(
+                DIVIDE(SUM(FactSales[OrderQty]), DISTINCTCOUNT(FactSales[OrderDate])),
+                ALL(DimDate)
+            )
+        RETURN
+            DIVIDE(CurrentStock, DailySales, 0)
+    // Stock to Sales Ratio (product-specific)
+    MEASURE MyMeasures[Stock to Sales Ratio] =
+        DIVIDE(
+            [Total Inventory Value],
+            CALCULATE(SUM(FactSales[OrderQty]), ALL(DimDate)),
+            0
+        )
+    // Days to sell current inventory
+    MEASURE MyMeasures[Days Inventory on Hand] =
+        DIVIDE(365, [Inventory Turnover], 0)
+    // Reorder indicator
+    MEASURE MyMeasures[Needs Reorder] =
+        IF([Total Inventory Value] < 100, "Yes", "No")
+    // Stock value percentage of total
+    MEASURE MyMeasures[% of Total Inventory Value] =
+        DIVIDE(
+            [Total Inventory Value],
+            CALCULATE([Total Inventory Value], ALL(DimProduct)),
+            0
+        )
+--------------------------------------------------------------------------
+-- =============================================
+ -- Company-Wide Inventory KPIs
+-- =============================================
+EVALUATE
+ROW(
+    "Total Inventory Value", [Total Inventory Value],
+    "Total Stock Units", [Total Stock],
+    "Total Products", [Total Products in Inventory],
+    "Low Stock Items", [Low Stock Items Count],
+    "Out of Stock Items", [Out of Stock Items],
+    "Overstocked Items", [Overstocked Items],
+    "Avg Stock per Product", [Avg Stock per Product],
+    "Company Inventory Turnover", [Inventory Turnover]
+)
+-- =============================================
+-- Evaluate: Product-Level Inventory Analysis
+-- =============================================
+EVALUATE
+ADDCOLUMNS(
+    SUMMARIZE(
+        FactInventory,
+        DimProduct[ProductName],
+        DimProduct[CategoryName],
+        DimProduct[SubcategoryName]
+    ),
+    "Stock Quantity", [Total Stock],
+    "Inventory Value", [Total Inventory Value],
+    "% of Total Value", [% of Total Inventory Value],
+    "Stock Status", [Stock Status],
+    "Days of Supply", [Days of Supply],
+    "Inventory Turnover", [Inventory Turnover],
+    "Days to Sell", [Days Inventory on Hand],
+    "Needs Reorder", [Needs Reorder]
+)
+ORDER BY [Inventory Value] DESC

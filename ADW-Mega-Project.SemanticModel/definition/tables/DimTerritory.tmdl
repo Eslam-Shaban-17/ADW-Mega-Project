@@ -1,0 +1,49 @@
+table DimTerritory
+	lineageTag: 944aa096-ce0b-4bdc-82b6-e03dcd7e6927
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 05986af2-a813-46e4-9e4d-0c826b898871
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryName
+		dataType: string
+		lineageTag: 9083c43b-ad37-4071-9818-7676efb2abcc
+		summarizeBy: none
+		sourceColumn: TerritoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: f13b9697-57d1-468f-af3c-027d6fc3cb99
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 75c82646-5391-4839-802a-dc23f66dd4ae
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimTerritory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimTerritory = Source{[Schema="dbo",Item="vw_DimTerritory"]}[Data]
+				in
+				    dbo_vw_DimTerritory
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

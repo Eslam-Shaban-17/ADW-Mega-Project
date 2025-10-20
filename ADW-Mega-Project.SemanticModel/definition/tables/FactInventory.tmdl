@@ -1,0 +1,85 @@
+table FactInventory
+	lineageTag: 331944bb-80c1-4afe-96fa-cab44ef6ae48
+
+	column ProductID
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a06ba7c5-5922-4640-beba-b1ecf36b7236
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocationID
+		dataType: int64
+		formatString: 0
+		lineageTag: 0471d415-f868-4ed4-a53d-0101fdd8f92e
+		summarizeBy: count
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shelf
+		dataType: string
+		lineageTag: 9727c041-9c6b-4de2-a41c-fe8719b1d4d1
+		summarizeBy: none
+		sourceColumn: Shelf
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bin
+		dataType: int64
+		formatString: 0
+		lineageTag: 49cc2817-d3e4-46df-ba74-0f7d11a2dd70
+		summarizeBy: sum
+		sourceColumn: Bin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: f5cd6dff-08cf-40d1-ba60-9542ae4cc4ef
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 0f9d2982-7798-4c65-8e3a-b58002e2daa8
+		summarizeBy: sum
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column InventoryValue
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 105b1ddc-1def-462e-907b-9a2efb958d2e
+		summarizeBy: sum
+		sourceColumn: InventoryValue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition FactInventory = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_FactInventory = Source{[Schema="dbo",Item="vw_FactInventory"]}[Data]
+				in
+				    dbo_vw_FactInventory
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

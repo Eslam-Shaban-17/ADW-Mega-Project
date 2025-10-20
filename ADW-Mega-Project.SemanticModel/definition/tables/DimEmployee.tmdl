@@ -1,0 +1,88 @@
+table DimEmployee
+	lineageTag: e980be61-b11e-455f-af67-992d85649770
+
+	column BusinessEntityID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a1ec62c-f50c-4f66-aa6e-458aa80ff57c
+		summarizeBy: none
+		sourceColumn: BusinessEntityID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NationalIDNumber
+		dataType: string
+		lineageTag: 82607412-3ad7-4569-a8ea-b92f35160b01
+		summarizeBy: none
+		sourceColumn: NationalIDNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobTitle
+		dataType: string
+		lineageTag: 0e7d96a9-7630-47ed-ac21-d21254bc5ddf
+		summarizeBy: none
+		sourceColumn: JobTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	column BirthDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 23a1032e-b841-4002-9ba3-6b3bc6dd6ffa
+		summarizeBy: none
+		sourceColumn: BirthDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Gender
+		dataType: string
+		lineageTag: f6283a2b-93a5-4b77-b009-1c44c515b46c
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column HireDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1239b2a9-08e8-4f09-84d2-8b3e72dd19a8
+		summarizeBy: none
+		sourceColumn: HireDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SalariedFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2c151880-8c56-4497-9b42-e280ad0aa999
+		summarizeBy: none
+		sourceColumn: SalariedFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaritalStatus
+		dataType: string
+		lineageTag: 2db2cf82-6f03-443f-96dd-26cde9d2b748
+		summarizeBy: none
+		sourceColumn: MaritalStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEmployee = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimEmployee = Source{[Schema="dbo",Item="vw_DimEmployee"]}[Data]
+				in
+				    dbo_vw_DimEmployee
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

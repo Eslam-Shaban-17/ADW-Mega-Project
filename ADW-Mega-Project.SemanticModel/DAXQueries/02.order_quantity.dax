@@ -1,0 +1,25 @@
+-- =============================================
+-- Define Orders and Quantity measures
+-- =============================================
+  DEFINE
+  // 02. Order & Quantity Metrics
+    MEASURE MyMeasures[Total Orders] = DISTINCTCOUNT(FactSales[SalesOrderID])
+    MEASURE MyMeasures[Total Quantity] = SUM(FactSales[OrderQty])
+    MEASURE MyMeasures[AOV] = DIVIDE([Total Revenue], [Total Orders], 0)
+    MEASURE MyMeasures[Average Line Value] = DIVIDE([Subtotal Amount], COUNTROWS(FactSales), 0)
+    MEASURE MyMeasures[Lines per Order] = DIVIDE(COUNTROWS(FactSales), [Total Orders], 0)
+    MEASURE MyMeasures[Average Quantity per Order] = DIVIDE([Total Quantity], [Total Orders], 0)
+	
+-- =============================================
+-- Run the query: Evaluate Orders and Quantity 
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    "Total Orders", [Total Orders],
+    "Total Quantity", [Total Quantity],
+    "AOV", [AOV],
+	"Average Line Value", [Average Line Value],
+    "Lines per Order", [Lines per Order],
+    "Average Quantity per Order", [Average Quantity per Order]
+)
+

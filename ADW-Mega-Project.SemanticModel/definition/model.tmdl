@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["DimDepartment","DimEmployee","DimProduct","FactSales","FactPurchasing","FactInventory","FactEmployeeHistory","DimShift","DimTerritory","DimVendor","DimDate","DimCustomer"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table DimDepartment
+ref table DimEmployee
+ref table DimProduct
+ref table FactSales
+ref table FactPurchasing
+ref table FactInventory
+ref table FactEmployeeHistory
+ref table DimShift
+ref table DimTerritory
+ref table DimVendor
+ref table DimDate
+ref table MyMeasures
+ref table DimCustomer
+
+ref cultureInfo en-US
+

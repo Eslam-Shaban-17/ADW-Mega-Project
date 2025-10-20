@@ -1,0 +1,123 @@
+table DimProduct
+	lineageTag: cc2f8301-61e1-4aff-8523-36be5854793b
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		lineageTag: 3452ba70-11bc-40d7-813b-ed64f8b2b531
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 96005c9a-a495-4dd3-8527-5744b53a5d48
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductNumber
+		dataType: string
+		lineageTag: d3deac0a-2b67-4ea4-b258-084aa862969d
+		summarizeBy: none
+		sourceColumn: ProductNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: d3aca2c3-ef47-46e3-b12f-04634cb96e8e
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d281adc3-62bc-44f4-a4b7-52a87635709c
+		summarizeBy: sum
+		sourceColumn: StandardCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ListPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e5b578f2-4537-43df-8db6-3cdf336cc27b
+		summarizeBy: sum
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Size
+		dataType: string
+		lineageTag: 69669336-5a03-4553-a9f7-49150e762471
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: double
+		lineageTag: 9ba0295d-80f8-4afc-8205-ec9b19158b09
+		summarizeBy: sum
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SubcategoryName
+		dataType: string
+		lineageTag: 44f9c0f1-5eba-4f36-8d11-ba4896e681a1
+		summarizeBy: none
+		sourceColumn: SubcategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		dataType: string
+		lineageTag: 855ff4d7-aa76-4427-9281-74774394c49a
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductSubcategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bf79430-7f87-4846-a5c3-f24d5cf6c6a5
+		summarizeBy: count
+		sourceColumn: ProductSubcategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 53e85ea4-8a5d-46a9-80e1-c412cb6529aa
+		summarizeBy: count
+		sourceColumn: ProductCategoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimProduct = Source{[Schema="dbo",Item="vw_DimProduct"]}[Data]
+				in
+				    dbo_vw_DimProduct
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ADW-Mega-Project"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "321fbce7-e139-425a-a4eb-5afac2ae7212"
+  }
+}

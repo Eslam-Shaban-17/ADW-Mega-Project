@@ -1,0 +1,67 @@
+table DimCustomer
+	lineageTag: fb66b59d-8ae5-43f0-82e3-1b6d0cadadbb
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 90cc0513-c45f-4887-b178-1c0fc6637a0f
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PersonID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c926a07-e9c5-4647-b559-c1c4ceaa9f6c
+		summarizeBy: count
+		sourceColumn: PersonID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		dataType: string
+		lineageTag: 122ea41d-3648-427a-8fc3-0d8460de2ac8
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 6a71616d-ac50-48f0-aa4a-f40c042623bf
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: 352dc98e-c525-4c59-ae4a-087e2a049b47
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerritoryID
+		dataType: int64
+		formatString: 0
+		lineageTag: 03d44bea-f0de-4de4-b0db-786e990a81fb
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomer = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimDepartment = Source{[Schema="dbo",Item="vw_DimCustomer"]}[Data]
+				in
+				    dbo_vw_DimDepartment
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

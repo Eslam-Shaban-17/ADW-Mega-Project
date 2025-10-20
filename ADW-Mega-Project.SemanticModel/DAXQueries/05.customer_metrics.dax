@@ -1,0 +1,109 @@
+-- =============================================
+-- Define Customer Metrics
+-- =============================================
+DEFINE
+	// 05. Customer Metrics
+    // Total customers in database
+    MEASURE MyMeasures[Total Customers (All)] = COUNTROWS(DimCustomer)
+    // Active customers (who made purchases)
+    MEASURE MyMeasures[Active Customers] = DISTINCTCOUNT(FactSales[CustomerID])
+    // Customer activation rate
+    MEASURE MyMeasures[Customer Activation Rate] = DIVIDE([Active Customers], [Total Customers (All)], 0)
+    // New customers (first purchase in current period)
+    MEASURE MyMeasures[New Customers] =
+        VAR CurrentCustomers = VALUES(FactSales[CustomerID])
+        VAR PreviousCustomers =
+            CALCULATETABLE(
+                VALUES(FactSales[CustomerID]),
+                DATEADD(DimDate[Date], -1, YEAR)
+            )
+        RETURN COUNTROWS(EXCEPT(CurrentCustomers, PreviousCustomers))
+    // Returning customers
+    MEASURE MyMeasures[Returning Customers] = [Active Customers] - [New Customers]
+    // Customer Lifetime Value (average revenue per customer)
+    MEASURE MyMeasures[Customer Lifetime Value] =
+        AVERAGEX(VALUES(DimCustomer[CustomerID]), CALCULATE([Total Revenue]))
+    // Average orders per customer
+    MEASURE MyMeasures[Avg Orders per Customer] = DIVIDE([Total Orders], [Active Customers], 0)
+    // Customer Retention Rate
+    MEASURE MyMeasures[Customer Retention Rate] =
+    VAR PrevCust =
+        CALCULATETABLE(
+            VALUES(FactSales[CustomerID]),
+            DATEADD(DimDate[Date], -1, YEAR)
+        )
+    VAR CurrCust = VALUES(FactSales[CustomerID])
+    VAR RetainedCust = COUNTROWS(INTERSECT(CurrCust, PrevCust))
+    VAR PrevCustCount = COUNTROWS(PrevCust)
+    RETURN
+    DIVIDE(RetainedCust, PrevCustCount, 0)
+     MEASURE MyMeasures[First Purchase Date] = 
+        MIN(FactSales[OrderDate])
+    
+    MEASURE MyMeasures[Last Purchase Date] = 
+        MAX(FactSales[OrderDate])   
+    MEASURE MyMeasures[Days Since Last Purchase] =
+        DATEDIFF([Last Purchase Date], TODAY(), DAY)
+    MEASURE MyMeasures[Customer Lifespan Days] =
+        DATEDIFF([First Purchase Date], [Last Purchase Date], DAY)
+    MEASURE MyMeasures[Purchase Frequency] =
+        VAR Lifespan = [Customer Lifespan Days]
+        VAR Orders = [Total Orders]
+        RETURN
+            IF(Lifespan > 0, Orders / (Lifespan / 365.25), BLANK())
+
+-- =============================================
+-- Query: Evaluate Customer-Level Performance
+-- =============================================
+EVALUATE
+ROW(
+    "Total Customers (All)", [Total Customers (All)],
+    "Active Customers", [Active Customers],
+    "Customer Activation Rate", [Customer Activation Rate],
+    "New Customers", [New Customers],
+    "Returning Customers", [Returning Customers],
+    "Customer Retention Rate", [Customer Retention Rate],
+    "Avg Customer Lifetime Value", [Customer Lifetime Value],
+    "Avg Orders per Customer", [Avg Orders per Customer]
+)
+------------------------------------------------------
+EVALUATE
+SELECTCOLUMNS(
+    ADDCOLUMNS(
+        SUMMARIZE(
+            FactSales,  -- Start with FactSales instead of DimCustomer
+            DimCustomer[CustomerID],
+            DimCustomer[CustomerName],
+            DimTerritory[Region],
+            DimTerritory[Country]
+        ),
+        "Total Revenue", [Total Revenue],
+        "Total Orders", CALCULATE(DISTINCTCOUNT(FactSales[SalesOrderID])),  -- Customer-specific
+        "Number of Purchases", COUNTROWS(FactSales),  -- More useful than avg orders
+        "First Purchase Date", [First Purchase Date],
+        "Last Purchase Date", [Last Purchase Date],
+        "Is New Customer", 
+            VAR FirstPurchase = [First Purchase Date]
+            VAR CurrentYearStart = DATE(YEAR(TODAY()), 1, 1)
+            RETURN IF(FirstPurchase >= CurrentYearStart, 1, 0),
+        "Is Returning Customer",
+            VAR PurchaseCount = CALCULATE(COUNTROWS(FactSales))
+            RETURN IF(PurchaseCount > 1, 1, 0)
+    ),
+    "CustomerID", [CustomerID],
+    "CustomerName", [CustomerName],
+    "Region", [Region],
+    "Country", [Country],
+    "Total Revenue", [Total Revenue],
+    "Total Orders", [Total Orders],
+    "Number of Purchases", [Number of Purchases],   
+    "First Purchase Date", [First Purchase Date],
+    "Last Purchase Date", [Last Purchase Date],
+    "Days Since Last Purchase", [Days Since Last Purchase],
+    "Customer Lifespan Days", [Customer Lifespan Days],
+    "Purchase Frequency", [Purchase Frequency],
+    "Is New Customer", [Is New Customer],
+    "Is Returning Customer", [Is Returning Customer]
+)
+ORDER BY [Total Revenue] DESC
+

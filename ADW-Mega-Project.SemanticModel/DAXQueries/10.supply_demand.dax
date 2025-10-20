@@ -1,0 +1,31 @@
+-- =============================================
+-- Define: Supply & Demand Metrics
+-- =============================================
+DEFINE
+    MEASURE MyMeasures[Total Units Sold] =
+        SUM(FactSales[OrderQty])
+        
+    MEASURE MyMeasures[Supply Demand Gap] =
+        [Total Stock] - [Total Units Sold]
+
+    MEASURE MyMeasures[Supply Demand Status] =
+        SWITCH(
+            TRUE(),
+            [Supply Demand Gap] > 1000, "Surplus",
+            [Supply Demand Gap] > 0, "Balanced",
+            [Supply Demand Gap] > -500, "Shortage",
+            "Critical Shortage"
+        )
+
+-- =============================================
+-- Evaluate: Supply & Demand by Product
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    DimProduct[ProductName],
+    "Total Stock", [Total Stock],
+    "Total Units Sold", [Total Units Sold],
+    "Supply Demand Gap", [Supply Demand Gap],
+    "Supply Demand Status", [Supply Demand Status]
+)
+ORDER BY [Supply Demand Gap] 

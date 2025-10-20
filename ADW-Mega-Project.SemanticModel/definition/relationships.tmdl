@@ -1,0 +1,45 @@
+relationship AutoDetected_37e20147-d887-4f12-89d0-ab3f648a7177
+	isActive: false
+	fromColumn: FactSales.TerritoryID
+	toColumn: DimTerritory.TerritoryID
+
+relationship AutoDetected_6fd1b230-e15a-41aa-9031-add0561303c9
+	fromColumn: FactEmployeeHistory.DepartmentID
+	toColumn: DimDepartment.DepartmentID
+
+relationship AutoDetected_dda4c183-c6ea-4838-a7d2-9844b6c2b4e4
+	fromColumn: FactEmployeeHistory.BusinessEntityID
+	toColumn: DimEmployee.BusinessEntityID
+
+relationship AutoDetected_6687e4f1-9b4f-46bf-8ecf-cf39405a3691
+	fromColumn: FactSales.ProductID
+	toColumn: DimProduct.ProductID
+
+relationship AutoDetected_7fa06112-e030-48cb-97c9-1edbceb2da1a
+	fromColumn: FactPurchasing.ProductID
+	toColumn: DimProduct.ProductID
+
+relationship AutoDetected_d5102a2a-cb5e-48b3-a36a-f487dd342327
+	fromColumn: FactInventory.ProductID
+	toColumn: DimProduct.ProductID
+
+relationship AutoDetected_cf67d36f-c246-4c0c-809c-97363c28a048
+	fromColumn: FactPurchasing.VendorID
+	toColumn: DimVendor.VendorID
+
+relationship AutoDetected_bf167219-7c3d-48b8-b335-7c8dc0bd4dec
+	fromColumn: FactEmployeeHistory.ShiftID
+	toColumn: DimShift.ShiftID
+
+relationship 89d7bc2d-58ed-e179-c99d-c01d848910f5
+	fromColumn: FactSales.OrderDate
+	toColumn: DimDate.Date
+
+relationship AutoDetected_fc9c2b98-8bd4-4ed0-a752-e90182e99b96
+	fromColumn: FactSales.CustomerID
+	toColumn: DimCustomer.CustomerID
+
+relationship AutoDetected_11ddfee0-0e2d-4271-a1ce-7b4e3c5b2a42
+	fromColumn: DimCustomer.TerritoryID
+	toColumn: DimTerritory.TerritoryID
+

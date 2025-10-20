@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "tabOrder": [
+    "01.revenue_metrics",
+    "02.order_quantity",
+    "03.cost_profit",
+    "04.time_intelligence",
+    "05.customer_metrics",
+    "06.product_metrics",
+    "07.territory_metrics",
+    "08.inventory_metrics",
+    "09.purchsing_metrics",
+    "10.supply_demand",
+    "11.hr_metrics"
+  ],
+  "defaultTab": "05.customer_metrics"
+}

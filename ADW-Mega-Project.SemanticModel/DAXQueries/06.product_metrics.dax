@@ -1,0 +1,57 @@
+-- =============================================
+-- Define Product Metrics
+-- =============================================
+    DEFINE
+	//06. Product Metrics
+    // Total products in database
+    MEASURE MyMeasures[Total Products (All)] = COUNTROWS(DimProduct)
+    // Products sold (with sales)
+    MEASURE MyMeasures[Products Sold] = DISTINCTCOUNT(FactSales[ProductID])
+    // Product ranking by revenue
+    MEASURE MyMeasures[Product Revenue Rank] =
+    RANKX(
+     FILTER(ALL(DimProduct), NOT ISBLANK([Total Revenue])),
+    [Total Revenue],
+    ,
+    DESC,
+    DENSE
+    )
+    // Top 10 product indicator
+    MEASURE MyMeasures[Is Top 10 Product] = IF([Product Revenue Rank] <= 10, "Yes", "No")
+    // Product contribution to total revenue
+    MEASURE MyMeasures[Product Revenue %] =
+    DIVIDE(
+    [Total Revenue],
+    CALCULATE([Total Revenue], ALL(DimProduct)),
+    0
+    )
+	
+-- =============================================
+-- Query: Evaluate Products with Key Metrics
+-- =============================================
+EVALUATE
+SELECTCOLUMNS(
+    ADDCOLUMNS(
+        SUMMARIZE(
+            DimProduct,
+            DimProduct[ProductID],
+            DimProduct[ProductName],
+            DimProduct[SubcategoryName],
+            DimProduct[CategoryName]
+        ),
+        "Total Revenue", [Total Revenue],
+        "Product Revenue %", [Product Revenue %],
+        "Product Revenue Rank", [Product Revenue Rank],
+        "Is Top 10 Product", [Is Top 10 Product]
+    ),
+    "ProductKey", [ProductID],
+    "ProductName", [ProductName],
+    "Category", [CategoryName],
+    "Subcategory", [SubcategoryName],
+    "Total Revenue", [Total Revenue],
+    "Product Revenue %", [Product Revenue %],
+    "Product Revenue Rank", [Product Revenue Rank],
+    "Is Top 10 Product", [Is Top 10 Product]
+)
+ORDER BY [Product Revenue Rank]
+    

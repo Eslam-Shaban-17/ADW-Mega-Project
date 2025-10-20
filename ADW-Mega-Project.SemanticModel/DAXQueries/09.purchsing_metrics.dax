@@ -1,0 +1,31 @@
+-- =============================================
+-- Define: Purchasing Metrics
+-- =============================================
+DEFINE
+    MEASURE MyMeasures[Total Purchases] =
+        SUMX(
+            VALUES(FactPurchasing[PurchaseOrderID]),
+            CALCULATE(MAX(FactPurchasing[TotalDue]))
+        )
+
+    MEASURE MyMeasures[Total Purchase Orders] =
+        DISTINCTCOUNT(FactPurchasing[PurchaseOrderID])
+
+    MEASURE MyMeasures[Avg Purchase Order Value] =
+        DIVIDE([Total Purchases], [Total Purchase Orders], 0)
+
+    MEASURE MyMeasures[Total Purchase Quantity] =
+        SUM(FactPurchasing[OrderQty])
+
+-- =============================================
+-- Evaluate: Purchasing Performance by Vendor
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    DimVendor[VendorName],
+    "Total Purchases", [Total Purchases],
+    "Total Purchase Orders", [Total Purchase Orders],
+    "Avg Purchase Order Value", [Avg Purchase Order Value],
+    "Total Purchase Quantity", [Total Purchase Quantity]
+)
+ORDER BY [Total Purchases] DESC

@@ -1,0 +1,692 @@
+table MyMeasures
+	lineageTag: 872739a5-9f66-454a-a5de-20fd3efe1846
+
+	measure 'Total Tax' = SUM(FactSales[TotalTax-Fixed])
+		displayFolder: 01.Revenue metrics
+		lineageTag: b4fa57ef-3c46-4964-be40-f6eedb2a9355
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Freight' = SUM(FactSales[TotalFreight-Fixed])
+		displayFolder: 01.Revenue metrics
+		lineageTag: 21589bb7-3d3a-4946-9d29-d588456d7a31
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Subtotal Amount' = SUM(FactSales[LineTotal])
+		displayFolder: 01.Revenue metrics
+		lineageTag: cfe4bab4-6eef-4f6e-b010-2638c690a229
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue' = [Subtotal Amount] + [Total Freight] + [Total Tax]
+		displayFolder: 01.Revenue metrics
+		lineageTag: 157f5daf-cebe-4653-a50a-f7337d11abf7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue Variance' = [Total Revenue (Order-level)] - [Total Revenue]
+		displayFolder: 01.Revenue metrics
+		lineageTag: 841edf98-fcd8-4b45-a060-1ba5a30e0af1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT(FactSales[SalesOrderID])
+		formatString: 0
+		displayFolder: 02.Order & Quantity
+		lineageTag: bcefa950-aeb3-49e4-a2f5-eb488397c72d
+
+	measure 'Total Quantity' = SUM(FactSales[OrderQty])
+		formatString: 0
+		displayFolder: 02.Order & Quantity
+		lineageTag: 3c3a89fa-bf32-413f-bab7-2258e067d10f
+
+	measure AOV = DIVIDE([Total Revenue], [Total Orders], 0)
+		displayFolder: 02.Order & Quantity
+		lineageTag: 1b63b318-4335-4c33-af09-46688fb9d464
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Line Value' = DIVIDE([Subtotal Amount], COUNTROWS(FactSales), 0)
+		displayFolder: 02.Order & Quantity
+		lineageTag: 3b8668a6-2995-4bb7-a96e-a103ba4851b6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lines per Order' = DIVIDE(COUNTROWS(FactSales), [Total Orders], 0)
+		displayFolder: 02.Order & Quantity
+		lineageTag: 845e3fd9-9cb5-4c02-820c-a55a3ca33583
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Quantity per Order' = DIVIDE([Total Quantity], [Total Orders], 0)
+		displayFolder: 02.Order & Quantity
+		lineageTag: b06b61ca-f096-4e25-8221-ca32955de13f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total COGS' = SUM(FactSales[COGS])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 03.Cost & Profit
+		lineageTag: 82dbbdfd-cee7-40db-b3a2-61fc32c7b575
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Profit' = SUM(FactSales[GrossProfit])
+		displayFolder: 03.Cost & Profit
+		lineageTag: 6f0a6eb1-bacc-4cd6-a47d-fc24f8f7869a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gross Margin %' = DIVIDE([Gross Profit], [Total Revenue], 0)
+		displayFolder: 03.Cost & Profit
+		lineageTag: aeda87f1-4486-4a62-9655-04cb921800e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Unit Cost' = DIVIDE([Total COGS], [Total Quantity], 0)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 03.Cost & Profit
+		lineageTag: 317c9a03-45d8-4740-bd84-0c498c1d2472
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Average Unit Price' = DIVIDE([Subtotal Amount], [Total Quantity], 0)
+		displayFolder: 03.Cost & Profit
+		lineageTag: 057ecdf2-e5d1-4170-a30c-331adfdb0358
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Markup %' = DIVIDE([Average Unit Price] - [Average Unit Cost], [Average Unit Cost], 0)
+		displayFolder: 03.Cost & Profit
+		lineageTag: ba15b60e-151a-4243-b62d-55ca2d7f13d1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue LY' = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+		displayFolder: 04.Time Intelligence
+		lineageTag: c1ebcc8a-68f8-400a-a8ba-88dcb3e83bd2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YoY %' = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY], 0)
+		displayFolder: 04.Time Intelligence
+		lineageTag: 7c83bb3d-f359-405e-9640-5b77594cce7f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue PM' = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, MONTH))
+		displayFolder: 04.Time Intelligence
+		lineageTag: 3e38336c-cb30-4d7a-8ed3-a5ba8494b2be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MoM %' = DIVIDE([Total Revenue] - [Revenue PM], [Revenue PM], 0)
+		displayFolder: 04.Time Intelligence
+		lineageTag: d34b7592-a0cc-41dd-a9a8-0221a7fa886b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue PQ' = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, QUARTER))
+		displayFolder: 04.Time Intelligence
+		lineageTag: 92b5153c-682e-4106-9802-e928af08a0cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue QoQ %' = DIVIDE([Total Revenue] - [Revenue PQ], [Revenue PQ], 0)
+		displayFolder: 04.Time Intelligence
+		lineageTag: b522517d-5b4c-4e8e-ad10-c8d78262f254
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue YTD' = TOTALYTD([Total Revenue], DimDate[Date])
+		displayFolder: 04.Time Intelligence
+		lineageTag: 1423cfcc-5837-4b59-9904-68ae89b55b56
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Orders YTD' = CALCULATE([Total Orders], DATESYTD(DimDate[Date]))
+		formatString: 0
+		displayFolder: 04.Time Intelligence
+		lineageTag: 531bd07d-2e84-4863-a82c-07fe9d376ed8
+
+	measure 'Revenue PYTD' = CALCULATE([Revenue YTD], SAMEPERIODLASTYEAR(DimDate[Date]))
+		displayFolder: 04.Time Intelligence
+		lineageTag: 3306c714-ee9e-44b1-b85e-56a97c84d1e0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD vs PYTD %' = DIVIDE([Revenue YTD] - [Revenue PYTD], [Revenue PYTD], 0)
+		displayFolder: 04.Time Intelligence
+		lineageTag: 5a5e74b0-0509-4a51-9987-01d88033a733
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue 3M Avg' = ```
+			
+			        CALCULATE([Total Revenue],
+			            DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -3, MONTH)
+			        ) / 3
+			```
+		displayFolder: 04.Time Intelligence
+		lineageTag: 1645cd94-7e3d-4e95-a67c-51553f22fd49
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue 12M Avg' = ```
+			
+			    CALCULATE(
+			    [Total Revenue],
+			    DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -12, MONTH)
+			    ) / 12
+			```
+		displayFolder: 04.Time Intelligence
+		lineageTag: 0cf40ed5-06fb-4d9c-af15-c16cebbfe12e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Revenue R12M' = ```
+			
+			    CALCULATE(
+			    [Total Revenue],
+			    DATESINPERIOD(DimDate[Date], LASTDATE(DimDate[Date]), -12, MONTH)
+			    )
+			```
+		displayFolder: 04.Time Intelligence
+		lineageTag: c3bbda11-97b4-4073-8c2c-86323e7362b5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Customers (All)' = COUNTROWS(DimCustomer)
+		formatString: 0
+		displayFolder: 05.Customer metrics
+		lineageTag: 52058cf5-259e-4ee3-b940-603a7688444f
+
+	measure 'Active Customers' = DISTINCTCOUNT(FactSales[CustomerID])
+		formatString: 0
+		displayFolder: 05.Customer metrics
+		lineageTag: dd51f329-5980-42c6-a5d5-bdff33975b21
+
+	measure 'Customer Activation Rate' = DIVIDE([Active Customers], [Total Customers (All)], 0)
+		displayFolder: 05.Customer metrics
+		lineageTag: b0bd207c-c0b7-4392-af4d-0ab2cea4cda1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'New Customers' = ```
+			
+			        VAR CurrentCustomers = VALUES(FactSales[CustomerID])
+			        VAR PreviousCustomers =
+			            CALCULATETABLE(
+			                VALUES(FactSales[CustomerID]),
+			                DATEADD(DimDate[Date], -1, YEAR)
+			            )
+			        RETURN COUNTROWS(EXCEPT(CurrentCustomers, PreviousCustomers))
+			```
+		formatString: 0
+		displayFolder: 05.Customer metrics
+		lineageTag: 52f728c1-851f-4220-af42-6e446056adbf
+
+	measure 'Returning Customers' = [Active Customers] - [New Customers]
+		formatString: 0
+		displayFolder: 05.Customer metrics
+		lineageTag: 33758a22-ca73-4833-828f-7438320cff42
+
+	measure 'Customer Lifetime Value' = ```
+			
+			        AVERAGEX(VALUES(DimCustomer[CustomerID]), CALCULATE([Total Revenue]))
+			```
+		displayFolder: 05.Customer metrics
+		lineageTag: 3eb3df66-229e-41dc-8e45-6f255e40984d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Orders per Customer' = DIVIDE([Total Orders], [Active Customers], 0)
+		displayFolder: 05.Customer metrics
+		lineageTag: 72c93b3f-440a-493b-b69e-aa29a8cb34fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Customer Retention Rate' = ```
+			
+			    VAR PrevCust =
+			        CALCULATETABLE(
+			            VALUES(FactSales[CustomerID]),
+			            DATEADD(DimDate[Date], -1, YEAR)
+			        )
+			    VAR CurrCust = VALUES(FactSales[CustomerID])
+			    VAR RetainedCust = COUNTROWS(INTERSECT(CurrCust, PrevCust))
+			    VAR PrevCustCount = COUNTROWS(PrevCust)
+			    RETURN
+			    DIVIDE(RetainedCust, PrevCustCount, 0)
+			```
+		displayFolder: 05.Customer metrics
+		lineageTag: a194407a-9d0e-4eba-ac03-8a8f31f8c2aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Products (All)' = COUNTROWS(DimProduct)
+		formatString: 0
+		displayFolder: 06.Product metrics
+		lineageTag: a5e86dab-d956-48f1-bba6-7476ec078262
+
+	measure 'Products Sold' = DISTINCTCOUNT(FactSales[ProductID])
+		formatString: 0
+		displayFolder: 06.Product metrics
+		lineageTag: 2595be6c-5a8c-4284-a9ec-3edcab496299
+
+	measure 'Product Revenue Rank' = ```
+			
+			    RANKX(
+			     FILTER(ALL(DimProduct), NOT ISBLANK([Total Revenue])),
+			    [Total Revenue],
+			    ,
+			    DESC,
+			    DENSE
+			    )
+			```
+		formatString: 0
+		displayFolder: 06.Product metrics
+		lineageTag: e13ad407-444e-4e19-ae32-da45387e32be
+
+	measure 'Is Top 10 Product' = IF([Product Revenue Rank] <= 10, "Yes", "No")
+		displayFolder: 06.Product metrics
+		lineageTag: af23aa91-4f6e-470a-98ca-a08b045abaf7
+
+	measure 'Product Revenue %' = ```
+			
+			    DIVIDE(
+			    [Total Revenue],
+			    CALCULATE([Total Revenue], ALL(DimProduct)),
+			    0
+			    )
+			```
+		displayFolder: 06.Product metrics
+		lineageTag: 5916d7d4-5404-44e8-b343-9dcb8e049071
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Territory Revenue Rank' = ```
+			
+				RANKX(
+				ALL(DimTerritory[TerritoryName]),
+				[Total Revenue],
+				,
+				DESC,
+				DENSE
+				)
+			```
+		formatString: 0
+		displayFolder: 07.Territory metrics
+		lineageTag: e23b2e1c-74d7-47d0-b182-3ee5b9e114aa
+
+	measure 'Territory Revenue %' = ```
+			
+				DIVIDE(
+				[Total Revenue],
+				CALCULATE([Total Revenue], ALL(DimTerritory)),
+				0
+				)
+			```
+		displayFolder: 07.Territory metrics
+		lineageTag: 53198812-4739-4295-92d4-ed6e458ed684
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Purchases' = ```
+			
+			        SUMX(
+			            VALUES(FactPurchasing[PurchaseOrderID]),
+			            CALCULATE(MAX(FactPurchasing[TotalDue]))
+			        )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 09.Purchasing metrics
+		lineageTag: 2e6faced-b525-4ec6-a3c1-82b0bb821257
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Purchase Orders' = ```
+			
+			        DISTINCTCOUNT(FactPurchasing[PurchaseOrderID])
+			```
+		formatString: 0
+		displayFolder: 09.Purchasing metrics
+		lineageTag: 593903d6-1303-43a7-aa89-1a3e24525036
+
+	measure 'Avg Purchase Order Value' = ```
+			
+			        DIVIDE([Total Purchases], [Total Purchase Orders], 0)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 09.Purchasing metrics
+		lineageTag: b52e0b0c-cb6e-48c2-a582-bc352455d791
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Purchase Quantity' = ```
+			
+			        SUM(FactPurchasing[OrderQty])
+			```
+		formatString: 0
+		displayFolder: 09.Purchasing metrics
+		lineageTag: 62b1659d-8dff-4097-8477-31b391bd20f2
+
+	measure 'Total Units Sold' = ```
+			
+			        SUM(FactSales[OrderQty])
+			```
+		formatString: 0
+		displayFolder: 10.Supply & Demand
+		lineageTag: 577db2e8-925e-4555-875e-c4fdbd8d200a
+
+	measure 'Supply Demand Gap' = ```
+			
+			        [Total Stock] - [Total Units Sold]
+			```
+		formatString: 0
+		displayFolder: 10.Supply & Demand
+		lineageTag: 2c73b1e7-43ba-46d9-85d5-669f7bfed793
+
+	measure 'Supply Demand Status' = ```
+			
+			        SWITCH(
+			            TRUE(),
+			            [Supply Demand Gap] > 1000, "Surplus",
+			            [Supply Demand Gap] > 0, "Balanced",
+			            [Supply Demand Gap] > -500, "Shortage",
+			            "Critical Shortage"
+			        )
+			```
+		displayFolder: 10.Supply & Demand
+		lineageTag: da300302-8f91-4fc6-9b3d-83634ab8c40e
+
+	measure 'Total Employees' = ```
+			
+			        CALCULATE(
+			            DISTINCTCOUNT(FactEmployeeHistory[BusinessEntityID]),
+			            FactEmployeeHistory[IsCurrentEmployee] = 1
+			        )
+			```
+		formatString: 0
+		displayFolder: 11.Hr metrics
+		lineageTag: 326600a2-ae27-42e5-8a4a-d80fbe4f0306
+
+	measure 'Male Employees' = ```
+			
+			        CALCULATE(
+			            [Total Employees],
+			            DimEmployee[Gender] = "M"
+			        )
+			```
+		formatString: 0
+		displayFolder: 11.Hr metrics
+		lineageTag: d026422f-5c27-423c-9430-cc0a62080903
+
+	measure 'Female Employees' = ```
+			
+			        CALCULATE(
+			            [Total Employees],
+			            DimEmployee[Gender] = "F"
+			        )
+			```
+		formatString: 0
+		displayFolder: 11.Hr metrics
+		lineageTag: 9899ab8d-3545-47ee-8fa8-7fd66da0e139
+
+	measure 'Gender Ratio' = ```
+			
+			        DIVIDE([Male Employees], [Female Employees], 0)
+			```
+		displayFolder: 11.Hr metrics
+		lineageTag: 58ae5313-e991-4cc3-b520-f0ab3e38a837
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Tenure Years' = ```
+			
+			        VAR TenureDays =
+			            CALCULATE(
+			                AVERAGEX(
+			                    FILTER(
+			                        FactEmployeeHistory,
+			                        FactEmployeeHistory[IsCurrentEmployee] = 1
+			                    ),
+			                    DATEDIFF(FactEmployeeHistory[StartDate], TODAY(), DAY)
+			                )
+			            )
+			        RETURN
+			            TenureDays / 365.25
+			```
+		displayFolder: 11.Hr metrics
+		lineageTag: 831f1e42-3cb7-4c5f-ba87-da0bf8d657f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Employee Age' = ```
+			
+			        AVERAGEX(
+			            FILTER(
+			                DimEmployee,
+			                DimEmployee[BirthDate] <> BLANK()
+			            ),
+			            DATEDIFF(DimEmployee[BirthDate], TODAY(), DAY) / 365.25
+			        )
+			```
+		displayFolder: 11.Hr metrics
+		lineageTag: 3b0f715a-cac4-44a2-8417-f3af2da46c79
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Stock' = ```
+			
+			        SUM(FactInventory[Quantity])
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 7e980e86-3074-4e1d-a638-26b43864ce38
+
+	measure 'Total Inventory Value' = ```
+			
+			        SUM(FactInventory[InventoryValue])
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 08.Inventory metrics
+		lineageTag: 45ff0e42-d531-4940-b620-62234d7e369c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Low Stock Items Count' = ```
+			
+			        CALCULATE(
+			            DISTINCTCOUNT(FactInventory[ProductID]),
+			            FactInventory[Quantity] < 100
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 4cbe2f7b-2059-4a04-8089-5e03ca53cf45
+
+	measure 'Out of Stock Items' = ```
+			
+			        CALCULATE(
+			            DISTINCTCOUNT(FactInventory[ProductID]),
+			            FactInventory[Quantity] = 0
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 808803ff-53ef-4e54-b7f7-40da40cb9524
+
+	measure 'Overstocked Items' = ```
+			
+			        CALCULATE(
+			            DISTINCTCOUNT(FactInventory[ProductID]),
+			            FactInventory[Quantity] >= 500
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 4b9b8d94-ad4b-496a-bc1f-9f885fcf5f16
+
+	measure 'Total Products in Inventory' = ```
+			
+			        DISTINCTCOUNT(FactInventory[ProductID])
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 32e3586d-bfe3-43cf-bead-efe4b58e4719
+
+	measure 'Avg Stock per Product' = ```
+			
+			        DIVIDE([Total Stock], [Total Products in Inventory], 0)
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: c555b363-22c8-4cb3-b386-e8b130f7340b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stock Status' = ```
+			
+			        VAR CurrentStock = [Total Inventory Value]
+			        RETURN
+			            SWITCH(
+			                TRUE(),
+			                CurrentStock = 0, "Out of Stock",
+			                CurrentStock < 50, "Critical",
+			                CurrentStock < 100, "Low",
+			                CurrentStock < 500, "Normal",
+			                "Overstocked"
+			            )
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: fb5a51f8-790e-4037-af02-a597ffbc45e4
+
+	measure 'Days of Supply' = ```
+			
+			        VAR CurrentStock = [Total Inventory Value]
+			        VAR DailySales = 
+			            CALCULATE(
+			                DIVIDE(SUM(FactSales[OrderQty]), DISTINCTCOUNT(FactSales[OrderDate])),
+			                ALL(DimDate)
+			            )
+			        RETURN
+			            DIVIDE(CurrentStock, DailySales, 0)
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 08.Inventory metrics
+		lineageTag: fc784d2d-d6ee-454c-82bb-6c04653c2700
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Stock to Sales Ratio' = ```
+			
+			        DIVIDE(
+			            [Total Inventory Value],
+			            CALCULATE(SUM(FactSales[OrderQty]), ALL(DimDate)),
+			            0
+			        )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 08.Inventory metrics
+		lineageTag: c519fcfc-9b03-424e-a1bd-52d3faa5b39c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Days Inventory on Hand' = ```
+			
+			        DIVIDE(365, [Inventory Turnover], 0)
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: 2e4c6df3-53c8-49c8-a511-c2979521d6af
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Needs Reorder' = ```
+			
+			        IF([Total Inventory Value] < 100, "Yes", "No")
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: 1ae4d9f6-ec29-467c-b5df-612a0c0d6401
+
+	measure '% of Total Inventory Value' = ```
+			
+			        DIVIDE(
+			            [Total Inventory Value],
+			            CALCULATE([Total Inventory Value], ALL(DimProduct)),
+			            0
+			        )
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: 0121754c-e83f-4531-9120-b856acf4282c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Inventory Turnover' = ```
+			
+			        VAR ProductCOGS = [Total COGS]
+			        VAR AvgInventoryValue = [Total Inventory Value]
+			        RETURN
+			            DIVIDE(ProductCOGS, AvgInventoryValue, 0)
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: a66ce42b-a6ab-4db3-9506-7e42d0125abe
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Revenue (order-level)' = ```
+			
+			    SUMX(
+			        SUMMARIZECOLUMNS(
+			        FactSales[SalesOrderID],
+			        "Total Revenue (order-level)",
+			        MAX(FactSales[TotalDue])
+			        ),
+			        [Total Revenue (order-level)]
+			    )
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: 01.Revenue metrics
+		lineageTag: 2197dc97-31a3-4d71-b50d-807ac6f6bfd4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Turnover Rate %' = ```
+			
+			    VAR CurrentDate =
+			        MAX(DimDate[Date])  -- ✅ scalar date for context
+			    VAR OneYearAgo =
+			        DATE(YEAR(CurrentDate) - 1, MONTH(CurrentDate), DAY(CurrentDate))
+			    VAR EmployeesLeft =
+			        CALCULATE(
+			            DISTINCTCOUNT(FactEmployeeHistory[BusinessEntityID]),
+			            FactEmployeeHistory[EndDate] <> BLANK(),
+			            FactEmployeeHistory[EndDate] >= OneYearAgo
+			        )
+			    VAR AvgHeadcount = [Total Employees]
+			    RETURN
+			        DIVIDE(EmployeesLeft, AvgHeadcount, 0)
+			```
+		displayFolder: 11.Hr metrics
+		lineageTag: 73c6d420-130c-4342-b6fc-dbb462b94f44
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value
+		lineageTag: 48804b47-f8c2-4fc5-818f-ca109e79ae1b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MyMeasures = calculated
+		mode: import
+		source = ```
+				{ ( "Measures Folder" ) }
+				
+				
+				```
+
+	annotation PBI_Id = ac591c24221641bda300a15f9c5b1943
+

@@ -1,0 +1,78 @@
+-- =============================================
+-- Define: HR Metrics
+-- =============================================
+DEFINE
+    // Total employees (current)
+    MEASURE MyMeasures[Total Employees] =
+        CALCULATE(
+            DISTINCTCOUNT(FactEmployeeHistory[BusinessEntityID]),
+            FactEmployeeHistory[IsCurrentEmployee] = 1
+        )
+    // Employees by gender
+    MEASURE MyMeasures[Male Employees] =
+        CALCULATE(
+            [Total Employees],
+            DimEmployee[Gender] = "M"
+        )
+    MEASURE MyMeasures[Female Employees] =
+        CALCULATE(
+            [Total Employees],
+            DimEmployee[Gender] = "F"
+        )
+    // Gender ratio
+    MEASURE MyMeasures[Gender Ratio] =
+        DIVIDE([Male Employees], [Female Employees], 0)
+    // Average tenure (years)
+    MEASURE MyMeasures[Avg Tenure Years] =
+        VAR TenureDays =
+            CALCULATE(
+                AVERAGEX(
+                    FILTER(
+                        FactEmployeeHistory,
+                        FactEmployeeHistory[IsCurrentEmployee] = 1
+                    ),
+                    DATEDIFF(FactEmployeeHistory[StartDate], TODAY(), DAY)
+                )
+            )
+        RETURN
+            TenureDays / 365.25
+    // Average employee age
+    MEASURE MyMeasures[Avg Employee Age] =
+        AVERAGEX(
+            FILTER(
+                DimEmployee,
+                DimEmployee[BirthDate] <> BLANK()
+            ),
+            DATEDIFF(DimEmployee[BirthDate], TODAY(), DAY) / 365.25
+        )
+    // Turnover rate (past year)
+    MEASURE MyMeasures[Turnover Rate %] =
+    VAR CurrentDate =
+        MAX(DimDate[Date])  -- ✅ scalar date for context
+    VAR OneYearAgo =
+        DATE(YEAR(CurrentDate) - 1, MONTH(CurrentDate), DAY(CurrentDate))
+    VAR EmployeesLeft =
+        CALCULATE(
+            DISTINCTCOUNT(FactEmployeeHistory[BusinessEntityID]),
+            FactEmployeeHistory[EndDate] <> BLANK(),
+            FactEmployeeHistory[EndDate] >= OneYearAgo
+        )
+    VAR AvgHeadcount = [Total Employees]
+    RETURN
+        DIVIDE(EmployeesLeft, AvgHeadcount, 0)
+
+-- =============================================
+-- Evaluate: HR Performance by Department
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    DimDepartment[DepartmentName],
+    "Total Employees", [Total Employees],
+    "Male Employees", [Male Employees],
+    "Female Employees", [Female Employees],
+    "Gender Ratio", [Gender Ratio],
+    "Avg Tenure Years", [Avg Tenure Years],
+    "Avg Employee Age", [Avg Employee Age],
+    "Turnover Rate %", [Turnover Rate %]
+)
+ORDER BY [Total Employees] DESC

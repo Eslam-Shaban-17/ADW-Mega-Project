@@ -1,0 +1,55 @@
+table DimShift
+	lineageTag: 0ddb19e5-a5a8-4aa5-8216-45e0736c023f
+
+	column ShiftID
+		dataType: int64
+		formatString: 0
+		lineageTag: b29d5244-84fd-43e5-b4f6-7efdcc6b54e0
+		summarizeBy: none
+		sourceColumn: ShiftID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShiftName
+		dataType: string
+		lineageTag: 98797388-6535-49a7-855c-e0f4d2d5810c
+		summarizeBy: none
+		sourceColumn: ShiftName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: d7442402-fb51-486c-9cc6-cba8037d741e
+		summarizeBy: none
+		sourceColumn: StartTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column EndTime
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: abac8634-9c27-4e7f-a21c-df59558137ef
+		summarizeBy: none
+		sourceColumn: EndTime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition DimShift = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(".", "AdventureWorks2022"),
+				    dbo_vw_DimShift = Source{[Schema="dbo",Item="vw_DimShift"]}[Data]
+				in
+				    dbo_vw_DimShift
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,26 @@
+-- =============================================
+-- Define Cost & Profit measures
+-- =============================================
+DEFINE
+   // 03. Cost & Profit Metrics
+    MEASURE MyMeasures[Total COGS] = SUM(FactSales[COGS])
+    MEASURE MyMeasures[Gross Profit] = SUM(FactSales[GrossProfit])
+    MEASURE MyMeasures[Gross Margin %] = DIVIDE([Gross Profit], [Total Revenue], 0)
+    // Average cost per unit
+    MEASURE MyMeasures[Average Unit Cost] = DIVIDE([Total COGS], [Total Quantity], 0)
+    // Average selling price per unit
+    MEASURE MyMeasures[Average Unit Price] = DIVIDE([Subtotal Amount], [Total Quantity], 0)
+    MEASURE MyMeasures[Markup %] = DIVIDE([Average Unit Price] - [Average Unit Cost], [Average Unit Cost], 0)
+	
+-- =============================================
+-- Run the query: Evaluate Cost & Profit 
+-- =============================================
+EVALUATE
+SUMMARIZECOLUMNS(
+    "Total COGS", [Total COGS],
+    "Gross Profit", [Gross Profit],
+    "Gross Margin %", [Gross Margin %],
+    "Markup %", [Markup %],
+	"Average Unit Cost", [Average Unit Cost],
+	"Average Unit Price", [Average Unit Price]
+)
