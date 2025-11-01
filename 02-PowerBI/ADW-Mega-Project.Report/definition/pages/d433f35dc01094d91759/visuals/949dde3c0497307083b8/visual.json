@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "949dde3c0497307083b8",
   "position": {
-    "x": 759.6602925052498,
-    "y": 260.32446897474495,
+    "x": 795.92569733410323,
+    "y": 260.95924502757481,
     "z": 6000,
-    "height": 234.44425860883462,
-    "width": 500.85818884614667,
-    "tabOrder": 6000
+    "height": 233.232325243395,
+    "width": 464.83365520536762,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "funnel",
@@ -80,5 +80,51 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5feb36da819a86575f83",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Customers (All)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "84118b27fb72e208a717",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Active Customers"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d8432cb16a323c22b962",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Returning Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

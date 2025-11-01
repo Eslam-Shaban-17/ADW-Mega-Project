@@ -3,7 +3,6 @@ table FactEmployeeHistory
 
 	column BusinessEntityID
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 396c1d0f-6aea-4e66-8ea7-b2065e454c09
 		summarizeBy: none

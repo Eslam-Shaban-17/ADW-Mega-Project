@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "183f84a1065044c57d94",
   "position": {
-    "x": 684.24331880459135,
-    "y": 24.18323579974647,
+    "x": 709.83634737155978,
+    "y": 11.495325463507042,
     "z": 2000,
-    "height": 120.91617899873236,
-    "width": 203.42368937433795,
-    "tabOrder": 2000
+    "height": 120.70091736682394,
+    "width": 204.04202697725,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "97eae84acb64a6e8ad18",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Average Unit Price"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "d6dd6bb7ddc24078e238",
   "position": {
-    "x": 990.09012450726732,
-    "y": 24.18323579974647,
+    "x": 1060.4437740085245,
+    "y": 11.495325463507042,
     "z": 3000,
-    "height": 120.91617899873236,
-    "width": 203.42368937433795,
-    "tabOrder": 3000
+    "height": 120.70091736682394,
+    "width": 204.04202697725,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2414a3628575e7142105",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Gross Margin %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

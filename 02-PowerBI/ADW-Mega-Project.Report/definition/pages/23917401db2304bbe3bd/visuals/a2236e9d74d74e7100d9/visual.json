@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "a2236e9d74d74e7100d9",
   "position": {
-    "x": 7.1127164116901387,
-    "y": 465.17165332453504,
+    "x": 7.2007453896594766,
+    "y": 488.21053741891251,
     "z": 8000,
-    "height": 227.60692517408444,
-    "width": 384.08668623126749,
-    "tabOrder": 8000
+    "height": 231.86400154703514,
+    "width": 509.81277358789094,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "columnChart",
@@ -98,31 +98,102 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "DimCustomer"
-                      }
-                    },
-                    "Property": "CustomerID"
-                  }
-                },
-                "Function": 5
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'New vs Returning Customers'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9feb6756d391437915b1",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCustomer"
+                  }
+                },
+                "Property": "CustomerID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "72bb4dbdf3f0888cb794",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Returning Customers"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e3f0fe579f2ec8bbd266",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Quarter"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f3ac001a6a3d20aca6dc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "MonthName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fe29a12ffe4833eeced1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "New Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

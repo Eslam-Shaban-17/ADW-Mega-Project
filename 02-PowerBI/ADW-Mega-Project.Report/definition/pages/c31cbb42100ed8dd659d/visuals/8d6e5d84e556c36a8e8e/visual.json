@@ -2,15 +2,14 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8d6e5d84e556c36a8e8e",
   "position": {
-    "x": 31.29595221143661,
-    "y": 186.35316998628164,
+    "x": 379.34574029573236,
+    "y": 148.00231534265316,
     "z": 4000,
-    "height": 248.94507440915484,
-    "width": 490.77743240661954,
-    "tabOrder": 4000
+    "height": 300.31537773412145,
+    "width": 464.12376558909682
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -94,14 +93,14 @@
                           "min": {
                             "color": {
                               "Literal": {
-                                "Value": "'minColor'"
+                                "Value": "'#AE1A1A'"
                               }
                             }
                           },
                           "max": {
                             "color": {
                               "Literal": {
-                                "Value": "'maxColor'"
+                                "Value": "'#2BBB41'"
                               }
                             }
                           },
@@ -128,6 +127,21 @@
                 }
               }
             ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top 10 Products by Revenue'"
+                }
+              }
+            }
           }
         }
       ]
@@ -236,6 +250,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "430c8578e6babdd21952",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "f72a6307ec0604dbe53a",
   "position": {
-    "x": 903.31498428464761,
-    "y": 179.2404535745915,
+    "x": 878.21906564599078,
+    "y": 167.410509388767,
     "z": 10000,
-    "height": 284.50865646760553,
-    "width": 362.74853699619706,
-    "tabOrder": 10000
+    "height": 308.74889026616864,
+    "width": 402.05966599105517,
+    "tabOrder": 6000
   },
   "visual": {
-    "visualType": "shapeMap",
+    "visualType": "map",
     "query": {
       "queryState": {
         "Category": {
@@ -23,15 +23,40 @@
                       "Entity": "DimTerritory"
                     }
                   },
-                  "Property": "TerritoryName"
+                  "Property": "Country"
                 }
               },
-              "queryRef": "DimTerritory.TerritoryName",
-              "nativeQueryRef": "TerritoryName"
+              "queryRef": "DimTerritory.Country",
+              "nativeQueryRef": "Country",
+              "active": true
             }
           ]
         },
-        "Value": {
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCustomer"
+                        }
+                      },
+                      "Property": "CustomerID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(DimCustomer.CustomerID)",
+              "nativeQueryRef": "Number of customers",
+              "displayName": "Number of customers"
+            }
+          ]
+        },
+        "Tooltips": {
           "projections": [
             {
               "field": {
@@ -49,80 +74,109 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimCustomer"
+                      }
+                    },
+                    "Property": "CustomerID"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
-      "shape": [
+      "dataPoint": [
+        {
+          "properties": {}
+        },
         {
           "properties": {
-            "map": {
-              "geoJson": {
-                "type": {
+            "fill": {
+              "solid": {
+                "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'shared'"
+                    "FillRule": {
+                      "Input": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "MyMeasures"
+                            }
+                          },
+                          "Property": "Customer Lifetime Value"
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#F85555'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'#5EF265'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
-                },
-                "name": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'usa.states.topo'"
-                    }
-                  }
-                },
-                "content": {
-                  "expr": {
-                    "ResourcePackageItem": {
-                      "PackageName": "SharedResources",
-                      "PackageType": 2,
-                      "ItemName": "usa.states.topo"
-                    }
-                  }
-                }
-              }
-            },
-            "projectionEnum": {
-              "expr": {
-                "Literal": {
-                  "Value": "'albersUsa'"
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
           }
         }
       ],
-      "dataPoint": [
+      "mapControls": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
         {
           "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Geographic Distribution'"
                 }
               }
             }
@@ -131,5 +185,56 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2db4608e37e19c93aa26",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1298dbc7d9c8361fbbd0",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCustomer"
+                  }
+                },
+                "Property": "CustomerID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "faceaaccc4a52817403e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Customer Lifetime Value"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

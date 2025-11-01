@@ -2,22 +2,29 @@
 -- Company-Wide Inventory KPIs
 -- =============================================
 DEFINE
-    // Total stock for current product
+	// Total stock UNITS (not value!) for current product
     MEASURE MyMeasures[Total Stock] =
         SUM(FactInventory[Quantity])   
     // Inventory value for current product
     MEASURE MyMeasures[Total Inventory Value] =
         SUM(FactInventory[InventoryValue])
+		// Low stock items count
     MEASURE MyMeasures[Low Stock Items Count] =
         CALCULATE(
             DISTINCTCOUNT(FactInventory[ProductID]),
-            FactInventory[Quantity] < 100
+            FactInventory[Quantity] < 100,
+			 FactInventory[Quantity] > 0  // Exclude zero stock
         )
+		// Overstocked items
     MEASURE MyMeasures[Out of Stock Items] =
         CALCULATE(
             DISTINCTCOUNT(FactInventory[ProductID]),
-            FactInventory[Quantity] = 0
+            OR(
+				FactInventory[Quantity] = 0,
+				ISBLANK(FactInventory[Quantity])  // Include NULLs
+    		)
         )
+		// Overstocked items
     MEASURE MyMeasures[Overstocked Items] =
         CALCULATE(
             DISTINCTCOUNT(FactInventory[ProductID]),
@@ -39,39 +46,73 @@ DEFINE
 -- =============================================
     // Stock status for current product
     MEASURE MyMeasures[Stock Status] =
-        VAR CurrentStock = [Total Inventory Value]
+        VAR CurrentStock = [Total Stock]  // ✅ This is UNITS, not $$$
         RETURN
             SWITCH(
                 TRUE(),
-                CurrentStock = 0, "Out of Stock",
-                CurrentStock < 50, "Critical",
-                CurrentStock < 100, "Low",
-                CurrentStock < 500, "Normal",
-                "Overstocked"
+               ISBLANK(CurrentStock), "Out of Stock",       // ✅ Handle NULLs first
+			   CurrentStock = 0, "Out of Stock",            // ✅ Zero stock
+			   CurrentStock < 50, "Critical",               // ✅ Less than 50 units
+			   CurrentStock < 100, "Low",                   // ✅ 50-99 units
+			   CurrentStock < 500, "Normal",                // ✅ 100-499 units
+				"Overstocked"                               // ✅ 500+ units
             )
-    // Days of supply (product-specific)
-    MEASURE MyMeasures[Days of Supply] =
-        VAR CurrentStock = [Total Inventory Value]
-        VAR DailySales = 
-            CALCULATE(
-                DIVIDE(SUM(FactSales[OrderQty]), DISTINCTCOUNT(FactSales[OrderDate])),
-                ALL(DimDate)
-            )
-        RETURN
-            DIVIDE(CurrentStock, DailySales, 0)
+	//-------------------------------------------------------------------------------
+	// Days of supply (product-specific)
+	// ✅ FIXED: Days of Supply - Handle NULLs and zero sales
+	  MEASURE MyMeasures[Days of Supply] =
+	VAR CurrentStock = [Total Stock]  // ✅ Use quantity, not value
+	VAR DailySales = 
+		CALCULATE(
+			DIVIDE(
+				SUM(FactSales[OrderQty]), 
+				DISTINCTCOUNT(FactSales[OrderDate])
+			),
+			ALL(DimDate)
+		)
+	RETURN
+		SWITCH(
+			TRUE(),
+			ISBLANK(CurrentStock), 0,                    // ✅ NULL stock = 0 days
+			CurrentStock = 0, 0,                          // ✅ Zero stock = 0 days
+			ISBLANK(DailySales) || DailySales = 0, 99999,// ✅ No sales = infinite days
+			DIVIDE(CurrentStock, DailySales, 0)           // ✅ Normal calculation
+    )
+	//--------------------------------------------------------------------------------		
     // Stock to Sales Ratio (product-specific)
-    MEASURE MyMeasures[Stock to Sales Ratio] =
-        DIVIDE(
-            [Total Inventory Value],
-            CALCULATE(SUM(FactSales[OrderQty]), ALL(DimDate)),
-            0
+    // ✅ FIXED: Stock to Sales Ratio
+    MEASURE MyMeasures[Stock to Sales Ratio] = 
+    VAR CurrentStock = [Total Stock]
+    VAR TotalSold = CALCULATE(SUM(FactSales[OrderQty]), ALL(DimDate))
+    RETURN
+        SWITCH(
+            TRUE(),
+            ISBLANK(CurrentStock), BLANK(),              // ✅ NULL stock = blank result
+            ISBLANK(TotalSold) || TotalSold = 0, BLANK(),// ✅ No sales = blank result
+            DIVIDE(CurrentStock, TotalSold, 0)            // ✅ Normal calculation
         )
     // Days to sell current inventory
-    MEASURE MyMeasures[Days Inventory on Hand] =
-        DIVIDE(365, [Inventory Turnover], 0)
+   // Days inventory on hand
+    MEASURE MyMeasures[Days Inventory on Hand] = 
+    VAR Turnover = [Inventory Turnover]
+    RETURN
+        IF(
+            ISBLANK(Turnover) || Turnover = 0,
+            BLANK(),  // Can't calculate if no turnover
+            DIVIDE(365, Turnover, 0)
+        )
     // Reorder indicator
-    MEASURE MyMeasures[Needs Reorder] =
-        IF([Total Inventory Value] < 100, "Yes", "No")
+   // ✅ FIXED: Needs Reorder - Based on quantity AND nulls
+     MEASURE MyMeasures[Needs Reorder] = 
+    VAR CurrentStock = [Total Stock]
+    RETURN
+        SWITCH(
+            TRUE(),
+            ISBLANK(CurrentStock), "Yes",  // ✅ NULL = needs reorder
+            CurrentStock = 0, "Yes",        // ✅ Zero stock = needs reorder
+            CurrentStock < 100, "Yes",      // ✅ Low stock = needs reorder
+            "No"                            // ✅ Normal/Overstocked = no reorder
+        )
     // Stock value percentage of total
     MEASURE MyMeasures[% of Total Inventory Value] =
         DIVIDE(
@@ -114,4 +155,4 @@ ADDCOLUMNS(
     "Days to Sell", [Days Inventory on Hand],
     "Needs Reorder", [Needs Reorder]
 )
-ORDER BY [Inventory Value] DESC
+ORDER BY [Inventory Value] DESC 

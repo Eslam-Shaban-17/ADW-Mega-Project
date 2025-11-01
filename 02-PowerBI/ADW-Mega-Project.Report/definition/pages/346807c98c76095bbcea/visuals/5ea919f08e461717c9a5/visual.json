@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "5ea919f08e461717c9a5",
   "position": {
-    "x": 679,
-    "y": 461,
-    "z": 9000,
-    "height": 259,
-    "width": 588,
-    "tabOrder": 3000
+    "x": 679.247558585571,
+    "y": 461.06500946414513,
+    "z": 8000,
+    "height": 259.34906782358166,
+    "width": 587.30900015075633,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "MonthNum"
+                  "Property": "MonthName"
                 }
               },
-              "queryRef": "DimDate.MonthNum",
-              "nativeQueryRef": "MonthNum",
+              "queryRef": "DimDate.MonthName",
+              "nativeQueryRef": "MonthName",
               "active": true
             }
           ]
@@ -69,19 +69,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MyMeasures"
+                    "Entity": "DimDate"
                   }
                 },
-                "Property": "Total Revenue"
+                "Property": "MonthName"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "drillFilterOtherVisuals": true

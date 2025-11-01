@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "f234158526000a4c2d69",
   "position": {
-    "x": 759.6602925052498,
-    "y": 158.32599282674545,
+    "x": 795.92569733410323,
+    "y": 158.20654229796725,
     "z": 9000,
-    "height": 89.8195536228652,
-    "width": 500.85818884614667,
-    "tabOrder": 9000
+    "height": 89.704740478228842,
+    "width": 464.83365520536762,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -98,5 +98,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "032bcc0191ab6077b9df",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Revenue YoY %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d42d7307bf7817fb8834",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Revenue QoQ %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c6f48633bc8b7a4a3534",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "MoM %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

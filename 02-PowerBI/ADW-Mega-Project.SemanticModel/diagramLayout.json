@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 776.14570345713844,
         "y": 0
       },
       "nodes": [
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 1249.7080885304549,
-            "y": 605.6863870386295
+            "x": 1298.69122413557,
+            "y": 621.48739852415054
           },
           "nodeIndex": "DimDepartment",
           "nodeLineageTag": "c783f976-d2ae-43ba-b269-22461dc3d4e9",
@@ -36,13 +36,13 @@
         },
         {
           "location": {
-            "x": 1375.5364962440472,
-            "y": 0
+            "x": 1452.9614525231002,
+            "y": 1.5801011485521066
           },
           "nodeIndex": "DimEmployee",
           "nodeLineageTag": "e980be61-b11e-455f-af67-992d85649770",
           "size": {
-            "height": 219.85666209778054,
+            "height": 207.21585290936372,
             "width": 234
           },
           "zIndex": 3
@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 1515.4074190914791,
-            "y": 602.1662565777973
+            "x": 1583.3517684792196,
+            "y": 611.64686346910992
           },
           "nodeIndex": "DimShift",
           "nodeLineageTag": "0ddb19e5-a5a8-4aa5-8216-45e0736c023f",
@@ -101,8 +101,8 @@
         },
         {
           "location": {
-            "x": 1371.5376808001361,
-            "y": 267.20120433890048
+            "x": 1456.8631428219496,
+            "y": 271.94150778455679
           },
           "nodeIndex": "FactEmployeeHistory",
           "nodeLineageTag": "f5c63dbc-bca7-4d2d-9a53-089282db0616",
@@ -153,8 +153,8 @@
         },
         {
           "location": {
-            "x": 984.31071410072332,
-            "y": 287.57840903648321
+            "x": 922.6867693071913,
+            "y": 282.8381055908269
           },
           "nodeIndex": "MyMeasures",
           "nodeLineageTag": "872739a5-9f66-454a-a5de-20fd3efe1846",
@@ -175,7 +175,33 @@
             "height": 182.91737013764521,
             "width": 234
           },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1192.6485780474704,
+            "y": 115.81570147964283
+          },
+          "nodeIndex": "CustomerCLV",
+          "nodeLineageTag": "68405980-1d63-4770-827c-7cc7361818a5",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
           "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1867.3517684792196,
+            "y": 302.26763700879127
+          },
+          "nodeIndex": "CustomerRFM",
+          "nodeLineageTag": "c3d43bc3-13de-4a9e-b103-c54f22fa4929",
+          "size": {
+            "height": 433.8549699857117,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

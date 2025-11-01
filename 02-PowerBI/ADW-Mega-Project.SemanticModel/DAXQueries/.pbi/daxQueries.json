@@ -6,12 +6,13 @@
     "03.cost_profit",
     "04.time_intelligence",
     "05.customer_metrics",
-    "06.product_metrics",
-    "07.territory_metrics",
-    "08.inventory_metrics",
-    "09.purchsing_metrics",
-    "10.supply_demand",
-    "11.hr_metrics"
+    "06.customer_segment_RFM",
+    "07.product_metrics",
+    "08.territory_metrics",
+    "09.inventory_metrics",
+    "10.purchsing_metrics",
+    "11.supply_demand",
+    "12.hr_metrics"
   ],
-  "defaultTab": "05.customer_metrics"
+  "defaultTab": "06.customer_segment_RFM"
 }

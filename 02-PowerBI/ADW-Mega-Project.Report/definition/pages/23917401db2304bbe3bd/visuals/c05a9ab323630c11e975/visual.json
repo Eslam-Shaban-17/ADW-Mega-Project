@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "c05a9ab323630c11e975",
   "position": {
-    "x": 871.40190667335673,
-    "y": 22.835479734626748,
+    "x": 867.32436678196586,
+    "y": 22.391275004724239,
     "z": 4000,
     "height": 111.13266804185017,
-    "width": 182.68383787701399,
-    "tabOrder": 4000
+    "width": 182.68383787701399
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +69,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7b3a5fb1a3d80e41d50e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Returning Customers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

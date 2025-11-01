@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "4314061c5ed1f9bc6752",
+  "position": {
+    "x": 543.46726749280253,
+    "y": 184.57378895981975,
+    "z": 8000,
+    "height": 251.95787064356347,
+    "width": 461.43447239954935,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDepartment"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "DimDepartment.DepartmentName",
+              "nativeQueryRef": "DepartmentName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimEmployee"
+                    }
+                  },
+                  "Property": "Gender"
+                }
+              },
+              "queryRef": "DimEmployee.Gender",
+              "nativeQueryRef": "Gender"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimEmployee"
+                    }
+                  },
+                  "Property": "BusinessEntityID"
+                }
+              },
+              "queryRef": "DimEmployee.BusinessEntityID",
+              "nativeQueryRef": "BusinessEntityID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Gender Ratio"
+                }
+              },
+              "queryRef": "MyMeasures.Gender Ratio",
+              "nativeQueryRef": "Gender Ratio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Female Employees"
+                }
+              },
+              "queryRef": "MyMeasures.Female Employees",
+              "nativeQueryRef": "Female Employees"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Male Employees"
+                }
+              },
+              "queryRef": "MyMeasures.Male Employees",
+              "nativeQueryRef": "Male Employees"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Turnover Rate %"
+                }
+              },
+              "queryRef": "MyMeasures.Turnover Rate %",
+              "nativeQueryRef": "Turnover Rate %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

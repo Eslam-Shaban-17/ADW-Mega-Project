@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "2516a4fac611e34523e0",
   "position": {
-    "x": 72.549707399239409,
-    "y": 24.18323579974647,
+    "x": 20.116819561137323,
+    "y": 11.495325463507042,
     "z": 0,
-    "height": 120.91617899873236,
-    "width": 203.42368937433795
+    "height": 120.70091736682394,
+    "width": 204.04202697725,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -69,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4f6a042f2cc801d7036e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Products (All)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

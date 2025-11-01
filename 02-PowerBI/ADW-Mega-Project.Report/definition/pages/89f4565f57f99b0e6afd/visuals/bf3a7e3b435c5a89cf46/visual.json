@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "bf3a7e3b435c5a89cf46",
+  "position": {
+    "x": 633.9643880131996,
+    "y": 187.99376873984491,
+    "z": 10001,
+    "height": 244.25467763279119,
+    "width": 277.18789259451586,
+    "tabOrder": 10001
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Stock Status"
+                }
+              },
+              "queryRef": "MyMeasures.Stock Status",
+              "nativeQueryRef": "Stock Status"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a6f79ea9662179951a25",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Stock Status"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

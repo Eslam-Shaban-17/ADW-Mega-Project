@@ -1,0 +1,301 @@
+
+-- =============================================
+// Define RFM Measures
+-- =============================================
+// First way:Recommended — use the CustomerRFM calculated table (robust & SQL-like)
+// Step 1 — Create CustomerRFM table
+// CustomerRFM =
+// VAR MaxDataDate = CALCULATE( MAX(FactSales[OrderDate]), ALL(FactSales) )
+// RETURN
+// ADDCOLUMNS(
+//     SUMMARIZE(
+//         FactSales,
+//         FactSales[CustomerID]
+//     ),
+//     "LastPurchase", CALCULATE(MAX(FactSales[OrderDate])),
+//     "Frequency", CALCULATE(DISTINCTCOUNT(FactSales[SalesOrderID])),
+//     "Monetary", CALCULATE(SUM(FactSales[LineTotal])),
+//     "RecencyDays",
+//         VAR LastPurchase = CALCULATE(MAX(FactSales[OrderDate]))
+//         RETURN IF(ISBLANK(LastPurchase), BLANK(), DATEDIFF(LastPurchase, MaxDataDate, DAY))
+// )
+// // 🔹 Step 2 — Add RFM scores as calculated columns
+// RFM Recency Score =
+// VAR R = [RecencyDays]
+// VAR MaxR = CALCULATE(MAX(CustomerRFM[RecencyDays]), ALL(CustomerRFM))
+// VAR MinR = CALCULATE(MIN(CustomerRFM[RecencyDays]), ALL(CustomerRFM))
+// VAR Range = MaxR - MinR
+// RETURN
+// IF(ISBLANK(R), BLANK(),
+// SWITCH(
+//     TRUE(),
+//     R <= MinR + Range*0.2, 5,
+//     R <= MinR + Range*0.4, 4,
+//     R <= MinR + Range*0.6, 3,
+//     R <= MinR + Range*0.8, 2,
+//     1
+// ))
+// // Repeat similar logic for Frequency and Monetary scores, then create:
+// RFM Monetary Score = 
+// VAR Mon = [Monetary]
+// VAR MaxM = CALCULATE(MAX(CustomerRFM[Monetary]), ALL(CustomerRFM))
+// VAR MinM = CALCULATE(MIN(CustomerRFM[Monetary]), ALL(CustomerRFM))
+// VAR Range = MaxM - MinM
+// RETURN
+// IF(ISBLANK(Mon), BLANK(),
+// SWITCH(
+//     TRUE(),
+//     Mon >= MaxM - Range*0.2, 5,
+//     Mon >= MaxM - Range*0.4, 4,
+//     Mon >= MaxM - Range*0.6, 3,
+//     Mon >= MaxM - Range*0.8, 2,
+//     1
+// ))
+// RFM Frequency Score = 
+// VAR Freq = [Frequency]
+// VAR MaxF = CALCULATE(MAX(CustomerRFM[Frequency]), ALL(CustomerRFM))
+// VAR MinF = CALCULATE(MIN(CustomerRFM[Frequency]), ALL(CustomerRFM))
+// VAR Range = MaxF - MinF
+// RETURN
+// IF(ISBLANK(Freq), BLANK(),
+// SWITCH(
+//     TRUE(),
+//     Freq >= MaxF - Range*0.2, 5,
+//     Freq >= MaxF - Range*0.4, 4,
+//     Freq >= MaxF - Range*0.6, 3,
+//     Freq >= MaxF - Range*0.8, 2,
+//     1
+// ))
+// RFM Score =
+// [ RFM Recency Score ] * 100 + [ RFM Frequency Score ] * 10 + [ RFM Monetary Score ]
+
+// RFM Segment =
+// SWITCH(
+//     TRUE(),
+//     [RFM Score] >= 555, "Champions",
+//     [RFM Score] >= 450, "Loyal Customers",
+//     [RFM Score] >= 350, "Potential Loyalists",
+//     [RFM Score] >= 250, "Needs Attention",
+//     [RFM Score] >= 150, "At Risk",
+//     "Lost"
+// )
+//-----------------------------------------------------------------------------------
+//Second way : using measures
+DEFINE
+// Last Purchase (per customer)
+MEASURE MyMeasures[(Last Purchase Date)] =
+CALCULATE(
+    MAX(FactSales[OrderDate]),
+    KEEPFILTERS(FactSales)
+)
+-- Recency vs dataset max date (per customer)
+MEASURE MyMeasures[Recency (Days)] =
+VAR LastPurchase =
+    CALCULATE(MAX(FactSales[OrderDate]), KEEPFILTERS(FactSales))
+VAR MaxDataDate = CALCULATE( MAX(FactSales[OrderDate]), ALL(FactSales) )  -- global max
+RETURN
+IF( ISBLANK(LastPurchase),
+ BLANK(), // <- No purchase, stays blank
+ DATEDIFF( LastPurchase, MaxDataDate, DAY ) )
+
+-- Frequency (per customer)
+// Frequency (number of orders)
+MEASURE MyMeasures[Frequency] =
+VAR Orders =
+    CALCULATE(DISTINCTCOUNT(FactSales[SalesOrderID]), KEEPFILTERS(FactSales))
+RETURN IF(Orders = BLANK() || Orders = 0, BLANK(), Orders)
+
+
+-- Monetary (per customer)
+// Monetary (total spend per customer)
+MEASURE MyMeasures[Monetary] =
+VAR SalesAmt =
+    CALCULATE(SUM(FactSales[LineTotal]), KEEPFILTERS(FactSales))
+RETURN IF(SalesAmt = BLANK() || SalesAmt = 0, BLANK(), SalesAmt)
+-- =============================================
+-- STEP 1 — Recency Score (lower = better)
+-- =============================================
+MEASURE MyMeasures[RFM Recency Score] =
+	VAR HasPurchase = NOT ISBLANK([Recency (Days)])
+	RETURN
+IF(
+    NOT HasPurchase,
+    BLANK(),
+    // existing logic below
+	VAR CustomerRecency = [Recency (Days)]
+	VAR MaxR = CALCULATE(
+		MAXX( VALUES( DimCustomer[CustomerID] ), [Recency (Days)] ),
+		REMOVEFILTERS(DimCustomer)
+	)
+	VAR MinR = CALCULATE(
+		MINX( VALUES( DimCustomer[CustomerID] ), [Recency (Days)] ),
+		REMOVEFILTERS(DimCustomer)
+	)
+	VAR Range = MaxR - MinR
+	RETURN
+		SWITCH(
+			TRUE(),
+			Range = 0, BLANK(),
+			CustomerRecency <= MinR + Range*0.2, 5,
+			CustomerRecency <= MinR + Range*0.4, 4,
+			CustomerRecency <= MinR + Range*0.6, 3,
+			CustomerRecency <= MinR + Range*0.8, 2,
+			1
+		)
+)
+-- =============================================
+-- STEP 2 — Frequency Score (higher = better)
+-- =============================================
+MEASURE MyMeasures[RFM Frequency Score] =
+	VAR HasPurchase = NOT ISBLANK([Frequency])
+	RETURN
+IF(
+    NOT HasPurchase,
+    BLANK(),
+    // existing logic below
+	VAR CustomerFreq = [Frequency]
+	VAR MaxF = CALCULATE(
+			MAXX( VALUES( DimCustomer[CustomerID] ), [Frequency] ),
+			REMOVEFILTERS(DimCustomer)
+			)
+	VAR MinF =  CALCULATE(
+		MINX(  VALUES( DimCustomer[CustomerID] ), [Frequency] ),
+				REMOVEFILTERS(DimCustomer)
+		)
+VAR Range = MaxF - MinF
+RETURN
+    SWITCH(
+        TRUE(),
+		Range = 0, BLANK(),
+        CustomerFreq >= MaxF - Range * 0.2, 5,
+        CustomerFreq >= MaxF - Range * 0.4, 4,
+        CustomerFreq >= MaxF - Range * 0.6, 3,
+        CustomerFreq >= MaxF - Range * 0.8, 2,
+        1
+    )
+)
+
+-- =============================================
+-- STEP 3 — Monetary Score (higher = better)
+-- =============================================
+MEASURE MyMeasures[RFM Monetary Score] =
+	VAR HasPurchase = NOT ISBLANK([Frequency])
+		RETURN
+	IF(
+		NOT HasPurchase,
+		BLANK(),
+		// existing logic below
+	VAR CustomerMonetary = [Monetary]
+	VAR MaxM = CALCULATE(
+		MAXX( VALUES( DimCustomer[CustomerID] ), [Monetary] ),
+		REMOVEFILTERS(DimCustomer)
+		)
+	VAR MinM = CALCULATE(
+		MINX( VALUES( DimCustomer[CustomerID] ), [Monetary] ),
+		REMOVEFILTERS(DimCustomer)
+		)
+	VAR Range = MaxM - MinM
+	RETURN
+		SWITCH(
+			TRUE(),
+			Range = 0, BLANK(),
+			CustomerMonetary >= MaxM - Range * 0.2, 5,
+			CustomerMonetary >= MaxM - Range * 0.4, 4,
+			CustomerMonetary >= MaxM - Range * 0.6, 3,
+			CustomerMonetary >= MaxM - Range * 0.8, 2,
+			1
+		)
+)
+
+-- =============================================
+-- STEP 4 — Combine into overall RFM score
+-- =============================================
+MEASURE MyMeasures[RFM Score] =
+[RFM Recency Score] * 100 + [RFM Frequency Score] * 10 + [RFM Monetary Score]
+
+-- =============================================
+-- STEP 5 — Segment customers by RFM score
+-- =============================================
+MEASURE MyMeasures[RFM Segment] =
+	VAR Score = [RFM Score]
+	RETURN
+	IF(
+		ISBLANK(Score),
+		"No Purchases",
+		SWITCH(
+			TRUE(),
+			Score >= 555, "Champions",
+			Score >= 450, "Loyal Customers",
+			Score >= 350, "Potential Loyalists",
+			Score >= 250, "Needs Attention",
+			Score >= 150, "At Risk",
+			"Lost"
+		)
+	)
+// MEASURE MyMeasures[RFM Segment Count] =
+// VAR SelectedSegment = SELECTEDVALUE(CustomerRFM[RFM Segment])
+// RETURN
+// CALCULATE(
+//     COUNTROWS(CustomerRFM),
+//     CustomerRFM[RFM Segment] = SelectedSegment
+// )
+MEASURE MyMeasures[Champions] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "Champions"
+)
+
+MEASURE MyMeasures[Loyal Customers] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "Loyal Customers"
+)
+
+MEASURE MyMeasures[Potential Loyalists] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "Potential Loyalists"
+)
+
+MEASURE MyMeasures[Needs Attention] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "Needs Attention"
+)
+
+MEASURE MyMeasures[At Risk] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "At Risk"
+)
+
+MEASURE MyMeasures[Lost] =
+CALCULATE(
+    COUNTROWS(CustomerRFM),
+    CustomerRFM[RFM Segment] = "Lost"
+)
+
+// -- =============================================
+// -- EVALUATE: Customer-Level RFM Segmentation
+// -- =============================================
+// EVALUATE
+// SUMMARIZECOLUMNS(
+//   DimCustomer[CustomerID],
+//   DimCustomer[CustomerName],
+//   "LastPurchase", [(Last Purchase Date)],
+//   "RecencyDays", [Recency (Days)],
+//   "Frequency", [Frequency],
+//   "Monetary", [Monetary]
+// )
+EVALUATE SUMMARIZECOLUMNS( DimCustomer[CustomerID],
+DimCustomer[CustomerName],
+"Recency (Days)", [Recency (Days)],
+"Frequency", [Frequency],
+"Monetary", [Monetary],
+"RFM Recency Score", [RFM Recency Score],
+"RFM Frequency Score", [RFM Frequency Score],
+"RFM Monetary Score", [RFM Monetary Score],
+"RFM Score", [RFM Score],
+"RFM Segment", [RFM Segment] )
+ORDER BY [RFM Score] DESC
+

@@ -2,15 +2,135 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8d0430862d44e1240279",
   "position": {
-    "x": 0,
-    "y": 179.76046499941373,
+    "x": 75.47195095395233,
+    "y": 167.410509388767,
     "z": 6000,
-    "height": 227.78807015192885,
-    "width": 391.08192767048024,
-    "tabOrder": 6000
+    "height": 308.74889026616864,
+    "width": 396.57079683076773,
+    "tabOrder": 2000
   },
   "visual": {
-    "visualType": "areaChart",
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerCLV"
+                    }
+                  },
+                  "Property": "CLV Range"
+                }
+              },
+              "queryRef": "CustomerCLV.CLV Range",
+              "nativeQueryRef": "CLV Range",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CustomerCLV"
+                        }
+                      },
+                      "Property": "CustomerID"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "CountNonNull(CustomerCLV.CustomerID)",
+              "nativeQueryRef": "Count of CustomerID1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CustomerCLV"
+                      }
+                    },
+                    "Property": "CustomerID"
+                  }
+                },
+                "Function": 2
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer Segments by CLV Range'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "59b11ba484d650e0c991",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CustomerCLV"
+              }
+            },
+            "Property": "CLV Range"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3ae8067bb97fcc8d1807",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CustomerCLV"
+                  }
+                },
+                "Property": "CustomerID"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

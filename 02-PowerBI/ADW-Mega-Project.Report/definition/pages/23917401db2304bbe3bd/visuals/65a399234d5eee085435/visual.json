@@ -2,19 +2,33 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "65a399234d5eee085435",
   "position": {
-    "x": 1083.9241047369496,
-    "y": 22.835479734626748,
+    "x": 1055.6292741240793,
+    "y": 23.042385246910325,
     "z": 5000,
-    "height": 111.13266804185017,
-    "width": 182.68383787701399,
-    "tabOrder": 5000
+    "height": 112.33162807868783,
+    "width": 224.66325615737566,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "DimDate.Year",
+              "nativeQueryRef": "Year"
+            },
             {
               "field": {
                 "Measure": {
@@ -36,39 +50,52 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "MyMeasures"
+                    "Entity": "DimDate"
                   }
                 },
-                "Property": "Customer Retention Rate"
+                "Property": "Year"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
-    "objects": {
-      "value": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "658a9d7c2a6ee31578f9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2939d08d127f95386980",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Customer Retention Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

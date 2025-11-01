@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "2a4d19fee2166aa72930",
   "position": {
-    "x": 394.04448920763366,
-    "y": 463.74911004219706,
+    "x": 487.13713797551048,
+    "y": 167.410509388767,
     "z": 9000,
-    "height": 229.02946845642245,
-    "width": 489.35488912428156,
-    "tabOrder": 9000
+    "height": 308.74889026616864,
+    "width": 380.10418934990537,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -68,13 +68,92 @@
                   "Property": "TotalDue"
                 }
               },
-              "queryRef": "FactSales.TotalDue",
+              "queryRef": "Sum(FactSales.TotalDue)",
               "nativeQueryRef": "TotalDue"
             }
           ]
         }
       }
     },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "93672c3e2d00c6e446ee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Customer Lifetime Value"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9a74731b2ac6427f5438",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactSales"
+                  }
+                },
+                "Property": "SalesOrderID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "892c5ffbfa1ff9cfa2f8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactSales"
+              }
+            },
+            "Property": "TotalDue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -1,0 +1,174 @@
+table CustomerRFM
+	lineageTag: c3d43bc3-13de-4a9e-b103-c54f22fa4929
+
+	column LastPurchase
+		formatString: General Date
+		lineageTag: 822a5233-9378-4bed-88c8-4aad88dd50c1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LastPurchase]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frequency
+		formatString: 0
+		lineageTag: 83dc177c-79ed-460e-ada0-28ae78296cd9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Frequency]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Monetary
+		lineageTag: 6962ccf7-4dcd-40de-a2ee-d352aef81897
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Monetary]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MaxDataDate = CALCULATE(MAX(FactSales[OrderDate]), ALL(FactSales))
+		formatString: General Date
+		lineageTag: c4ad59c4-7120-4097-85dd-a6fcbd827513
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		formatString: 0
+		lineageTag: d62f83db-09fc-446a-b27d-5a07fc83069e
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: FactSales[CustomerID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RFM Recency Score' = ```
+			
+			VAR R = [RecencyDays]
+			VAR MaxR = CALCULATE(MAX(CustomerRFM[RecencyDays]), ALL(CustomerRFM))
+			VAR MinR = CALCULATE(MIN(CustomerRFM[RecencyDays]), ALL(CustomerRFM))
+			VAR Range = MaxR - MinR
+			RETURN
+			IF(ISBLANK(R), BLANK(),
+			SWITCH(
+			    TRUE(),
+			    R <= MinR + Range*0.2, 5,
+			    R <= MinR + Range*0.4, 4,
+			    R <= MinR + Range*0.6, 3,
+			    R <= MinR + Range*0.8, 2,
+			    1
+			))
+			
+			```
+		formatString: 0
+		lineageTag: 972f7350-f8a8-47bd-b4ba-b70b21cfc429
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RFM Score' = ```
+			
+			CustomerRFM[RFM Recency Score] * 100 + CustomerRFM[RFM Frequency Score] * 10 + CustomerRFM[RFM Monetary Score]
+			
+			```
+		formatString: 0
+		lineageTag: 3aba0732-5d6d-4a62-ac6e-5bcf2baf2959
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RFM Monetary Score' =
+			
+			VAR Mon = [Monetary]
+			VAR MaxM = CALCULATE(MAX(CustomerRFM[Monetary]), ALL(CustomerRFM))
+			VAR MinM = CALCULATE(MIN(CustomerRFM[Monetary]), ALL(CustomerRFM))
+			VAR Range = MaxM - MinM
+			RETURN
+			IF(ISBLANK(Mon), BLANK(),
+			SWITCH(
+			    TRUE(),
+			    Mon >= MaxM - Range*0.2, 5,
+			    Mon >= MaxM - Range*0.4, 4,
+			    Mon >= MaxM - Range*0.6, 3,
+			    Mon >= MaxM - Range*0.8, 2,
+			    1
+			))
+		formatString: 0
+		lineageTag: a7ba24ab-10af-4b33-a187-abf8230dc225
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RFM Frequency Score' =
+			
+			VAR Freq = [Frequency]
+			VAR MaxF = CALCULATE(MAX(CustomerRFM[Frequency]), ALL(CustomerRFM))
+			VAR MinF = CALCULATE(MIN(CustomerRFM[Frequency]), ALL(CustomerRFM))
+			VAR Range = MaxF - MinF
+			RETURN
+			IF(ISBLANK(Freq), BLANK(),
+			SWITCH(
+			    TRUE(),
+			    Freq >= MaxF - Range*0.2, 5,
+			    Freq >= MaxF - Range*0.4, 4,
+			    Freq >= MaxF - Range*0.6, 3,
+			    Freq >= MaxF - Range*0.8, 2,
+			    1
+			))
+		formatString: 0
+		lineageTag: f03cf25f-2fdd-4fb0-8927-60913b713d9f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'RFM Segment' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [RFM Score] >= 555, "Champions",
+			    [RFM Score] >= 450, "Loyal Customers",
+			    [RFM Score] >= 350, "Potential Loyalists",
+			    [RFM Score] >= 250, "Needs Attention",
+			    [RFM Score] >= 150, "At Risk",
+			    "Lost"
+			)
+			
+			```
+		lineageTag: 50c40a29-4adf-4edd-9537-0ef5da378084
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecencyDays
+		formatString: 0
+		lineageTag: 2fe2b878-f413-43dd-b65a-50b11bc74047
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [RecencyDays]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CustomerRFM = calculated
+		mode: import
+		source =
+				
+				VAR MaxDataDate = CALCULATE( MAX(FactSales[OrderDate]), ALL(FactSales) )
+				RETURN
+				ADDCOLUMNS(
+				    SUMMARIZE(
+				        FactSales,
+				        FactSales[CustomerID]
+				    ),
+				    "LastPurchase", CALCULATE(MAX(FactSales[OrderDate])),
+				    "Frequency", CALCULATE(DISTINCTCOUNT(FactSales[SalesOrderID])),
+				    "Monetary", CALCULATE(SUM(FactSales[LineTotal])),
+				    "RecencyDays",
+				        VAR LastPurchase = CALCULATE(MAX(FactSales[OrderDate]))
+				        RETURN IF(ISBLANK(LastPurchase), BLANK(), DATEDIFF(LastPurchase, MaxDataDate, DAY))
+				)
+
+	annotation PBI_Id = 0577686f649745e8850f9eef9c6a386f
+
