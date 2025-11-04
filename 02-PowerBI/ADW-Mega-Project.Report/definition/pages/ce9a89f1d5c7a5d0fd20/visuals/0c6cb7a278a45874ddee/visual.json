@@ -1,0 +1,301 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "0c6cb7a278a45874ddee",
+  "position": {
+    "x": 506.26609748691664,
+    "y": 472.61257077535856,
+    "z": 9002,
+    "height": 247.2802614892743,
+    "width": 774.03111436583492,
+    "tabOrder": 9002
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDepartment"
+                    }
+                  },
+                  "Property": "DepartmentName"
+                }
+              },
+              "queryRef": "DimDepartment.DepartmentName",
+              "nativeQueryRef": "DepartmentName"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Total Employees"
+                }
+              },
+              "queryRef": "MyMeasures.Total Employees",
+              "nativeQueryRef": "Total Employees"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Male Employees"
+                }
+              },
+              "queryRef": "MyMeasures.Male Employees",
+              "nativeQueryRef": "Male Employees"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Female Employees"
+                }
+              },
+              "queryRef": "MyMeasures.Female Employees",
+              "nativeQueryRef": "Female Employees"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Gender Ratio"
+                }
+              },
+              "queryRef": "MyMeasures.Gender Ratio",
+              "nativeQueryRef": "Gender Ratio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Avg Tenure Years"
+                }
+              },
+              "queryRef": "MyMeasures.Avg Tenure Years",
+              "nativeQueryRef": "Avg Tenure Years"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Avg Employee Age"
+                }
+              },
+              "queryRef": "MyMeasures.Avg Employee Age",
+              "nativeQueryRef": "Avg Employee Age"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MyMeasures"
+                  }
+                },
+                "Property": "Male Employees"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "133.9568991439241D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimDepartment.DepartmentName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.44164526419584D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Total Employees"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.75762230517799D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Female Employees"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.22081900735503D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Gender Ratio"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "442269e062b4fea0ff0f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDepartment"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7bdd2ec3550e7641753a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Gender Ratio"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eae4f972c95c5b1bc8fe",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Tenure Years"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "63e796339a84cf476bb0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Employee Age"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "49d46d5edc1d3fc31f18",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Employees"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b715904a5951baa3614e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Male Employees"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b2c4af557bcf91889dc0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Female Employees"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

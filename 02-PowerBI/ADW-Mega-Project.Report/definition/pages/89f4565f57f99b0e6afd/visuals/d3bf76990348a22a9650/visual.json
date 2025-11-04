@@ -2,15 +2,14 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "d3bf76990348a22a9650",
   "position": {
-    "x": 911.004542982933,
-    "y": 160.93455648909858,
-    "z": 9000,
-    "height": 199.73127992843484,
-    "width": 369.28733051516372,
-    "tabOrder": 1000
+    "x": 409.51868762520076,
+    "y": 144.88386782407824,
+    "z": 8000,
+    "height": 295.68136290628212,
+    "width": 586.92750536897006
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -46,7 +45,8 @@
                 }
               },
               "queryRef": "MyMeasures.Total Units Sold",
-              "nativeQueryRef": "Total Units Sold"
+              "nativeQueryRef": "Units Sold (Demand)",
+              "displayName": "Units Sold (Demand)"
             },
             {
               "field": {
@@ -60,21 +60,8 @@
                 }
               },
               "queryRef": "MyMeasures.Total Stock",
-              "nativeQueryRef": "Total Stock"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MyMeasures"
-                    }
-                  },
-                  "Property": "Total Quantity"
-                }
-              },
-              "queryRef": "MyMeasures.Total Quantity",
-              "nativeQueryRef": "Total Quantity"
+              "nativeQueryRef": "Stock on Hand (Supply)",
+              "displayName": "Stock on Hand (Supply)"
             }
           ]
         }
@@ -98,6 +85,61 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "invertAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Total Units Sold"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Total Stock"
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -105,7 +147,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 20 Product by Qunatity'"
+                  "Value": "'Top 20 Sales Product - Supply vs Demand'"
                 }
               }
             }
@@ -174,7 +216,7 @@
                                 "Source": "m"
                               }
                             },
-                            "Property": "Total Quantity"
+                            "Property": "Total Units Sold"
                           }
                         }
                       }
@@ -217,48 +259,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "a61de7f8dab37ec66a95",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Units Sold"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4bd36a4d8bd41e30845f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Stock"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2a499a74216e6d0990b0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Quantity"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

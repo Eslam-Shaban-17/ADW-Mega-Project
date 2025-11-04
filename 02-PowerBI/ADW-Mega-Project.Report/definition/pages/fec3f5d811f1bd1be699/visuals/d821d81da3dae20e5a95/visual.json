@@ -4,10 +4,10 @@
   "position": {
     "x": 201.06332677627185,
     "y": 0,
-    "z": 6,
+    "z": 6000,
     "height": 147.84068145314106,
     "width": 180.3656313728321,
-    "tabOrder": 6
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "63696a1301c373a4f6e4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Loyal Customers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 9000,
     "height": 308.74889026616864,
     "width": 380.10418934990537,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -104,56 +104,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "93672c3e2d00c6e446ee",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Customer Lifetime Value"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9a74731b2ac6427f5438",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "FactSales"
-                  }
-                },
-                "Property": "SalesOrderID"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "892c5ffbfa1ff9cfa2f8",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactSales"
-              }
-            },
-            "Property": "TotalDue"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

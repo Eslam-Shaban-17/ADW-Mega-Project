@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "a941a66efd3d32e1dcf3",
   "position": {
-    "x": 0,
-    "y": 184.57378895981975,
+    "x": 10.126618044395784,
+    "y": 167.81252759284442,
     "z": 5000,
-    "height": 251.95787064356347,
-    "width": 518.5644546966364,
-    "tabOrder": 3000
+    "height": 230.01889557984708,
+    "width": 471.61106892471793,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "barChart",
@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "CountNonNull(FactEmployeeHistory.BusinessEntityID)",
-              "nativeQueryRef": "Count of BusinessEntityID"
+              "nativeQueryRef": "Employee Count",
+              "displayName": "Employee Count"
             }
           ]
         }
@@ -81,5 +82,42 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "145e47e15bd11e872abf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDepartment"
+              }
+            },
+            "Property": "DepartmentName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1f2b00c5d3aaca8c96ca",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactEmployeeHistory"
+                  }
+                },
+                "Property": "BusinessEntityID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

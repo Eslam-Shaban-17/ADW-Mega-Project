@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "44fb949425134110bbb3",
   "position": {
-    "x": 706.26753911415665,
-    "y": 11.255259587476601,
+    "x": 499.48709358615724,
+    "y": 10.977738320574884,
     "z": 2000,
-    "height": 102.70424373572398,
-    "width": 198.3739502292751
+    "height": 102.91629675538954,
+    "width": 222.29920099164141,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -22,11 +23,12 @@
                       "Entity": "MyMeasures"
                     }
                   },
-                  "Property": "Total Revenue"
+                  "Property": "Territory Revenue %"
                 }
               },
-              "queryRef": "MyMeasures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "queryRef": "MyMeasures.Territory Revenue %",
+              "nativeQueryRef": "Regional Market Share %",
+              "displayName": "Regional Market Share %"
             }
           ]
         }
@@ -41,7 +43,7 @@
                     "Entity": "MyMeasures"
                   }
                 },
-                "Property": "Total Revenue"
+                "Property": "Territory Revenue %"
               }
             },
             "direction": "Descending"
@@ -50,6 +52,42 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "38642e8998c25097c906",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Territory Revenue %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

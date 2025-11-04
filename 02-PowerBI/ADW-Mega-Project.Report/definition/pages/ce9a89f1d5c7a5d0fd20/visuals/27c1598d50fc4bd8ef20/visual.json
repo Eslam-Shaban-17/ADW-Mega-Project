@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "27c1598d50fc4bd8ef20",
   "position": {
-    "x": 543.46726749280253,
-    "y": 23.437941455215206,
+    "x": 421.2707080520612,
+    "y": 20.58325935107791,
     "z": 2000,
-    "height": 124.51406398083078,
-    "width": 191.89814566457449
+    "height": 124.87177339653931,
+    "width": 192.11042061006049,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -69,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e307151fe7a523a99be7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Employee Age"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

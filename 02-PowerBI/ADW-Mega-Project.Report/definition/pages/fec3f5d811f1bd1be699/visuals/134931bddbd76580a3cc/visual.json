@@ -4,10 +4,9 @@
   "position": {
     "x": 854.51913879915537,
     "y": 0,
-    "z": 1,
+    "z": 1000,
     "height": 147.84068145314106,
-    "width": 180.3656313728321,
-    "tabOrder": 1
+    "width": 180.3656313728321
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +51,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0c4acdc182d3ad6f560c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "At Risk"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -1,0 +1,68 @@
+table ProfitSteps
+	lineageTag: fba2b3c4-a816-4726-86b5-6ad3e1daaf87
+
+	measure 'Profit Step Value' = ```
+			
+			SWITCH(
+			    SELECTEDVALUE(ProfitSteps[Step]),
+			    
+			    "Revenue", [Total Revenue],
+			    "COGS", - [Total COGS],          -- negative because cost reduces profit
+			    "Freight", - [Total Freight],    -- negative
+			    "Tax", - [Total Tax],            -- negative
+			    
+			    "Gross Profit", [Gross Profit],  -- final positive result
+			    
+			    BLANK()
+			)
+			```
+		lineageTag: eb0907be-1dbc-4e74-b61d-18cd9fca6276
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Profit Step Sort' = ```
+			SELECTEDVALUE(ProfitSteps[SortOrder])
+			
+			```
+		formatString: 0
+		lineageTag: afbc73ce-93d7-4c4d-a1d7-9c5747717af5
+
+	column Step
+		lineageTag: 3e5a35b7-9147-41a4-b99c-a173ec372cdc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Step]
+		sortByColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortOrder
+		formatString: 0
+		lineageTag: 2afdb221-082c-4145-a70a-03d2c380ec9f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [SortOrder]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProfitSteps = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Step", STRING,
+				    "SortOrder", INTEGER,
+				    {
+				        {"Revenue", 1},
+				        {"COGS", 2},
+				        {"Freight", 3},
+				        {"Tax", 4},
+				        {"Gross Profit", 5}
+				    }
+				)
+				
+				
+				```
+
+	annotation PBI_Id = 3aaee24be2d949518db92eb9782f1ce5
+

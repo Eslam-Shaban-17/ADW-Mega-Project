@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "30af39b817c1f85d2bc0",
   "position": {
-    "x": 862.14940976302819,
-    "y": 148.00231534265316,
+    "x": 629.847736142984,
+    "y": 148.19946732776094,
     "z": 6000,
-    "height": 300.31537773412145,
-    "width": 402.33639122274644,
-    "tabOrder": 2000
+    "height": 300.51558652573749,
+    "width": 633.9643880131996
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -120,51 +119,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2d185d60eac858de5ddb",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "CategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "6c0cbd9c08f1fb158b8a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Gross Profit"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fcc34989485979e693d4",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Revenue"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

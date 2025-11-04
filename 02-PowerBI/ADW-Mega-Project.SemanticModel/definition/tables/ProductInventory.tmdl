@@ -1,0 +1,98 @@
+table ProductInventory
+	lineageTag: f4c65d6b-1e52-49e0-9e9b-830c78baa21d
+
+	column ProductID
+		formatString: 0
+		lineageTag: c5114b6d-c4d4-40f3-acbd-38ea867f63cb
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: DimProduct[ProductID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		lineageTag: 5f0264e8-3153-4d44-9125-aa02fe802d9d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimProduct[ProductName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CategoryName
+		lineageTag: f8a93e14-4d61-43c5-ac9e-59923e1be655
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimProduct[CategoryName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubcategoryName
+		lineageTag: db709755-6659-4393-9316-5d8107f6a0c4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimProduct[SubcategoryName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockQty
+		formatString: 0
+		lineageTag: b6ed0df2-5872-4cd0-b4e5-0b820dc8a487
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [StockQty]
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventoryValue
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 19af2d8b-ebd3-4da9-a17e-2ea99e7e8bd4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [InventoryValue]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column StockStatus
+		lineageTag: 43c1c600-3aaf-4844-9cdb-e5c0b683582b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [StockStatus]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ProductInventory = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    SUMMARIZE(
+				        DimProduct,
+				        DimProduct[ProductID],
+				        DimProduct[ProductName],
+				        DimProduct[CategoryName],
+				        DimProduct[SubcategoryName]
+				    ),
+				    "StockQty", CALCULATE(SUM(FactInventory[Quantity])),
+				    "InventoryValue", CALCULATE(SUM(FactInventory[InventoryValue])),
+				
+				    -- Stock Status Column
+				    "StockStatus",
+				        VAR Stock = CALCULATE(SUM(FactInventory[Quantity]))
+				        RETURN
+				            SWITCH(
+				                TRUE(),
+				                ISBLANK(Stock), "Out of Stock",
+				                Stock = 0, "Out of Stock",
+				                Stock < 50, "Critical",
+				                Stock < 100, "Low",
+				                Stock < 500, "Normal",
+				                "Overstocked"
+				            )
+				)
+				
+				```
+
+	annotation PBI_Id = e516e0147f1847378b2f3fd9028970ca
+

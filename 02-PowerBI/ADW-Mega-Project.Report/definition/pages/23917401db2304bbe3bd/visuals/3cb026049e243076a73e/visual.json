@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 231.90472202214443,
     "width": 751.97507495937964,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -379,90 +379,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "43e7c63c8d24efd0055a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTerritory"
-              }
-            },
-            "Property": "Region"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "752e195af8e801102663",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTerritory"
-              }
-            },
-            "Property": "TerritoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7e9e0b3597cdeb0a0866",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Orders"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1cec7052563c9d42b896",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Revenue"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6b955adceba64bba83ca",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "First Purchase Date"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fe020c58d39057809a10",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Last Purchase Date"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

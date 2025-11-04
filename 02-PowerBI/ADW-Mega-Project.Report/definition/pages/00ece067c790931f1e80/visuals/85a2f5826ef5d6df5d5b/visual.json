@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "85a2f5826ef5d6df5d5b",
   "position": {
-    "x": 484.56883681375791,
-    "y": 501.59841254842672,
+    "x": 384.70088167053365,
+    "y": 427.27647331786545,
     "z": 5000,
-    "height": 219.83634130208824,
-    "width": 795.74562978361519,
-    "tabOrder": 3000
+    "height": 291.94691415313224,
+    "width": 895.607981438515,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -84,6 +84,20 @@
               },
               "queryRef": "MyMeasures.Total Purchase Quantity",
               "nativeQueryRef": "Total Purchase Quantity"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Vendors Purchase Rank"
+                }
+              },
+              "queryRef": "CustomerCLV.Vendors Purchase Rank",
+              "nativeQueryRef": "Vendors Purchase Rank"
             }
           ]
         }
@@ -98,14 +112,120 @@
                     "Entity": "MyMeasures"
                   }
                 },
-                "Property": "Total Purchases"
+                "Property": "Vendors Purchase Rank"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
     },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "164.1550510984372D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimVendor.VendorName"
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cf9582a5137afd64015e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimVendor"
+              }
+            },
+            "Property": "VendorName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2de2cc5c5a7b53a876f2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchases"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fcd1a49818f4f65e11e8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchase Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c4265efc8924c719ca80",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Purchase Order Value"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "702cd4beb666a25aa929",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchase Quantity"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bcefafa2afa03f09e3df",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Vendors Purchase Rank"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

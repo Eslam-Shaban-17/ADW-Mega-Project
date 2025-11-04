@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 120.70091736682394,
     "width": 204.04202697725,
-    "tabOrder": 8000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2414a3628575e7142105",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Gross Margin %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 272.37621199753124,
     "width": 161.46853286081193,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -67,23 +67,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "c92c1d3421cf329b2792",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "YearMonthName"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

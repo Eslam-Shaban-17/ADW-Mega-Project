@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "6affaab8530efcc8403b",
+  "position": {
+    "x": 506.33090221978915,
+    "y": 167.81252759284442,
+    "z": 9003,
+    "height": 284.9919649637099,
+    "width": 351.53831211259649,
+    "tabOrder": 9003
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactEmployeeHistory"
+                    }
+                  },
+                  "Property": "Tenure Range"
+                }
+              },
+              "queryRef": "FactEmployeeHistory.Tenure Range",
+              "nativeQueryRef": "Count of Tenure Range",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": []
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactEmployeeHistory"
+                        }
+                      },
+                      "Property": "BusinessEntityID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(FactEmployeeHistory.BusinessEntityID)",
+              "nativeQueryRef": "BusinessEntityID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactEmployeeHistory"
+                  }
+                },
+                "Property": "Tenure Range"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tenure Distribution'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1c57cdc991be7dfa2bad",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactEmployeeHistory"
+              }
+            },
+            "Property": "Tenure Range"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7e0a157e48a7b4be9ce7",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactEmployeeHistory"
+                  }
+                },
+                "Property": "BusinessEntityID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

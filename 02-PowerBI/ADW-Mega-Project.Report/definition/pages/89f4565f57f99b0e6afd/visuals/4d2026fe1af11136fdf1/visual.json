@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "4d2026fe1af11136fdf1",
   "position": {
-    "x": 19.211042061006047,
-    "y": 463.80944404428885,
+    "x": 0,
+    "y": 452.39248524661167,
     "z": 6000,
-    "height": 251.11576408315048,
-    "width": 688.85307961607407,
-    "tabOrder": 10000
+    "height": 261.67800617205967,
+    "width": 703.72164371695146,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "tableEx",
@@ -112,10 +112,10 @@
                     "Entity": "MyMeasures"
                   }
                 },
-                "Property": "Stock Status"
+                "Property": "Total Stock"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -436,76 +436,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "e34a5e612cd52a3461fc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "ProductName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "b64f7ebb470eab5e3a74",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "CategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "26b651fcae61aa24e5b3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Stock Status"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f586eca2e20f90e3f499",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Days of Supply"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "b7c790e56dde1b9e105b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Needs Reorder"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

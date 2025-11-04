@@ -10,20 +10,27 @@ DEFINE
         )
     // Employees by gender
     MEASURE MyMeasures[Male Employees] =
-        CALCULATE(
-            [Total Employees],
-            DimEmployee[Gender] = "M"
+           CALCULATE(
+            IF([Total Employees]== BLANK(),
+                0,
+                [Total Employees] 
+            ),
+            DimEmployee[Gender] = "Male"
         )
     MEASURE MyMeasures[Female Employees] =
-        CALCULATE(
-            [Total Employees],
-            DimEmployee[Gender] = "F"
+           CALCULATE(
+            IF([Total Employees]== BLANK(),
+                0,
+                [Total Employees] 
+            ),
+            DimEmployee[Gender] = "Female"
         )
     // Gender ratio
     MEASURE MyMeasures[Gender Ratio] =
         DIVIDE([Male Employees], [Female Employees], 0)
     // Average tenure (years)
     MEASURE MyMeasures[Avg Tenure Years] =
+        VAR MaxDate = MAX(DimDate[Date])
         VAR TenureDays =
             CALCULATE(
                 AVERAGEX(
@@ -31,20 +38,30 @@ DEFINE
                         FactEmployeeHistory,
                         FactEmployeeHistory[IsCurrentEmployee] = 1
                     ),
-                    DATEDIFF(FactEmployeeHistory[StartDate], TODAY(), DAY)
+                    DATEDIFF(FactEmployeeHistory[StartDate], MaxDate, DAY)
                 )
             )
         RETURN
             TenureDays / 365.25
-    // Average employee age
+
+    // // Average employee age
     MEASURE MyMeasures[Avg Employee Age] =
+        VAR MaxDate = MAX(DimDate[Date])
+        RETURN
         AVERAGEX(
-            FILTER(
-                DimEmployee,
-                DimEmployee[BirthDate] <> BLANK()
+            SELECTCOLUMNS(
+                VALUES(FactEmployeeHistory[BusinessEntityID]), 
+                "BirthDate", LOOKUPVALUE(
+                                DimEmployee[BirthDate],
+                                DimEmployee[BusinessEntityID], 
+                                FactEmployeeHistory[BusinessEntityID]
+                            )
             ),
-            DATEDIFF(DimEmployee[BirthDate], TODAY(), DAY) / 365.25
-        )
+            DATEDIFF([BirthDate], MaxDate, DAY) / 365.25
+)
+
+
+        
     // Turnover rate (past year)
     MEASURE MyMeasures[Turnover Rate %] =
     VAR CurrentDate =

@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "36955dac570355348d6c",
   "position": {
-    "x": 594.487007464802,
-    "y": 221.38448455069451,
+    "x": 720.74394431554526,
+    "y": 13.685011600928075,
     "z": 3000,
-    "height": 230.67334404233205,
-    "width": 664.1534536520835,
-    "tabOrder": 1000
+    "height": 346.68696055684455,
+    "width": 559.56491879350347
   },
   "visual": {
     "visualType": "lineChart",
@@ -134,5 +133,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ca22ce84c3e5f270a947",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8608e0401aa54e205630",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

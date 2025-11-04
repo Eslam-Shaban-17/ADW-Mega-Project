@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 776.14570345713844,
-        "y": 0
+        "x": 0,
+        "y": 5.0563237507118322
       },
       "nodes": [
         {
           "location": {
-            "x": 294.78748629315731,
-            "y": 559.64735436545845
+            "x": 226.84313690541677,
+            "y": 569.12796125677107
           },
           "nodeIndex": "DimDate",
           "nodeLineageTag": "2eb28a20-fb3a-43aa-8742-73afb959543d",
@@ -19,25 +19,25 @@
             "height": 244.88791965212408,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 1298.69122413557,
-            "y": 621.48739852415054
+            "x": 857.84300368953291,
+            "y": 349.71000097318836
           },
           "nodeIndex": "DimDepartment",
           "nodeLineageTag": "c783f976-d2ae-43ba-b269-22461dc3d4e9",
           "size": {
             "height": 166.22091033696893,
-            "width": 234
+            "width": 208.71838162316635
           },
-          "zIndex": 13
+          "zIndex": 12
         },
         {
           "location": {
-            "x": 1452.9614525231002,
-            "y": 1.5801011485521066
+            "x": 1179.6039538235862,
+            "y": 0
           },
           "nodeIndex": "DimEmployee",
           "nodeLineageTag": "e980be61-b11e-455f-af67-992d85649770",
@@ -45,12 +45,12 @@
             "height": 207.21585290936372,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 610.91167181161245,
-            "y": 166.17937242294028
+            "x": 588.790255731883,
+            "y": 172.49977701714872
           },
           "nodeIndex": "DimProduct",
           "nodeLineageTag": "cc2f8301-61e1-4aff-8523-36be5854793b",
@@ -58,25 +58,25 @@
             "height": 258.91737013764515,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 10
         },
         {
           "location": {
-            "x": 1583.3517684792196,
-            "y": 611.64686346910992
+            "x": 1144.0836491817342,
+            "y": 610.06676232055793
           },
           "nodeIndex": "DimShift",
           "nodeLineageTag": "0ddb19e5-a5a8-4aa5-8216-45e0736c023f",
           "size": {
-            "height": 169.6795954057917,
+            "height": 145.97807817751004,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 7
         },
         {
           "location": {
             "x": 0,
-            "y": 356.08066410143613
+            "y": 357.66076524998823
           },
           "nodeIndex": "DimTerritory",
           "nodeLineageTag": "944aa096-ce0b-4bdc-82b6-e03dcd7e6927",
@@ -84,12 +84,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 935.41987994284659,
-            "y": 609.41329847394945
+            "x": 859.57502481234565,
+            "y": 645.75562489064782
           },
           "nodeIndex": "DimVendor",
           "nodeLineageTag": "5a5c245b-6846-44e7-b48a-99a4e4c9a630",
@@ -97,12 +97,12 @@
             "height": 183.11375401101043,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 17
         },
         {
           "location": {
-            "x": 1456.8631428219496,
-            "y": 271.94150778455679
+            "x": 1148.7434188542891,
+            "y": 283.00221582442146
           },
           "nodeIndex": "FactEmployeeHistory",
           "nodeLineageTag": "f5c63dbc-bca7-4d2d-9a53-089282db0616",
@@ -110,11 +110,11 @@
             "height": 274.56323675366741,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 16
         },
         {
           "location": {
-            "x": 860.952434949148,
+            "x": 837.25091772086648,
             "y": 0
           },
           "nodeIndex": "FactInventory",
@@ -123,12 +123,12 @@
             "height": 194.27656094922844,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 6
         },
         {
           "location": {
-            "x": 650.7498134023341,
-            "y": 485.426543079245
+            "x": 562.2641490834161,
+            "y": 504.38775686187023
           },
           "nodeIndex": "FactPurchasing",
           "nodeLineageTag": "715c8297-9d62-4de0-b360-44d139f98a64",
@@ -136,7 +136,7 @@
             "height": 303.16020229710409,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 8
         },
         {
           "location": {
@@ -149,20 +149,20 @@
             "height": 383.263367,
             "width": 234
           },
-          "zIndex": 10
+          "zIndex": 9
         },
         {
           "location": {
-            "x": 922.6867693071913,
-            "y": 282.8381055908269
+            "x": 1493.1032839345012,
+            "y": 0
           },
           "nodeIndex": "MyMeasures",
           "nodeLineageTag": "872739a5-9f66-454a-a5de-20fd3efe1846",
           "size": {
-            "height": 200,
-            "width": 234
+            "height": 184.19898851447897,
+            "width": 186.59696554343668
           },
-          "zIndex": 12
+          "zIndex": 11
         },
         {
           "location": {
@@ -175,33 +175,59 @@
             "height": 182.91737013764521,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 13
         },
         {
           "location": {
-            "x": 1192.6485780474704,
-            "y": 115.81570147964283
+            "x": 1505.5086054607875,
+            "y": 382.38447794960962
           },
           "nodeIndex": "CustomerCLV",
           "nodeLineageTag": "68405980-1d63-4770-827c-7cc7361818a5",
           "size": {
-            "height": 200,
-            "width": 234
+            "height": 145,
+            "width": 188.17706669198878
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1489.7075939752665,
+            "y": 218.52227613552964
+          },
+          "nodeIndex": "CustomerRFM",
+          "nodeLineageTag": "c3d43bc3-13de-4a9e-b103-c54f22fa4929",
+          "size": {
+            "height": 145,
+            "width": 200.81787588040584
           },
           "zIndex": 1
         },
         {
           "location": {
-            "x": 1867.3517684792196,
-            "y": 302.26763700879127
+            "x": 1508.8826800546221,
+            "y": 545.60321388581565
           },
-          "nodeIndex": "CustomerRFM",
-          "nodeLineageTag": "c3d43bc3-13de-4a9e-b103-c54f22fa4929",
+          "nodeIndex": "ProductInventory",
+          "nodeLineageTag": "f4c65d6b-1e52-49e0-9e9b-830c78baa21d",
           "size": {
-            "height": 433.8549699857117,
-            "width": 234
+            "height": 145,
+            "width": 188.177066691989
           },
-          "zIndex": 0
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 1514.6731848892605,
+            "y": 707.08954644575465
+          },
+          "nodeIndex": "ProfitSteps",
+          "nodeLineageTag": "fba2b3c4-a816-4726-86b5-6ad3e1daaf87",
+          "size": {
+            "height": 145,
+            "width": 175.53625750357196
+          },
+          "zIndex": 15
         }
       ],
       "name": "All tables",

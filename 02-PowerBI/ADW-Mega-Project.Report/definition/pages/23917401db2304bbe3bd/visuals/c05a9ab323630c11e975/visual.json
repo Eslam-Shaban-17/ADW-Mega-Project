@@ -6,7 +6,8 @@
     "y": 22.391275004724239,
     "z": 4000,
     "height": 111.13266804185017,
-    "width": 182.68383787701399
+    "width": 182.68383787701399,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -69,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7b3a5fb1a3d80e41d50e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Returning Customers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

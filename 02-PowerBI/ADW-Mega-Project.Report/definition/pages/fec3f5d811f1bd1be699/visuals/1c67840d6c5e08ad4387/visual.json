@@ -4,10 +4,10 @@
   "position": {
     "x": 397.69143310894947,
     "y": 0,
-    "z": 5,
+    "z": 5000,
     "height": 147.84068145314106,
     "width": 180.3656313728321,
-    "tabOrder": 5
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b0eb3df0daf253473ddd",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Potential Loyalists"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

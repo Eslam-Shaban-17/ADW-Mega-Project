@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "cc7353b4b543b98c127c",
   "position": {
-    "x": 771.98719668115086,
-    "y": 21.973070114264257,
+    "x": 625.73108427276838,
+    "y": 20.58325935107791,
     "z": 3000,
-    "height": 124.51406398083078,
-    "width": 191.89814566457449,
-    "tabOrder": 1000
+    "height": 124.87177339653931,
+    "width": 190.73820331998863
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +69,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c3b4e001ee9d08dc9288",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Turnover Rate %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

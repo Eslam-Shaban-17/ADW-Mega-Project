@@ -2,17 +2,51 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "eb01a20195ef74476c79",
   "position": {
-    "x": 35.156912182822808,
-    "y": 153.81149079984979,
+    "x": 785.94178546262674,
+    "y": 134.69058846911307,
     "z": 4000,
-    "height": 333.99066573681671,
-    "width": 427.74243155767749,
-    "tabOrder": 2000
+    "height": 362.62850741684287,
+    "width": 494.358863172349,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "shapeMap",
+    "visualType": "azureMap",
     "query": {
       "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTerritory"
+                    }
+                  },
+                  "Property": "Country"
+                }
+              },
+              "queryRef": "DimTerritory.Country",
+              "nativeQueryRef": "Country",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTerritory"
+                    }
+                  },
+                  "Property": "TerritoryName"
+                }
+              },
+              "queryRef": "DimTerritory.TerritoryName",
+              "nativeQueryRef": "TerritoryName",
+              "active": false
+            }
+          ]
+        },
         "Series": {
           "projections": [
             {
@@ -31,7 +65,7 @@
             }
           ]
         },
-        "Tooltips": {
+        "Size": {
           "projections": [
             {
               "field": {
@@ -41,26 +75,16 @@
                       "Entity": "MyMeasures"
                     }
                   },
-                  "Property": "Total Orders"
+                  "Property": "Total Revenue"
                 }
               },
-              "queryRef": "MyMeasures.Total Orders",
-              "nativeQueryRef": "Total Orders"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MyMeasures"
-                    }
-                  },
-                  "Property": "AOV"
-                }
-              },
-              "queryRef": "MyMeasures.AOV",
-              "nativeQueryRef": "AOV"
-            },
+              "queryRef": "MyMeasures.Total Revenue",
+              "nativeQueryRef": "Total Revenue"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
             {
               "field": {
                 "Aggregation": {
@@ -78,7 +102,37 @@
                 }
               },
               "queryRef": "CountNonNull(DimCustomer.CustomerID)",
-              "nativeQueryRef": "Count of CustomerID"
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "MyMeasures.Total Orders",
+              "nativeQueryRef": "Orders",
+              "displayName": "Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MyMeasures"
+                    }
+                  },
+                  "Property": "AOV"
+                }
+              },
+              "queryRef": "MyMeasures.AOV",
+              "nativeQueryRef": "AOV"
             }
           ]
         },
@@ -103,77 +157,142 @@
       }
     },
     "objects": {
-      "shape": [
+      "dataPoint": [
+        {
+          "properties": {}
+        }
+      ],
+      "mapControls": [
         {
           "properties": {
-            "map": {
-              "geoJson": {
-                "type": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'shared'"
-                    }
-                  }
-                },
-                "name": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'usa.states.topo'"
-                    }
-                  }
-                },
-                "content": {
-                  "expr": {
-                    "ResourcePackageItem": {
-                      "PackageName": "SharedResources",
-                      "PackageType": 2,
-                      "ItemName": "usa.states.topo"
-                    }
-                  }
+            "defaultStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'grayscale_light'"
                 }
               }
             },
-            "projectionEnum": {
+            "showStylePicker": {
               "expr": {
                 "Literal": {
-                  "Value": "'albersUsa'"
+                  "Value": "false"
+                }
+              }
+            },
+            "showNavigationControls": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showSelectionControl": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
           }
         }
       ],
-      "dataPoint": [
+      "categoryLabels": [
         {
           "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbleLayer": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "bubbleRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            },
+            "minBubbleRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            },
+            "maxRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "21L"
+                }
+              }
+            },
+            "bubbleStrokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
+                }
+              }
+            },
+            "autoStrokeColor": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "layerPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "filledMap": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "mapTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "40L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Regional KPIs'"
                 }
               }
             }
@@ -182,5 +301,112 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d48923d5228a8d62b609",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "AOV"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6c09e68900193e42cadf",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "24280df761ac10672cfe",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ab1c85f6bb5c9339995e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "TerritoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "54337368477574bc199e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "93d6e3a02120dee48c87",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCustomer"
+                  }
+                },
+                "Property": "CustomerID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d3ec72856e6a549565a5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Orders"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

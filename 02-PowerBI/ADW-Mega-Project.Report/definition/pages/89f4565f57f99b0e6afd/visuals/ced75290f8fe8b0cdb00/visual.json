@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "ced75290f8fe8b0cdb00",
   "position": {
-    "x": 1041.7638701303256,
-    "y": 357.7920050516567,
-    "z": 8000,
-    "height": 127.88549578151584,
-    "width": 224.15884653838731
+    "x": 1024.5359224702677,
+    "y": 144.88386782407824,
+    "z": 7000,
+    "height": 295.68136290628212,
+    "width": 248.372344841277,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "gauge",
@@ -51,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "518fda6d763efc87e9ad",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Inventory Turnover"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "9c2d712fac9242e97566",
   "position": {
-    "x": 36.960170363285265,
-    "y": 161.14634278392376,
+    "x": 0,
+    "y": 143.40546100954683,
     "z": 5000,
-    "height": 217.32580173611737,
-    "width": 387.34258540722959,
-    "tabOrder": 9000
+    "height": 297.15976972081353,
+    "width": 388.820992221761,
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "columnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -71,37 +71,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a2951a5dc056f9420a9a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "CategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "7906052807126ea55146",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Inventory Value"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 231.86400154703514,
     "width": 509.81277358789094,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "columnChart",
@@ -116,84 +116,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9feb6756d391437915b1",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimCustomer"
-                  }
-                },
-                "Property": "CustomerID"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "72bb4dbdf3f0888cb794",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Returning Customers"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e3f0fe579f2ec8bbd266",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "Quarter"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f3ac001a6a3d20aca6dc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "MonthName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fe29a12ffe4833eeced1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "New Customers"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -7,10 +7,10 @@
     "z": 11000,
     "height": 304.63223839595304,
     "width": 599.658955761403,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "map",
+    "visualType": "azureMap",
     "query": {
       "queryState": {
         "Category": {
@@ -23,12 +23,27 @@
                       "Entity": "DimTerritory"
                     }
                   },
-                  "Property": "Region"
+                  "Property": "Country"
                 }
               },
-              "queryRef": "DimTerritory.Region",
-              "nativeQueryRef": "Region",
+              "queryRef": "DimTerritory.Country",
+              "nativeQueryRef": "Country",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTerritory"
+                    }
+                  },
+                  "Property": "TerritoryName"
+                }
+              },
+              "queryRef": "DimTerritory.TerritoryName",
+              "nativeQueryRef": "TerritoryName",
+              "active": false
             }
           ]
         },
@@ -42,11 +57,11 @@
                       "Entity": "DimTerritory"
                     }
                   },
-                  "Property": "TerritoryName"
+                  "Property": "Region"
                 }
               },
-              "queryRef": "DimTerritory.TerritoryName",
-              "nativeQueryRef": "TerritoryName"
+              "queryRef": "DimTerritory.Region",
+              "nativeQueryRef": "Region"
             }
           ]
         },
@@ -72,76 +87,6 @@
       }
     },
     "objects": {
-      "dataPoint": [
-        {
-          "properties": {
-            "fillRule": {
-              "linearGradient2": {
-                "min": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'minColor'"
-                      }
-                    }
-                  }
-                },
-                "max": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
-                    }
-                  }
-                },
-                "nullColoringStrategy": {
-                  "strategy": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'asZero'"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "mapStyles": [
-        {
-          "properties": {
-            "mapTheme": {
-              "expr": {
-                "Literal": {
-                  "Value": "'grayscale'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "bubbles": [
-        {
-          "properties": {
-            "markerRangeType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'auto'"
-                }
-              }
-            },
-            "bubbleSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "53L"
-                }
-              }
-            }
-          }
-        }
-      ],
       "categoryLabels": [
         {
           "properties": {
@@ -154,8 +99,195 @@
             }
           }
         }
+      ],
+      "mapControls": [
+        {
+          "properties": {
+            "defaultStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'grayscale_light'"
+                }
+              }
+            },
+            "showStylePicker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showNavigationControls": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showSelectionControl": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbleLayer": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "maxRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "16L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f7c75bb75e58533673e3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "56741ff05799aa6eb1d6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "TerritoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "19f13d5c82fb5035af4b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7708bea543f6174f220e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

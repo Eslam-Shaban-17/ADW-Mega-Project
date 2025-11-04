@@ -6,8 +6,7 @@
     "y": 158.20654229796725,
     "z": 5000,
     "height": 270.74521671610887,
-    "width": 588.78929659346568,
-    "tabOrder": 1000
+    "width": 588.78929659346568
   },
   "visual": {
     "visualType": "areaChart",
@@ -89,51 +88,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "67f57085b22f9ba0e33d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9d3741e47b1066295c3b",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "CategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4151a7db0904d8f2ad9f",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Revenue"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

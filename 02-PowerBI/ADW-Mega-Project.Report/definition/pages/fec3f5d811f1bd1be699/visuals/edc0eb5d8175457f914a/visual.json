@@ -4,10 +4,10 @@
   "position": {
     "x": 739.20340726570532,
     "y": 170.01678367111222,
-    "z": 8,
+    "z": 8000,
     "height": 239.50190395408853,
     "width": 523.35601234411934,
-    "tabOrder": 8
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "donutChart",
@@ -81,42 +81,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ab73257d34323d713ee6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "RFM Segment"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "712873ac2b389a2e3844",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "CustomerRFM"
-                  }
-                },
-                "Property": "CustomerID"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

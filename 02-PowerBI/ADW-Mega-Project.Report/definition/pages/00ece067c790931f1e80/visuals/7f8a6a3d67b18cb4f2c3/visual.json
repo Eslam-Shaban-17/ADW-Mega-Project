@@ -6,7 +6,8 @@
     "y": 0,
     "z": 2000,
     "height": 136.2330347084384,
-    "width": 284.18504014448439
+    "width": 284.18504014448439,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -69,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b56d7e27850a0df48f17",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Purchase Order Value"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

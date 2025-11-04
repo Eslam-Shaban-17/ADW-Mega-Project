@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 259.34906782358166,
     "width": 761.58059598988257,
-    "tabOrder": 3000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -322,76 +322,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "d1e72453b5ee9546e5e4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "CategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "d6aab78de27e03167e89",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProduct"
-              }
-            },
-            "Property": "SubcategoryName"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "211120c636a86c3f41b0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Revenue"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7d753782f90242b4694a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Product Revenue %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fa1d04a575cf60af7519",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Product Revenue Rank"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

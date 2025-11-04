@@ -3,11 +3,11 @@
   "name": "77358ee54e0524f068d8",
   "position": {
     "x": 0,
-    "y": 0,
+    "y": 13.685011600928075,
     "z": 0,
-    "height": 249.2510630256071,
-    "width": 735.36804308797127,
-    "tabOrder": 3000
+    "height": 346.68696055684455,
+    "width": 705.53837587006956,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "decompositionTreeVisual",
@@ -257,5 +257,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "79d4468a554e0b9955f4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6a88f35986f95dbc2206",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2fb9b5bf06d8a98e24bd",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "CategoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2c9f31a407128dc0658c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "ProductName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

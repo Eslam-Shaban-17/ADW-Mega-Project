@@ -43,3 +43,7 @@ relationship AutoDetected_11ddfee0-0e2d-4271-a1ce-7b4e3c5b2a42
 	fromColumn: DimCustomer.TerritoryID
 	toColumn: DimTerritory.TerritoryID
 
+relationship 059c4320-b51e-0559-5a7f-572cd40c2354
+	fromColumn: FactPurchasing.OrderDate
+	toColumn: DimDate.Date
+

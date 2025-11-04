@@ -6,7 +6,8 @@
     "y": 159.66793596939235,
     "z": 0,
     "height": 560.31618270740466,
-    "width": 715.54889823320275
+    "width": 715.54889823320275,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -175,70 +176,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "7e76ad29beab49293fe3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "Frequency"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "ace5fa664169d9575095",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "Monetary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "83166594b0aae3df97a1",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "CustomerRFM"
-                  }
-                },
-                "Property": "RecencyDays"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1b9111377a606a9e1926",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "RFM Segment"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

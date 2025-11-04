@@ -2,21 +2,50 @@
 -- Define: Purchasing Metrics
 -- =============================================
 DEFINE
+    //First version
     MEASURE MyMeasures[Total Purchases] =
-        SUMX(
+           COALESCE( //keep the BLANKs and simply format them as 0: vendors doesn't purchse
+            SUMX(
             VALUES(FactPurchasing[PurchaseOrderID]),
             CALCULATE(MAX(FactPurchasing[TotalDue]))
+        ), 0
         )
+    //Second version
+    // MEASURE MyMeasures[Total Purchases2] =
+    // SUMX(
+    //     SUMMARIZECOLUMNS(
+    //         FactPurchasing[PurchaseOrderID],
+    //         "Total Due", MAX(FactPurchasing[TotalDue])
+    //     ),
+    //     [Total Due]
+    // )
+
 
     MEASURE MyMeasures[Total Purchase Orders] =
-        DISTINCTCOUNT(FactPurchasing[PurchaseOrderID])
+            COALESCE(
+                DISTINCTCOUNT(FactPurchasing[PurchaseOrderID]),
+                0
+            )
 
     MEASURE MyMeasures[Avg Purchase Order Value] =
-        DIVIDE([Total Purchases], [Total Purchase Orders], 0)
+            COALESCE(
+                DIVIDE([Total Purchases], [Total Purchase Orders], 0),
+                0
+        )
 
     MEASURE MyMeasures[Total Purchase Quantity] =
-        SUM(FactPurchasing[OrderQty])
-
+          COALESCE(
+            SUM(FactPurchasing[OrderQty]),
+            0
+        )
+    MEASURE MyMeasures[Vendors Purchase Rank] = 
+    RANKX(
+        ALL(DimVendor[VendorName]),
+        [Total Purchases],
+        ,
+        DESC,
+        Dense
+    )
 -- =============================================
 -- Evaluate: Purchasing Performance by Vendor
 -- =============================================
@@ -24,8 +53,10 @@ EVALUATE
 SUMMARIZECOLUMNS(
     DimVendor[VendorName],
     "Total Purchases", [Total Purchases],
+    // "Total Purchases2", [Total Purchases2],
     "Total Purchase Orders", [Total Purchase Orders],
     "Avg Purchase Order Value", [Avg Purchase Order Value],
-    "Total Purchase Quantity", [Total Purchase Quantity]
+    "Total Purchase Quantity", [Total Purchase Quantity],
+    "Vendors Purchase Rank", [Vendors Purchase Rank]
 )
-ORDER BY [Total Purchases] DESC
+ORDER BY [Vendors Purchase Rank] ASC

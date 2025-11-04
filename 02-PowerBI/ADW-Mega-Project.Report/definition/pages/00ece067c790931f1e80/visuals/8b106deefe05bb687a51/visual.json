@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8b106deefe05bb687a51",
   "position": {
-    "x": 659.50902390626482,
-    "y": 199.71047907020693,
+    "x": 0,
+    "y": 158.13791183294663,
     "z": 7000,
-    "height": 258.53992251724463,
-    "width": 588.294434470377,
-    "tabOrder": 5000
+    "height": 258.49466357308586,
+    "width": 588.45549883990714,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -23,11 +23,11 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "MonthNum"
+                  "Property": "MonthName"
                 }
               },
-              "queryRef": "DimDate.MonthNum",
-              "nativeQueryRef": "MonthNum",
+              "queryRef": "DimDate.MonthName",
+              "nativeQueryRef": "MonthName",
               "active": true
             }
           ]
@@ -47,20 +47,6 @@
               },
               "queryRef": "MyMeasures.Total Purchases",
               "nativeQueryRef": "Total Purchases"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "MyMeasures"
-                    }
-                  },
-                  "Property": "Total COGS"
-                }
-              },
-              "queryRef": "MyMeasures.Total COGS",
-              "nativeQueryRef": "Total COGS"
             }
           ]
         },
@@ -82,26 +68,69 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "MyMeasures"
-                  }
-                },
-                "Property": "Total Purchases"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Purchase vs Sales'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "25a578684d4b305ebe49",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchases"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d13f86578f96e2500299",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "13ed0071eeebba89cee5",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "MonthName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

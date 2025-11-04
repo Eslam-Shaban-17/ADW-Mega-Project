@@ -6,8 +6,7 @@
     "y": 23.042385246910325,
     "z": 5000,
     "height": 112.33162807868783,
-    "width": 224.66325615737566,
-    "tabOrder": 1000
+    "width": 224.66325615737566
   },
   "visual": {
     "visualType": "tableEx",
@@ -65,37 +64,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "658a9d7c2a6ee31578f9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2939d08d127f95386980",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Customer Retention Rate"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

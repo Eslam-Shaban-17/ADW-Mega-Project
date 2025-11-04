@@ -3,10 +3,11 @@
   "name": "8c580988dfadbadd5fbc",
   "position": {
     "x": 0,
-    "y": 479.92440706793917,
-    "z": 2000,
-    "height": 239.96220353396959,
-    "width": 1188.974014929604
+    "y": 381.65976798143851,
+    "z": 4500,
+    "height": 337.56361948955919,
+    "width": 1280.3088631090486,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineChart",
@@ -22,12 +23,57 @@
                       "Entity": "DimDate"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Year"
                 }
               },
-              "queryRef": "DimDate.Date",
-              "nativeQueryRef": "Date",
+              "queryRef": "DimDate.Year",
+              "nativeQueryRef": "Year",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "QuarterName"
+                }
+              },
+              "queryRef": "DimDate.QuarterName",
+              "nativeQueryRef": "QuarterName",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "MonthName"
+                }
+              },
+              "queryRef": "DimDate.MonthName",
+              "nativeQueryRef": "MonthName",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDate"
+                    }
+                  },
+                  "Property": "Day"
+                }
+              },
+              "queryRef": "DimDate.Day",
+              "nativeQueryRef": "Day",
+              "active": false
             }
           ]
         },
@@ -49,24 +95,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimDate"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
@@ -122,8 +150,138 @@
             "id": "1"
           }
         }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "lineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "strokeLineJoin": {
+              "expr": {
+                "Literal": {
+                  "Value": "'round'"
+                }
+              }
+            },
+            "lineChartType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'smooth'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "error": [
+        {
+          "properties": {
+            "enabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Total Revenue"
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d5fb4652e2186d75a93e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eab08c689ef3ca865706",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Year"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "42e50ff35cf5a1b5f003",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "QuarterName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "067c510d97f8bee77556",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "Day"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cf5ac57effad73d6224d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDate"
+              }
+            },
+            "Property": "MonthName"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "204754fe59d4e3586b00",
   "position": {
-    "x": 858.414605797257,
-    "y": 432.13704558053035,
+    "x": 389.27060183930479,
+    "y": 519.52084123800751,
     "z": 6000,
-    "height": 285.64991148543533,
-    "width": 421.88294619387369,
-    "tabOrder": 4000
+    "height": 199.81570816846443,
+    "width": 377.42967098487725,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -85,5 +85,51 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a819e6cdd7b6ed8ac6a4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c9ff1e19d68af29554b3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b55cecd99ffa7aed08c9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Revenue LY"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

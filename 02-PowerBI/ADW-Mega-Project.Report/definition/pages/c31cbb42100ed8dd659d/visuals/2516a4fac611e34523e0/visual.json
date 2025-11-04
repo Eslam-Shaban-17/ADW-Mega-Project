@@ -7,7 +7,7 @@
     "z": 0,
     "height": 120.70091736682394,
     "width": 204.04202697725,
-    "tabOrder": 4000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4f6a042f2cc801d7036e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Products (All)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

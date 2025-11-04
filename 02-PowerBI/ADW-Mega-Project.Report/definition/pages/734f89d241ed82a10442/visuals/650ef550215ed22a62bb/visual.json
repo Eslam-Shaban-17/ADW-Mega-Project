@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "650ef550215ed22a62bb",
   "position": {
-    "x": 35.172686210864377,
-    "y": 11.255259587476601,
+    "x": 50.77203973265884,
+    "y": 10.977738320574884,
     "z": 0,
-    "height": 102.70424373572398,
-    "width": 198.3739502292751,
-    "tabOrder": 9000
+    "height": 102.91629675538954,
+    "width": 197.59928977034792,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MyMeasures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "nativeQueryRef": "Region Revenue",
+              "displayName": "Region Revenue"
             }
           ]
         }
@@ -51,6 +52,42 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "800d5d344e5684157bdb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

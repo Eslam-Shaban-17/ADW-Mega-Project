@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 136.2330347084384,
     "width": 284.18504014448439,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d4ee3778c01d8fc032df",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchase Orders"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

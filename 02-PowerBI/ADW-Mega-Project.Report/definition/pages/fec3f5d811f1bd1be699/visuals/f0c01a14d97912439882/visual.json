@@ -4,10 +4,10 @@
   "position": {
     "x": 739.20340726570532,
     "y": 409.51868762520076,
-    "z": 7,
+    "z": 7000,
     "height": 310.46543105159623,
     "width": 523.35601234411934,
-    "tabOrder": 7
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -105,93 +105,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "489d36e96428ab89b757",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "RFM Segment"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "09a0b20d56309913416f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "CustomerID"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "c3c038a5fed05f827be4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "Monetary"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1e25af1b70f89e76a5c3",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "Frequency"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6964afc818cae36449b0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "RFM Score"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "7faf227c151e43da39da",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerRFM"
-              }
-            },
-            "Property": "RecencyDays"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

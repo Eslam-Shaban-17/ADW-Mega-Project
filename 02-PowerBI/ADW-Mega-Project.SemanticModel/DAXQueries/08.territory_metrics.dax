@@ -19,6 +19,17 @@
 	CALCULATE([Total Revenue], ALL(DimTerritory)),
 	0
 	)
+	//Regional Growth %: You can calculate YoY (Year-over-Year) Growth like this
+	MEASURE MyMeasures[Regional Growth %] =
+		VAR PrevRevenue =
+			CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+		RETURN
+		DIVIDE(
+			[Total Revenue] - PrevRevenue,
+			PrevRevenue,
+			0
+		)
+
 -- =============================================
 -- Evaluate: Territory Revenue Performance
 -- =============================================
@@ -27,6 +38,7 @@ SUMMARIZECOLUMNS(
     DimTerritory[TerritoryName],
     "Total Revenue", [Total Revenue],
     "Territory Revenue %", [Territory Revenue %],
-    "Territory Revenue Rank", [Territory Revenue Rank]
+    "Territory Revenue Rank", [Territory Revenue Rank],
+    "Regional Growth %", [Regional Growth %]
 )
 ORDER BY [Total Revenue] DESC

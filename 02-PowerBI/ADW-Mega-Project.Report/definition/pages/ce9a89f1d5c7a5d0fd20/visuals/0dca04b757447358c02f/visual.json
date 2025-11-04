@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "0dca04b757447358c02f",
   "position": {
-    "x": 272.46606941687679,
-    "y": 23.437941455215206,
+    "x": 214.06589725121026,
+    "y": 20.58325935107791,
     "z": 1000,
-    "height": 124.51406398083078,
-    "width": 191.89814566457449,
-    "tabOrder": 9000
+    "height": 124.87177339653931,
+    "width": 190.73820331998863,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "46e6b783171be1822380",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Avg Tenure Years"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

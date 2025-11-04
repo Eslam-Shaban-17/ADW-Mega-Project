@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "831db50666fc6c9bbe28",
   "position": {
-    "x": 35.156912182822808,
-    "y": 498.05625592332314,
+    "x": 785.94178546262674,
+    "y": 519.52084123800751,
     "z": 5000,
-    "height": 222.66044382454444,
-    "width": 479.01292849096075,
-    "tabOrder": 3000
+    "height": 199.81570816846443,
+    "width": 494.358863172349,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -15,6 +15,21 @@
       "queryState": {
         "Rows": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTerritory"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "DimTerritory.Region",
+              "nativeQueryRef": "Region",
+              "active": true
+            },
             {
               "field": {
                 "Column": {
@@ -61,7 +76,8 @@
                 }
               },
               "queryRef": "MyMeasures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
             },
             {
               "field": {
@@ -75,7 +91,8 @@
                 }
               },
               "queryRef": "MyMeasures.Total Orders",
-              "nativeQueryRef": "Total Orders"
+              "nativeQueryRef": "Orders",
+              "displayName": "Orders"
             },
             {
               "field": {
@@ -108,10 +125,28 @@
                 }
               },
               "queryRef": "CountNonNull(DimCustomer.CustomerID)",
-              "nativeQueryRef": "Count of CustomerID"
+              "nativeQueryRef": "Customers",
+              "displayName": "Customers"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MyMeasures"
+                  }
+                },
+                "Property": "Total Revenue"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "expansionStates": [
@@ -120,6 +155,25 @@
           "Rows"
         ],
         "levels": [
+          {
+            "queryRefs": [
+              "DimTerritory.Region"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTerritory"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              }
+            ],
+            "isPinned": true
+          },
           {
             "queryRefs": [
               "DimTerritory.Country"
@@ -147,9 +201,139 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Europe'"
+                  }
+                }
+              ],
+              "isToggled": true
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'North America'"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "663c9ead93446b57fdb1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Country"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1a982bb4cf582ebf1be4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "TerritoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dc6a075cd295c20e2b3e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Revenue"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f34deca0b48f2a5a9906",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0f7e198e0c8b3c696707",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "AOV"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "20d7dff86ed43b8f2e90",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCustomer"
+                  }
+                },
+                "Property": "CustomerID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "44052f36b908d6a2e2bb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "Region"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

@@ -73,14 +73,38 @@ table DimEmployee
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Age Ranges' = ```
+			
+			    VAR MaxDate = MAX(DimDate[Date])
+			    VAR Ages = DATEDIFF(DimEmployee[BirthDate], MaxDate, DAY) / 365.25
+			    RETURN 
+			      SWITCH(
+			        TRUE(),
+			        ISBLANK(Ages), Blank(),
+			        Ages >= 20 && Ages < 30, "20-30",
+			        Ages < 40, "31-40",
+			        Ages < 50, "41-50",
+			        Ages < 60, "51-60",
+			        "60+"
+			    )
+			```
+		lineageTag: ea4216e1-d25a-4f7b-9d5d-74edea520627
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimEmployee = m
 		mode: import
 		source =
 				let
 				    Source = Sql.Database(".", "AdventureWorks2022"),
-				    dbo_vw_DimEmployee = Source{[Schema="dbo",Item="vw_DimEmployee"]}[Data]
+				    dbo_vw_DimEmployee = Source{[Schema="dbo",Item="vw_DimEmployee"]}[Data],
+				    #"Replaced Value1" = Table.ReplaceValue(dbo_vw_DimEmployee,"M","Male",Replacer.ReplaceText,{"Gender"}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Replaced Value1","F","Female",Replacer.ReplaceText,{"Gender"}),
+				    #"Replaced Value2" = Table.ReplaceValue(#"Replaced Value","M","Married",Replacer.ReplaceText,{"MaritalStatus"}),
+				    #"Replaced Value3" = Table.ReplaceValue(#"Replaced Value2","S","Single",Replacer.ReplaceText,{"MaritalStatus"})
 				in
-				    dbo_vw_DimEmployee
+				    #"Replaced Value3"
 
 	annotation PBI_NavigationStepName = Navigation
 

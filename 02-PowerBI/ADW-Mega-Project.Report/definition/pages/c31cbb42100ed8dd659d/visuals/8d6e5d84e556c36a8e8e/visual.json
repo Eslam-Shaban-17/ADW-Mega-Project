@@ -2,11 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "8d6e5d84e556c36a8e8e",
   "position": {
-    "x": 379.34574029573236,
-    "y": 148.00231534265316,
+    "x": 20.345212964112751,
+    "y": 148.22940873853577,
     "z": 4000,
-    "height": 300.31537773412145,
-    "width": 464.12376558909682
+    "height": 300.81850596938142,
+    "width": 590.01117595926985,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -250,20 +251,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "430c8578e6babdd21952",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Total Revenue"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

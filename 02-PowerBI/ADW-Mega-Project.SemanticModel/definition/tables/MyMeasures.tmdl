@@ -334,9 +334,11 @@ table MyMeasures
 
 	measure 'Total Purchases' = ```
 			
-			        SUMX(
+			           COALESCE( //keep the BLANKs and simply format them as 0: vendors doesn't purchse
+			            SUMX(
 			            VALUES(FactPurchasing[PurchaseOrderID]),
 			            CALCULATE(MAX(FactPurchasing[TotalDue]))
+			        ), 0
 			        )
 			```
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
@@ -347,7 +349,10 @@ table MyMeasures
 
 	measure 'Total Purchase Orders' = ```
 			
-			        DISTINCTCOUNT(FactPurchasing[PurchaseOrderID])
+			            COALESCE(
+			                DISTINCTCOUNT(FactPurchasing[PurchaseOrderID]),
+			                0
+			            )
 			```
 		formatString: 0
 		displayFolder: 09.Purchasing metrics
@@ -355,7 +360,10 @@ table MyMeasures
 
 	measure 'Avg Purchase Order Value' = ```
 			
-			        DIVIDE([Total Purchases], [Total Purchase Orders], 0)
+			            COALESCE(
+			                DIVIDE([Total Purchases], [Total Purchase Orders], 0),
+			                0
+			        )
 			```
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 09.Purchasing metrics
@@ -365,7 +373,10 @@ table MyMeasures
 
 	measure 'Total Purchase Quantity' = ```
 			
-			        SUM(FactPurchasing[OrderQty])
+			          COALESCE(
+			            SUM(FactPurchasing[OrderQty]),
+			            0
+			        )
 			```
 		formatString: 0
 		displayFolder: 09.Purchasing metrics
@@ -413,9 +424,12 @@ table MyMeasures
 
 	measure 'Male Employees' = ```
 			
-			        CALCULATE(
-			            [Total Employees],
-			            DimEmployee[Gender] = "M"
+			           CALCULATE(
+			            IF([Total Employees]== BLANK(),
+			                0,
+			                [Total Employees] 
+			            ),
+			            DimEmployee[Gender] = "Male"
 			        )
 			```
 		formatString: 0
@@ -424,9 +438,12 @@ table MyMeasures
 
 	measure 'Female Employees' = ```
 			
-			        CALCULATE(
-			            [Total Employees],
-			            DimEmployee[Gender] = "F"
+			           CALCULATE(
+			            IF([Total Employees]== BLANK(),
+			                0,
+			                [Total Employees] 
+			            ),
+			            DimEmployee[Gender] = "Female"
 			        )
 			```
 		formatString: 0
@@ -444,6 +461,7 @@ table MyMeasures
 
 	measure 'Avg Tenure Years' = ```
 			
+			        VAR MaxDate = MAX(DimDate[Date])
 			        VAR TenureDays =
 			            CALCULATE(
 			                AVERAGEX(
@@ -451,7 +469,7 @@ table MyMeasures
 			                        FactEmployeeHistory,
 			                        FactEmployeeHistory[IsCurrentEmployee] = 1
 			                    ),
-			                    DATEDIFF(FactEmployeeHistory[StartDate], TODAY(), DAY)
+			                    DATEDIFF(FactEmployeeHistory[StartDate], MaxDate, DAY)
 			                )
 			            )
 			        RETURN
@@ -464,13 +482,19 @@ table MyMeasures
 
 	measure 'Avg Employee Age' = ```
 			
+			        VAR MaxDate = MAX(DimDate[Date])
+			        RETURN
 			        AVERAGEX(
-			            FILTER(
-			                DimEmployee,
-			                DimEmployee[BirthDate] <> BLANK()
+			            SELECTCOLUMNS(
+			                VALUES(FactEmployeeHistory[BusinessEntityID]), 
+			                "BirthDate", LOOKUPVALUE(
+			                                DimEmployee[BirthDate],
+			                                DimEmployee[BusinessEntityID], 
+			                                FactEmployeeHistory[BusinessEntityID]
+			                            )
 			            ),
-			            DATEDIFF(DimEmployee[BirthDate], TODAY(), DAY) / 365.25
-			        )
+			            DATEDIFF([BirthDate], MaxDate, DAY) / 365.25
+			)
 			```
 		displayFolder: 11.Hr metrics
 		lineageTag: 3b0f715a-cac4-44a2-8417-f3af2da46c79
@@ -989,6 +1013,79 @@ table MyMeasures
 		formatString: 0
 		displayFolder: 05.Customer_segment_RFM
 		lineageTag: 3e4b53ee-1141-4317-8904-cb88cd69edad
+
+	measure 'Product Rank Bottom' = ```
+			
+			RANKX(
+			    ALL(DimProduct),
+			    [Gross Profit],
+			    ,
+			    ASC,
+			    DENSE
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 06.Product metrics
+		lineageTag: e99d9a94-b2c0-41bf-80a4-b18fae7c50d9
+
+	measure 'Product Rank Top' = ```
+			
+			RANKX(
+			    ALL(DimProduct),
+			    [Gross Profit],
+			    ,
+			    DESC,
+			    DENSE
+			)
+			
+			```
+		formatString: 0
+		displayFolder: 06.Product metrics
+		lineageTag: d9e64e4b-7652-4574-80c6-5a2278dab621
+
+	measure 'Top Bottom Group' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [Product Rank Top] <= 10, "🔼 Top 10 Products",
+			    [Product Rank Bottom] <= 10, "🔽 Bottom 10 Products",
+			    BLANK()
+			)
+			
+			```
+		displayFolder: 06.Product metrics
+		lineageTag: 1e4d7dbd-208a-4f37-86e2-7e045277ba4b
+
+	measure 'Regional Growth %' = ```
+			
+					VAR PrevRevenue =
+						CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+					RETURN
+					DIVIDE(
+						[Total Revenue] - PrevRevenue,
+						PrevRevenue,
+						0
+					)
+			```
+		displayFolder: 07.Territory metrics
+		lineageTag: 538fc6cf-79f0-4c05-9bc9-e2611574238e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Vendors Purchase Rank' = ```
+			
+			    RANKX(
+			        ALL(DimVendor[VendorName]),
+			        [Total Purchases],
+			        ,
+			        DESC,
+			        Dense
+			    )
+			```
+		formatString: 0
+		displayFolder: 09.Purchasing metrics
+		lineageTag: 8aae0ec1-c62e-4192-ba42-e4916e54b405
 
 	column Value
 		lineageTag: 48804b47-f8c2-4fc5-818f-ca109e79ae1b

@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 2,
+    "z": 2000,
     "height": 147.84068145314106,
     "width": 180.3656313728321,
-    "tabOrder": 2
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -52,23 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "993c7607577ca8428959",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Champions"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

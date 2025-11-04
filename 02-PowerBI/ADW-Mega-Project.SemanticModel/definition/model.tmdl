@@ -27,6 +27,8 @@ ref table MyMeasures
 ref table DimCustomer
 ref table CustomerCLV
 ref table CustomerRFM
+ref table ProductInventory
+ref table ProfitSteps
 
 ref cultureInfo en-US
 

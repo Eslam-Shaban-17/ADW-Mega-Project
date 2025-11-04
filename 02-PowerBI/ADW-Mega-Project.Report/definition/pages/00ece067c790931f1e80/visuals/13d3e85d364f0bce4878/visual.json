@@ -6,8 +6,7 @@
     "y": 0,
     "z": 3000,
     "height": 136.2330347084384,
-    "width": 284.18504014448439,
-    "tabOrder": 1000
+    "width": 284.18504014448439
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +69,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "170c36062580091ac38e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Total Purchase Quantity"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

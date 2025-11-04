@@ -2,58 +2,99 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "bf3a7e3b435c5a89cf46",
   "position": {
-    "x": 633.9643880131996,
-    "y": 187.99376873984491,
-    "z": 10001,
-    "height": 244.25467763279119,
-    "width": 277.18789259451586,
-    "tabOrder": 10001
+    "x": 724.41933912039121,
+    "y": 452.39248524661167,
+    "z": 10000,
+    "height": 267.59163343018531,
+    "width": 548.48892819115338,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "donutChart",
     "query": {
       "queryState": {
-        "Tooltips": {
+        "Category": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "MyMeasures"
+                      "Entity": "ProductInventory"
                     }
                   },
-                  "Property": "Stock Status"
+                  "Property": "StockStatus"
                 }
               },
-              "queryRef": "MyMeasures.Stock Status",
-              "nativeQueryRef": "Stock Status"
+              "queryRef": "ProductInventory.StockStatus",
+              "nativeQueryRef": "StockStatus",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "ProductInventory"
+                        }
+                      },
+                      "Property": "ProductID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(ProductInventory.ProductID)",
+              "nativeQueryRef": "Count of ProductID"
             }
           ]
         }
       },
       "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "ProductInventory"
+                      }
+                    },
+                    "Property": "ProductID"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "a6f79ea9662179951a25",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BottomCenter'"
+                }
               }
-            },
-            "Property": "Stock Status"
+            }
           }
-        },
-        "type": "Advanced"
-      }
-    ]
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

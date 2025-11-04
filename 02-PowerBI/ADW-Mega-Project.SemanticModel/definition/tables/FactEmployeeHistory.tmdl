@@ -14,7 +14,6 @@ table FactEmployeeHistory
 
 	column DepartmentID
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 073ba4f4-fc90-4699-b7d0-18e4b827d358
 		summarizeBy: none
@@ -64,6 +63,43 @@ table FactEmployeeHistory
 		lineageTag: 5d442554-3281-4e38-a38b-ee1641827c9e
 		summarizeBy: sum
 		sourceColumn: IsCurrentEmployee
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tenure (Years)' = ```
+			
+			VAR MaxDate = MAX(DimDate[Date])
+			    Return 
+			    DIVIDE(
+			        DATEDIFF(FactEmployeeHistory[StartDate], MaxDate, DAY),
+			        365.25,
+			        0
+			    )
+			
+			```
+		lineageTag: ad8706f9-462d-469b-a955-edba7b5920df
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tenure Range' = ```
+			
+			VAR T = FactEmployeeHistory[Tenure (Years)]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(T), BLANK(),
+			    T < 1, "0–1 yr",
+			    T < 3, "1–3 yrs",
+			    T < 5, "3–5 yrs",
+			    "5+ yrs"
+			)
+			
+			```
+		lineageTag: 5c1d597a-dc98-4efa-beb9-fe23eae0d801
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "393e543a5546aff96259",
   "position": {
-    "x": 362.98212169612037,
-    "y": 12.662167035911176,
+    "x": 273.07124072430025,
+    "y": 10.977738320574884,
     "z": 1000,
-    "height": 102.70424373572398,
-    "width": 198.3739502292751,
-    "tabOrder": 10000
+    "height": 102.91629675538954,
+    "width": 197.59928977034792,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "MyMeasures.Territory Revenue Rank",
-              "nativeQueryRef": "Territory Revenue Rank"
+              "nativeQueryRef": "Territory Rank",
+              "displayName": "Territory Rank"
             }
           ]
         }
@@ -51,6 +52,64 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "25D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "21af41c22d120c5a6b69",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Territory Revenue Rank"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

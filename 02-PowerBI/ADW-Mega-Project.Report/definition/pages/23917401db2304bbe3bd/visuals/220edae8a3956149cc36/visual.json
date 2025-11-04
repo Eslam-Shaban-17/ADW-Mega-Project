@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 111.13266804185017,
     "width": 182.68383787701399,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b0e12c4e45900ef2b404",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Customer Activation Rate"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -18,7 +18,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: 21a3bf4f-f1f3-46c6-abe3-b7eb29d24a73
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Year
 
 		annotation SummarizationSetBy = Automatic
@@ -27,7 +27,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: e0b607fb-03b4-44f4-8155-34518a51e650
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Quarter
 
 		annotation SummarizationSetBy = Automatic
@@ -37,6 +37,9 @@ table DimDate
 		lineageTag: 959bea2d-398d-416f-a70f-6155a81a37bb
 		summarizeBy: none
 		sourceColumn: QuarterName
+		sortByColumn: Quarter
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -44,7 +47,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: 4e56f501-0586-4153-89ef-7c07b5a4dd1c
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: MonthNum
 
 		annotation SummarizationSetBy = Automatic
@@ -72,7 +75,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: c7692021-18b6-415b-aa95-7382e4f07a77
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Day
 
 		annotation SummarizationSetBy = Automatic
@@ -81,7 +84,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: f34b9a50-8186-4c40-80de-82ba48f19b79
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: DayOfWeek
 
 		annotation SummarizationSetBy = Automatic
@@ -106,7 +109,7 @@ table DimDate
 		dataType: int64
 		formatString: 0
 		lineageTag: 796b7bed-1082-4534-b74d-9f7aba2741da
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: YearMonth
 
 		annotation SummarizationSetBy = Automatic

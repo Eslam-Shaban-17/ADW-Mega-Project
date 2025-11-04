@@ -6190,16 +6190,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.452
 			          }
-			        },
-			        {
-			          "step": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
 			        }
 			      ]
 			    },
@@ -10639,6 +10629,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.485
 			          }
+			        },
+			        {
+			          "Net Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -10740,6 +10740,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Region Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14433,6 +14443,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.582
 			          }
+			        },
+			        {
+			          "Territory Rank": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14508,6 +14528,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Regional Market Share %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -15042,6 +15072,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Units Sold (Demand)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -16094,6 +16134,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "Stock on Hand (Supply)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -21948,9 +21998,3141 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "product_inventory": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product inventory": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ProductInventory": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "inventory": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "artifact inventory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "item inventory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "merchandise inventory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "produce inventory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "product portfolio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "portfolio": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "product list": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "product record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "product account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "product register": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.product_ID": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "ProductID"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product ID": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ProductID": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "product": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "product identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "product identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "product identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "product credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "artifact id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "item id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.product_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "ProductName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ProductName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "product": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "artifact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "product nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "product tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "item": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "merchandise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "produce": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "artifact name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "item name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.category_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "CategoryName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "category name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CategoryName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "category": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "category nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "category title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "category label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "category tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "type": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "classification name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.subcategory_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "SubcategoryName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "subcategory name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SubcategoryName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "subcategory": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "subcategory nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "subcategory title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "subcategory label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "subcategory tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.stock_qty": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "StockQty"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stock qty": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "StockQty": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "inventory qty": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.inventory_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "InventoryValue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "inventory value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "InventoryValue": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "inventory assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "inventory worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventory price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventory cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventory charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventory rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "inventory importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "inventory significance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "inventory usefulness": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "inventory consequence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "product_inventory.stock_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProductInventory",
+			          "ConceptualProperty": "StockStatus"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stock status": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "StockStatus": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "status": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "stock category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "stock importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "stock prestige": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "stock prominence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "prestige": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "prominence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "stock condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "stock class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "stock grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "my_measure.product_rank_bottom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MyMeasures",
+			          "ConceptualProperty": "Product Rank Bottom"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product rank bottom": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rank bottom": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "artifact rank bottom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "item rank bottom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "merchandise rank bottom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "produce rank bottom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "product rank extremity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "rank extremity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "product rank end": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "product rank foot": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "product rank limit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "rank end": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "my_measure.product_rank_top": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MyMeasures",
+			          "ConceptualProperty": "Product Rank Top"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "product rank top": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "rank top": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "product rank best": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "product rank first": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "product rank leading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "product rank maximum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "product rank peak": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "product rank upper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "rank best": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "rank first": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "rank leading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "rank maximum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "my_measure.top_bottom_group": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MyMeasures",
+			          "ConceptualProperty": "Top Bottom Group"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top bottom group": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "bottom group": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "top bottom category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "top bottom organization": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "bottom category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "bottom organization": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "top bottom bracket": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "top bottom class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "top bottom crew": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "top bottom team": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "bottom bracket": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "bottom class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "profit_step": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProfitSteps"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "profit step": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ProfitSteps": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "profit stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "profit phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "profit period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "profit footstep": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "profit pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "profit stride": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "profit stair": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.451
+			          }
+			        }
+			      ]
+			    },
+			    "profit_step.step": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProfitSteps",
+			          "ConceptualProperty": "Step"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "step": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "stage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "phase": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "footstep": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "pace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "stride": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "profit_step.sort_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProfitSteps",
+			          "ConceptualProperty": "SortOrder"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sort order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SortOrder": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "order": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "sort instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sort direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sort edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "sort command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sort mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "profit_step.profit_step_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProfitSteps",
+			          "ConceptualProperty": "Profit Step Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "profit step value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "step value": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "profit step assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "step assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "profit step worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "profit step price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "profit step cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "profit step charge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "profit step rate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "step worth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "step price": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "step cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "profit_step.profit_step_sort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "ProfitSteps",
+			          "ConceptualProperty": "Profit Step Sort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "profit step sort": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "step sort": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "profit step category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "profit step genus": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "profit step species": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "profit step variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "profit step nature": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "step category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "step genus": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "step species": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "step variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "step nature": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ]
+			    },
+			    "my_measure.regional_growth_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "MyMeasures",
+			          "ConceptualProperty": "Regional Growth %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "regional growth %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "regional growth percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "regional growth pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "customer_RFM_has_my_measure_potential_loyalists": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "my_measure.potential_loyalists": {
+			          "Target": {
+			            "Entity": "my_measure.potential_loyalists"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "my_measure.potential_loyalists"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_potential_loyalists"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_my_measure_champions": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "my_measure.champions": {
+			          "Target": {
+			            "Entity": "my_measure.champions"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "my_measure.champions"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_champions"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_my_measure_RFM_segment_count": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "my_measure.RFM_segment_count": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_segment_count"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_segment_count"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_RFM_segment_count"
+			        }
+			      ]
+			    },
+			    "my_measure_has_RFM_segment": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.RFM_segment": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_segment"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_segment"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_RFM_segment"
+			        }
+			      ]
+			    },
+			    "my_measure_has_RFM_score": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.RFM_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_RFM_score"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_RFM_monetary_score": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.RFM_monetary_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_monetary_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_monetary_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_RFM_monetary_score"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_my_measure_RFM_monetary_score": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "my_measure.RFM_monetary_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_monetary_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_monetary_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_RFM_monetary_score"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_RFM_frequency_score": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.RFM_frequency_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_frequency_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_frequency_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_RFM_frequency_score"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_my_measure_RFM_frequency_score": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "my_measure.RFM_frequency_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_frequency_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_frequency_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_RFM_frequency_score"
+			        }
+			      ]
+			    },
+			    "my_measure_has_RFM_recency_score": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.RFM_recency_score": {
+			          "Target": {
+			            "Entity": "my_measure.RFM_recency_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.RFM_recency_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_RFM_recency_score"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_monetary": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.monetary": {
+			          "Target": {
+			            "Entity": "my_measure.monetary"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.monetary"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_monetary"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Adjectives": [
+			              {
+			                "monetary": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "my_measure.monetary"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monetary_indicates_how_monetary_fact_sales_are"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_frequency": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.frequency": {
+			          "Target": {
+			            "Entity": "my_measure.frequency"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.frequency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_frequency"
+			        }
+			      ]
+			    },
+			    "my_measure_has_recency": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.recency": {
+			          "Target": {
+			            "Entity": "my_measure.recency"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.recency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_recency"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_last_purchase_date1": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.last_purchase_date1": {
+			          "Target": {
+			            "Entity": "my_measure.last_purchase_date1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.last_purchase_date1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_last_purchase_date"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_max_data_date": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "customer_RFM.max_data_date": {
+			          "Target": {
+			            "Entity": "customer_RFM.max_data_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "customer_RFM.max_data_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_max_data_dates"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_monetary": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "customer_RFM.monetary": {
+			          "Target": {
+			            "Entity": "customer_RFM.monetary"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "customer_RFM.monetary"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_monetary"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Adjectives": [
+			              {
+			                "monetary": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "customer_RFM.monetary"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monetary_indicates_how_monetary_customer_RFMs_are"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_frequency": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "customer_RFM.frequency": {
+			          "Target": {
+			            "Entity": "customer_RFM.frequency"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "customer_RFM.frequency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_frequencies"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_last_purchase": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "customer_RFM.last_purchase": {
+			          "Target": {
+			            "Entity": "customer_RFM.last_purchase"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "customer_RFM.last_purchase"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_last_purchase"
+			        }
+			      ]
+			    },
+			    "customer_RFM_has_customer_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerRFM"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_RFM": {
+			          "Target": {
+			            "Entity": "customer_RFM"
+			          }
+			        },
+			        "customer_RFM.customer_ID": {
+			          "Target": {
+			            "Entity": "customer_RFM.customer_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_RFM"
+			            },
+			            "Object": {
+			              "Role": "customer_RFM.customer_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_RFMs_have_customer_ID"
+			        }
+			      ]
+			    },
+			    "customer_CLV_has_CLV_range": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerCLV"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_CLV": {
+			          "Target": {
+			            "Entity": "customer_CLV"
+			          }
+			        },
+			        "customer_CLV.CLV_range": {
+			          "Target": {
+			            "Entity": "customer_CLV.CLV_range"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_CLV"
+			            },
+			            "Object": {
+			              "Role": "customer_CLV.CLV_range"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_CLVs_have_CLV_ranges"
+			        }
+			      ]
+			    },
+			    "customer_CLV_has_clv": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerCLV"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_CLV": {
+			          "Target": {
+			            "Entity": "customer_CLV"
+			          }
+			        },
+			        "customer_CLV.clv": {
+			          "Target": {
+			            "Entity": "customer_CLV.clv"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_CLV"
+			            },
+			            "Object": {
+			              "Role": "customer_CLV.clv"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_CLVs_have_clvs"
+			        }
+			      ]
+			    },
+			    "customer_CLV_has_customer_name": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerCLV"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_CLV": {
+			          "Target": {
+			            "Entity": "customer_CLV"
+			          }
+			        },
+			        "customer_CLV.customer_name": {
+			          "Target": {
+			            "Entity": "customer_CLV.customer_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_CLV"
+			            },
+			            "Object": {
+			              "Role": "customer_CLV.customer_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_CLVs_have_customer_names"
+			        }
+			      ]
+			    },
+			    "customer_CLV_has_customer_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "CustomerCLV"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "customer_CLV": {
+			          "Target": {
+			            "Entity": "customer_CLV"
+			          }
+			        },
+			        "customer_CLV.customer_ID": {
+			          "Target": {
+			            "Entity": "customer_CLV.customer_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "customer_CLV"
+			            },
+			            "Object": {
+			              "Role": "customer_CLV.customer_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_CLVs_have_customer_ID"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_last_name": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "dim_customer.last_name": {
+			          "Target": {
+			            "Entity": "dim_customer.last_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "dim_customer.last_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_last_names"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_first_name": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "dim_customer.first_name": {
+			          "Target": {
+			            "Entity": "dim_customer.first_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "dim_customer.first_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_first_names"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_customer_name": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "dim_customer.customer_name": {
+			          "Target": {
+			            "Entity": "dim_customer.customer_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "dim_customer.customer_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_customer_names"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Name": {
+			              "Role": "dim_customer.customer_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_names_are_names_IDs_of_dim_customers"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_person_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "dim_customer.person_ID": {
+			          "Target": {
+			            "Entity": "dim_customer.person_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "dim_customer.person_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_person_ID"
+			        }
+			      ]
+			    },
+			    "dim_customer_has_customer_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "DimCustomer"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_customer": {
+			          "Target": {
+			            "Entity": "dim_customer"
+			          }
+			        },
+			        "dim_customer.customer_ID": {
+			          "Target": {
+			            "Entity": "dim_customer.customer_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Object": {
+			              "Role": "dim_customer.customer_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_customers_have_customer_ID"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dim_customer"
+			            },
+			            "Name": {
+			              "Role": "dim_customer.customer_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "customer_ID_are_names_IDs_of_dim_customers"
+			        }
+			      ]
+			    },
+			    "my_measure_has_purchase_frequency": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.purchase_frequency": {
+			          "Target": {
+			            "Entity": "my_measure.purchase_frequency"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.purchase_frequency"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_purchase_frequency"
+			        }
+			      ]
+			    },
+			    "my_measure_has_customer_lifespan_days": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.customer_lifespan_days": {
+			          "Target": {
+			            "Entity": "my_measure.customer_lifespan_days"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.customer_lifespan_days"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_customer_lifespan_days"
+			        }
+			      ]
+			    },
+			    "my_measure_has_days_since_last_purchase": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.days_since_last_purchase": {
+			          "Target": {
+			            "Entity": "my_measure.days_since_last_purchase"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.days_since_last_purchase"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_days_since_last_purchase"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_last_purchase_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.last_purchase_date": {
+			          "Target": {
+			            "Entity": "my_measure.last_purchase_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.last_purchase_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_last_purchase_date1"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_first_purchase_date": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.first_purchase_date": {
+			          "Target": {
+			            "Entity": "my_measure.first_purchase_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.first_purchase_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_first_purchase_date"
+			        }
+			      ]
+			    },
+			    "fact_inventory_has_my_measure_of_total_inventory_value": {
+			      "Binding": {
+			        "ConceptualEntity": "FactInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventory": {
+			          "Target": {
+			            "Entity": "fact_inventory"
+			          }
+			        },
+			        "my_measure.of_total_inventory_value": {
+			          "Target": {
+			            "Entity": "my_measure.of_total_inventory_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventory"
+			            },
+			            "Object": {
+			              "Role": "my_measure.of_total_inventory_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventories_have__of_total_inventory_value"
+			        }
+			      ]
+			    },
+			    "fact_inventory_has_my_measure_needs_reorder": {
+			      "Binding": {
+			        "ConceptualEntity": "FactInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventory": {
+			          "Target": {
+			            "Entity": "fact_inventory"
+			          }
+			        },
+			        "my_measure.needs_reorder": {
+			          "Target": {
+			            "Entity": "my_measure.needs_reorder"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventory"
+			            },
+			            "Object": {
+			              "Role": "my_measure.needs_reorder"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventories_have_needs_reorder"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_days_inventory_on_hand": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.days_inventory_on_hand": {
+			          "Target": {
+			            "Entity": "my_measure.days_inventory_on_hand"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.days_inventory_on_hand"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_days_inventory_on_hand"
+			        }
+			      ]
+			    },
+			    "fact_inventory_has_my_measure_days_inventory_on_hand": {
+			      "Binding": {
+			        "ConceptualEntity": "FactInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_inventory": {
+			          "Target": {
+			            "Entity": "fact_inventory"
+			          }
+			        },
+			        "my_measure.days_inventory_on_hand": {
+			          "Target": {
+			            "Entity": "my_measure.days_inventory_on_hand"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_inventory"
+			            },
+			            "Object": {
+			              "Role": "my_measure.days_inventory_on_hand"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_inventories_have_days_inventory_on_hand"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_stock_to_sales_ratio": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.stock_to_sales_ratio": {
+			          "Target": {
+			            "Entity": "my_measure.stock_to_sales_ratio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.stock_to_sales_ratio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_stock_to_sales_ratio"
+			        }
+			      ]
+			    },
 			    "fact_inventory_has_my_measure_stock_to_sales_ratio": {
 			      "Binding": {
 			        "ConceptualEntity": "FactInventory"
@@ -28563,6 +31745,66 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "product_inventory_is_expensive": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.inventory_value": {
+			          "Target": {
+			            "Entity": "product_inventory.inventory_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "product_inventory.inventory_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "inventory_value_indicates_how_expensive_product_inventories_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.inventory_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_inventory_values"
+			        }
+			      ]
+			    },
 			    "customer_RFM_is_lost": {
 			      "Binding": {
 			        "ConceptualEntity": "CustomerRFM"
@@ -28613,112 +31855,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "customer_RFMs_have_lost"
-			        }
-			      ]
-			    },
-			    "fact_sale_is_monetary": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.monetary": {
-			          "Target": {
-			            "Entity": "my_measure.monetary"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Adjectives": [
-			              {
-			                "monetary": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "my_measure.monetary"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monetary_indicates_how_monetary_fact_sales_are"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.monetary"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_monetary"
-			        }
-			      ]
-			    },
-			    "customer_RFM_is_monetary": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "customer_RFM.monetary": {
-			          "Target": {
-			            "Entity": "customer_RFM.monetary"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Adjectives": [
-			              {
-			                "monetary": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "customer_RFM.monetary"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monetary_indicates_how_monetary_customer_RFMs_are"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "customer_RFM.monetary"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_monetary"
 			        }
 			      ]
 			    },
@@ -28785,1220 +31921,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_vendors_have_fact_purchasing"
-			        }
-			      ]
-			    },
-			    "dim_customer_is_named_customer_name": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "dim_customer.customer_name": {
-			          "Target": {
-			            "Entity": "dim_customer.customer_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Name": {
-			              "Role": "dim_customer.customer_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_names_are_names_IDs_of_dim_customers"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "dim_customer.customer_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_customer_names"
-			        }
-			      ]
-			    },
-			    "dim_customer_is_named_customer_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "dim_customer.customer_ID": {
-			          "Target": {
-			            "Entity": "dim_customer.customer_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Name": {
-			              "Role": "dim_customer.customer_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_ID_are_names_IDs_of_dim_customers"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "dim_customer.customer_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_customer_ID"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_stock_to_sales_ratio": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.stock_to_sales_ratio": {
-			          "Target": {
-			            "Entity": "my_measure.stock_to_sales_ratio"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.stock_to_sales_ratio"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_stock_to_sales_ratio"
-			        }
-			      ]
-			    },
-			    "fact_inventory_has_my_measure_days_inventory_on_hand": {
-			      "Binding": {
-			        "ConceptualEntity": "FactInventory"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_inventory": {
-			          "Target": {
-			            "Entity": "fact_inventory"
-			          }
-			        },
-			        "my_measure.days_inventory_on_hand": {
-			          "Target": {
-			            "Entity": "my_measure.days_inventory_on_hand"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_inventory"
-			            },
-			            "Object": {
-			              "Role": "my_measure.days_inventory_on_hand"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_inventories_have_days_inventory_on_hand"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_days_inventory_on_hand": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.days_inventory_on_hand": {
-			          "Target": {
-			            "Entity": "my_measure.days_inventory_on_hand"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.days_inventory_on_hand"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_days_inventory_on_hand"
-			        }
-			      ]
-			    },
-			    "fact_inventory_has_my_measure_needs_reorder": {
-			      "Binding": {
-			        "ConceptualEntity": "FactInventory"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_inventory": {
-			          "Target": {
-			            "Entity": "fact_inventory"
-			          }
-			        },
-			        "my_measure.needs_reorder": {
-			          "Target": {
-			            "Entity": "my_measure.needs_reorder"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_inventory"
-			            },
-			            "Object": {
-			              "Role": "my_measure.needs_reorder"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_inventories_have_needs_reorder"
-			        }
-			      ]
-			    },
-			    "fact_inventory_has_my_measure_of_total_inventory_value": {
-			      "Binding": {
-			        "ConceptualEntity": "FactInventory"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_inventory": {
-			          "Target": {
-			            "Entity": "fact_inventory"
-			          }
-			        },
-			        "my_measure.of_total_inventory_value": {
-			          "Target": {
-			            "Entity": "my_measure.of_total_inventory_value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_inventory"
-			            },
-			            "Object": {
-			              "Role": "my_measure.of_total_inventory_value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_inventories_have__of_total_inventory_value"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_first_purchase_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.first_purchase_date": {
-			          "Target": {
-			            "Entity": "my_measure.first_purchase_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.first_purchase_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_first_purchase_date"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_last_purchase_date": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.last_purchase_date": {
-			          "Target": {
-			            "Entity": "my_measure.last_purchase_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.last_purchase_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_last_purchase_date"
-			        }
-			      ]
-			    },
-			    "my_measure_has_days_since_last_purchase": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.days_since_last_purchase": {
-			          "Target": {
-			            "Entity": "my_measure.days_since_last_purchase"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.days_since_last_purchase"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_days_since_last_purchase"
-			        }
-			      ]
-			    },
-			    "my_measure_has_customer_lifespan_days": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.customer_lifespan_days": {
-			          "Target": {
-			            "Entity": "my_measure.customer_lifespan_days"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.customer_lifespan_days"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_customer_lifespan_days"
-			        }
-			      ]
-			    },
-			    "my_measure_has_purchase_frequency": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.purchase_frequency": {
-			          "Target": {
-			            "Entity": "my_measure.purchase_frequency"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.purchase_frequency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_purchase_frequency"
-			        }
-			      ]
-			    },
-			    "dim_customer_has_person_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "dim_customer.person_ID": {
-			          "Target": {
-			            "Entity": "dim_customer.person_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "dim_customer.person_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_person_ID"
-			        }
-			      ]
-			    },
-			    "dim_customer_has_first_name": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "dim_customer.first_name": {
-			          "Target": {
-			            "Entity": "dim_customer.first_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "dim_customer.first_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_first_names"
-			        }
-			      ]
-			    },
-			    "dim_customer_has_last_name": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "dim_customer.last_name": {
-			          "Target": {
-			            "Entity": "dim_customer.last_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "dim_customer.last_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_last_names"
-			        }
-			      ]
-			    },
-			    "customer_CLV_has_customer_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerCLV"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_CLV": {
-			          "Target": {
-			            "Entity": "customer_CLV"
-			          }
-			        },
-			        "customer_CLV.customer_ID": {
-			          "Target": {
-			            "Entity": "customer_CLV.customer_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_CLV"
-			            },
-			            "Object": {
-			              "Role": "customer_CLV.customer_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_CLVs_have_customer_ID"
-			        }
-			      ]
-			    },
-			    "customer_CLV_has_customer_name": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerCLV"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_CLV": {
-			          "Target": {
-			            "Entity": "customer_CLV"
-			          }
-			        },
-			        "customer_CLV.customer_name": {
-			          "Target": {
-			            "Entity": "customer_CLV.customer_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_CLV"
-			            },
-			            "Object": {
-			              "Role": "customer_CLV.customer_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_CLVs_have_customer_names"
-			        }
-			      ]
-			    },
-			    "customer_CLV_has_clv": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerCLV"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_CLV": {
-			          "Target": {
-			            "Entity": "customer_CLV"
-			          }
-			        },
-			        "customer_CLV.clv": {
-			          "Target": {
-			            "Entity": "customer_CLV.clv"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_CLV"
-			            },
-			            "Object": {
-			              "Role": "customer_CLV.clv"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_CLVs_have_clvs"
-			        }
-			      ]
-			    },
-			    "customer_CLV_has_CLV_range": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerCLV"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_CLV": {
-			          "Target": {
-			            "Entity": "customer_CLV"
-			          }
-			        },
-			        "customer_CLV.CLV_range": {
-			          "Target": {
-			            "Entity": "customer_CLV.CLV_range"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_CLV"
-			            },
-			            "Object": {
-			              "Role": "customer_CLV.CLV_range"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_CLVs_have_CLV_ranges"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_customer_ID": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "customer_RFM.customer_ID": {
-			          "Target": {
-			            "Entity": "customer_RFM.customer_ID"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "customer_RFM.customer_ID"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_customer_ID"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_last_purchase": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "customer_RFM.last_purchase": {
-			          "Target": {
-			            "Entity": "customer_RFM.last_purchase"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "customer_RFM.last_purchase"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_last_purchase"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_frequency": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "customer_RFM.frequency": {
-			          "Target": {
-			            "Entity": "customer_RFM.frequency"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "customer_RFM.frequency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_frequencies"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_max_data_date": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "customer_RFM.max_data_date": {
-			          "Target": {
-			            "Entity": "customer_RFM.max_data_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "customer_RFM.max_data_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_max_data_dates"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_last_purchase_date1": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.last_purchase_date1": {
-			          "Target": {
-			            "Entity": "my_measure.last_purchase_date1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.last_purchase_date1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_last_purchase_date1"
-			        }
-			      ]
-			    },
-			    "my_measure_has_recency": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.recency": {
-			          "Target": {
-			            "Entity": "my_measure.recency"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.recency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_recency"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_frequency": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.frequency": {
-			          "Target": {
-			            "Entity": "my_measure.frequency"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.frequency"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_frequency"
-			        }
-			      ]
-			    },
-			    "my_measure_has_RFM_recency_score": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.RFM_recency_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_recency_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_recency_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_RFM_recency_score"
-			        }
-			      ]
-			    },
-			    "dim_customer_has_my_measure_RFM_frequency_score": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "my_measure.RFM_frequency_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_frequency_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_frequency_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_RFM_frequency_score"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_RFM_frequency_score": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.RFM_frequency_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_frequency_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_frequency_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_RFM_frequency_score"
-			        }
-			      ]
-			    },
-			    "dim_customer_has_my_measure_RFM_monetary_score": {
-			      "Binding": {
-			        "ConceptualEntity": "DimCustomer"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_customer": {
-			          "Target": {
-			            "Entity": "dim_customer"
-			          }
-			        },
-			        "my_measure.RFM_monetary_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_monetary_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_customer"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_monetary_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_customers_have_RFM_monetary_score"
-			        }
-			      ]
-			    },
-			    "fact_sale_has_my_measure_RFM_monetary_score": {
-			      "Binding": {
-			        "ConceptualEntity": "FactSales"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_sale": {
-			          "Target": {
-			            "Entity": "fact_sale"
-			          }
-			        },
-			        "my_measure.RFM_monetary_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_monetary_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_sale"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_monetary_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_sales_have_RFM_monetary_score"
-			        }
-			      ]
-			    },
-			    "my_measure_has_RFM_score": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.RFM_score": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_score"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_score"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_RFM_score"
-			        }
-			      ]
-			    },
-			    "my_measure_has_RFM_segment": {
-			      "Binding": {
-			        "ConceptualEntity": "MyMeasures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "my_measure": {
-			          "Target": {
-			            "Entity": "my_measure"
-			          }
-			        },
-			        "my_measure.RFM_segment": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_segment"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "my_measure"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_segment"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "my_measure_have_RFM_segment"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_my_measure_RFM_segment_count": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "my_measure.RFM_segment_count": {
-			          "Target": {
-			            "Entity": "my_measure.RFM_segment_count"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "my_measure.RFM_segment_count"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_RFM_segment_count"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_my_measure_champions": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "my_measure.champions": {
-			          "Target": {
-			            "Entity": "my_measure.champions"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "my_measure.champions"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_champions"
-			        }
-			      ]
-			    },
-			    "customer_RFM_has_my_measure_potential_loyalists": {
-			      "Binding": {
-			        "ConceptualEntity": "CustomerRFM"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "customer_RFM": {
-			          "Target": {
-			            "Entity": "customer_RFM"
-			          }
-			        },
-			        "my_measure.potential_loyalists": {
-			          "Target": {
-			            "Entity": "my_measure.potential_loyalists"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "customer_RFM"
-			            },
-			            "Object": {
-			              "Role": "my_measure.potential_loyalists"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "customer_RFMs_have_potential_loyalists"
 			        }
 			      ]
 			    },
@@ -30296,6 +32218,501 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "customer_RFMs_have_recency_days"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_product_ID": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.product_ID": {
+			          "Target": {
+			            "Entity": "product_inventory.product_ID"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.product_ID"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_product_ID"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_product_name": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.product_name": {
+			          "Target": {
+			            "Entity": "product_inventory.product_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.product_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_product_names"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_category_name": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.category_name": {
+			          "Target": {
+			            "Entity": "product_inventory.category_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.category_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_category_names"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_subcategory_name": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.subcategory_name": {
+			          "Target": {
+			            "Entity": "product_inventory.subcategory_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.subcategory_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_subcategory_names"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_stock_qty": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.stock_qty": {
+			          "Target": {
+			            "Entity": "product_inventory.stock_qty"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.stock_qty"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_stock_qties"
+			        }
+			      ]
+			    },
+			    "product_inventory_has_stock_status": {
+			      "Binding": {
+			        "ConceptualEntity": "ProductInventory"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "product_inventory": {
+			          "Target": {
+			            "Entity": "product_inventory"
+			          }
+			        },
+			        "product_inventory.stock_status": {
+			          "Target": {
+			            "Entity": "product_inventory.stock_status"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "product_inventory"
+			            },
+			            "Object": {
+			              "Role": "product_inventory.stock_status"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "product_inventories_have_stock_statuses"
+			        }
+			      ]
+			    },
+			    "my_measure_has_product_rank_bottom": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.product_rank_bottom": {
+			          "Target": {
+			            "Entity": "my_measure.product_rank_bottom"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.product_rank_bottom"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_product_rank_bottom"
+			        }
+			      ]
+			    },
+			    "my_measure_has_product_rank_top": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.product_rank_top": {
+			          "Target": {
+			            "Entity": "my_measure.product_rank_top"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.product_rank_top"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_product_rank_top"
+			        }
+			      ]
+			    },
+			    "my_measure_has_top_bottom_group": {
+			      "Binding": {
+			        "ConceptualEntity": "MyMeasures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "my_measure": {
+			          "Target": {
+			            "Entity": "my_measure"
+			          }
+			        },
+			        "my_measure.top_bottom_group": {
+			          "Target": {
+			            "Entity": "my_measure.top_bottom_group"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "my_measure"
+			            },
+			            "Object": {
+			              "Role": "my_measure.top_bottom_group"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "my_measure_have_top_bottom_group"
+			        }
+			      ]
+			    },
+			    "profit_step_has_step": {
+			      "Binding": {
+			        "ConceptualEntity": "ProfitSteps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "profit_step": {
+			          "Target": {
+			            "Entity": "profit_step"
+			          }
+			        },
+			        "profit_step.step": {
+			          "Target": {
+			            "Entity": "profit_step.step"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "profit_step"
+			            },
+			            "Object": {
+			              "Role": "profit_step.step"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "profit_steps_have_steps"
+			        }
+			      ]
+			    },
+			    "profit_step_has_sort_order": {
+			      "Binding": {
+			        "ConceptualEntity": "ProfitSteps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "profit_step": {
+			          "Target": {
+			            "Entity": "profit_step"
+			          }
+			        },
+			        "profit_step.sort_order": {
+			          "Target": {
+			            "Entity": "profit_step.sort_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "profit_step"
+			            },
+			            "Object": {
+			              "Role": "profit_step.sort_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "profit_steps_have_sort_orders"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_profit_step_profit_step_value": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "profit_step.profit_step_value": {
+			          "Target": {
+			            "Entity": "profit_step.profit_step_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "profit_step.profit_step_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_profit_step_value"
+			        }
+			      ]
+			    },
+			    "profit_step_has_profit_step_value": {
+			      "Binding": {
+			        "ConceptualEntity": "ProfitSteps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "profit_step": {
+			          "Target": {
+			            "Entity": "profit_step"
+			          }
+			        },
+			        "profit_step.profit_step_value": {
+			          "Target": {
+			            "Entity": "profit_step.profit_step_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "profit_step"
+			            },
+			            "Object": {
+			              "Role": "profit_step.profit_step_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "profit_steps_have_profit_step_value"
+			        }
+			      ]
+			    },
+			    "profit_step_has_profit_step_sort": {
+			      "Binding": {
+			        "ConceptualEntity": "ProfitSteps"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "profit_step": {
+			          "Target": {
+			            "Entity": "profit_step"
+			          }
+			        },
+			        "profit_step.profit_step_sort": {
+			          "Target": {
+			            "Entity": "profit_step.profit_step_sort"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "profit_step"
+			            },
+			            "Object": {
+			              "Role": "profit_step.profit_step_sort"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "profit_steps_have_profit_step_sort"
+			        }
+			      ]
+			    },
+			    "fact_sale_has_my_measure_regional_growth_": {
+			      "Binding": {
+			        "ConceptualEntity": "FactSales"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_sale": {
+			          "Target": {
+			            "Entity": "fact_sale"
+			          }
+			        },
+			        "my_measure.regional_growth_": {
+			          "Target": {
+			            "Entity": "my_measure.regional_growth_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_sale"
+			            },
+			            "Object": {
+			              "Role": "my_measure.regional_growth_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_sales_have_regional_growth_"
 			        }
 			      ]
 			    },

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "2282e9f7dd6655ac0ec4",
   "position": {
-    "x": 0,
-    "y": 458.65182818967145,
+    "x": 10.324996849061021,
+    "y": 471.99985595707523,
     "z": 5000,
-    "height": 229.32591409483572,
-    "width": 429.10677177254541,
-    "tabOrder": 3000
+    "height": 247.79992437746449,
+    "width": 449.87486270908732,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "barChart",
@@ -71,6 +71,19 @@
       }
     },
     "objects": {
+      "ribbonBands": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "dataPoint": [
         {
           "properties": {
@@ -80,18 +93,13 @@
                   "expr": {
                     "FillRule": {
                       "Input": {
-                        "Aggregation": {
+                        "Measure": {
                           "Expression": {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Entity": "DimProduct"
-                                }
-                              },
-                              "Property": "CategoryName"
+                            "SourceRef": {
+                              "Entity": "MyMeasures"
                             }
                           },
-                          "Function": 5
+                          "Property": "Gross Margin %"
                         }
                       },
                       "FillRule": {
@@ -99,14 +107,14 @@
                           "min": {
                             "color": {
                               "Literal": {
-                                "Value": "'#0EB852'"
+                                "Value": "'#E51D1D'"
                               }
                             }
                           },
                           "max": {
                             "color": {
                               "Literal": {
-                                "Value": "'#CF1D1D'"
+                                "Value": "'#37C781'"
                               }
                             }
                           },
@@ -136,26 +144,86 @@
           }
         }
       ],
-      "ribbonBands": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "labels": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -164,5 +232,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5da291b2b8271b045042",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProduct"
+              }
+            },
+            "Property": "CategoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "be357f52cc0d3ab34b0d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Gross Margin %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

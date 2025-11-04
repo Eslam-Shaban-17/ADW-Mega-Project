@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 308.74889026616864,
     "width": 396.57079683076773,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -95,42 +95,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "59b11ba484d650e0c991",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "CustomerCLV"
-              }
-            },
-            "Property": "CLV Range"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3ae8067bb97fcc8d1807",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "CustomerCLV"
-                  }
-                },
-                "Property": "CustomerID"
-              }
-            },
-            "Function": 2
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

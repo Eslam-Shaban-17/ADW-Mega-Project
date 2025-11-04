@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "f6bf9de5d0a281bddd4a",
   "position": {
-    "x": 1057.6371081665861,
-    "y": 21.973070114264257,
+    "x": 834.30811236369118,
+    "y": 20.58325935107791,
     "z": 4000,
-    "height": 124.51406398083078,
-    "width": 191.89814566457449,
-    "tabOrder": 2000
+    "height": 124.87177339653931,
+    "width": 192.11042061006049,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,5 +70,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "461d3cb0d4ac4de8d0b7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Gender Ratio"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

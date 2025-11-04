@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 120.70091736682394,
     "width": 204.04202697725,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -70,23 +70,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "97eae84acb64a6e8ad18",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MyMeasures"
-              }
-            },
-            "Property": "Average Unit Price"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

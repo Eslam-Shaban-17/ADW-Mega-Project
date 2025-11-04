@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "e06710b751563e2916e0",
   "position": {
-    "x": 858.414605797257,
-    "y": 209.47660175598591,
+    "x": 389.27060183930479,
+    "y": 134.69058846911307,
     "z": 7000,
-    "height": 222.66044382454444,
-    "width": 421.88294619387369,
-    "tabOrder": 5000
+    "height": 362.62850741684287,
+    "width": 377.42967098487725,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "barChart",
@@ -133,5 +133,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ea2de581d52f3484cbbf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTerritory"
+              }
+            },
+            "Property": "TerritoryName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b4391f2cea91572ae191",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "MyMeasures"
+              }
+            },
+            "Property": "Revenue YoY %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
