@@ -1,0 +1,100 @@
+table CustomerSummary
+	lineageTag: 68405980-1d63-4770-827c-7cc7361818a5
+
+	column CustomerID
+		formatString: 0
+		lineageTag: 342beb8e-b53f-4f4b-9a10-5efe993071c3
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: DimCustomer[CustomerID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLV
+		lineageTag: c9229210-4534-4076-957f-adc3d73f44ef
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [CLV]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CLV Range' = ```
+			
+			SWITCH(
+			    TRUE(), 
+			    ISBLANK(CustomerSummary[CLV]), "No Purchases",
+			    CustomerSummary[CLV] < 500, "< 500",
+			    CustomerSummary[CLV] < 1000, "500 - 999",
+			    CustomerSummary[CLV] < 5000, "1k - 4.9k",
+			    CustomerSummary[CLV] < 10000, "5k - 9.9k",
+			    "+10k"
+			)
+			```
+		lineageTag: 92c19fd1-7277-4141-bbb7-2b129df9856a
+		summarizeBy: none
+		sortByColumn: 'CLV Category'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLV Category' = ```
+			
+			SWITCH(
+			    TRUE(), 
+			    ISBLANK(CustomerSummary[CLV]), 0,
+			    CustomerSummary[CLV] < 500, 1,
+			    CustomerSummary[CLV] < 1000, 2,
+			    CustomerSummary[CLV] < 5000, 3,
+			    CustomerSummary[CLV] < 10000, 4,
+			    5
+			)
+			```
+		formatString: 0
+		lineageTag: ec5f04a2-423e-4d82-934c-09570c305441
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerName
+		lineageTag: 365142fe-050d-4923-8072-1b91134d33c4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: DimCustomer[CustomerName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalRevenue
+		lineageTag: 594424ac-f34b-4f65-8b11-2c338060f221
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalRevenue]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalOrders
+		formatString: 0
+		lineageTag: 102f6c75-8dc9-4df0-aecf-a0bf5ba250e7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [TotalOrders]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CustomerSummary = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    SUMMARIZE(DimCustomer, DimCustomer[CustomerID], DimCustomer[CustomerName]),
+				    "TotalRevenue", CALCULATE([Total Revenue]),
+				    "TotalOrders", CALCULATE([Total Orders]),
+				    "CLV", DIVIDE(CALCULATE([Total Revenue]), CALCULATE([Total Orders]))
+				)
+				
+				```
+
+	annotation PBI_Id = e6a5a2648c4f425e94ddbc444c2bb7e2
+

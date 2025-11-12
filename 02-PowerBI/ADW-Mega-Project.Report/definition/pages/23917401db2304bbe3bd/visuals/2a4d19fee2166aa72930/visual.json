@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "2a4d19fee2166aa72930",
   "position": {
-    "x": 487.13713797551048,
-    "y": 167.410509388767,
-    "z": 9000,
-    "height": 308.74889026616864,
-    "width": 380.10418934990537,
-    "tabOrder": 4000
+    "x": 532.51817334575958,
+    "y": 207.36306750099854,
+    "z": 8000,
+    "height": 236.81107708693915,
+    "width": 365.64611902542936,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "scatterChart",
@@ -17,17 +17,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "MyMeasures"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CustomerSummary"
+                        }
+                      },
+                      "Property": "CLV"
                     }
                   },
-                  "Property": "Customer Lifetime Value"
+                  "Function": 0
                 }
               },
-              "queryRef": "MyMeasures.Customer Lifetime Value",
-              "nativeQueryRef": "Customer Lifetime Value"
+              "queryRef": "Sum(CustomerSummary.CLV)",
+              "nativeQueryRef": "Sum of CLV"
             }
           ]
         },
@@ -35,22 +40,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Column": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "FactSales"
-                        }
-                      },
-                      "Property": "SalesOrderID"
+                    "SourceRef": {
+                      "Entity": "CustomerSummary"
                     }
                   },
-                  "Function": 5
+                  "Property": "TotalOrders"
                 }
               },
-              "queryRef": "CountNonNull(FactSales.SalesOrderID)",
-              "nativeQueryRef": "Count of SalesOrderID",
+              "queryRef": "CustomerSummary.TotalOrders",
+              "nativeQueryRef": "TotalOrders",
               "active": true
             }
           ]
@@ -62,27 +62,49 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactSales"
+                      "Entity": "CustomerSummary"
                     }
                   },
-                  "Property": "TotalDue"
+                  "Property": "TotalRevenue"
                 }
               },
-              "queryRef": "Sum(FactSales.TotalDue)",
-              "nativeQueryRef": "TotalDue"
+              "queryRef": "Sum(CustomerSummary.TotalRevenue)",
+              "nativeQueryRef": "TotalRevenue"
             }
           ]
         }
       }
     },
     "objects": {
-      "valueAxis": [
+      "dataPoint": [
         {
           "properties": {
-            "logAxisScale": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CBCBCB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Revenue LY"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3D518C'"
+                    }
+                  }
                 }
               }
             }
@@ -101,8 +123,270 @@
             }
           }
         }
+      ],
+      "bubbles": [
+        {
+          "properties": {
+            "markerShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'circle'"
+                }
+              }
+            },
+            "markerRangeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'auto'"
+                }
+              }
+            },
+            "bubbleSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Customer Segmentation'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "91df8b51d56f10521faa",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MyMeasures"
+                  }
+                },
+                "Property": "Customer Lifetime Value"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "MyMeasures"
+                      }
+                    },
+                    "Property": "Customer Lifetime Value"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "a27caf3a2b49b88d1e3e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "CustomerSummary"
+                  }
+                },
+                "Property": "CLV"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2815a3132fc4639036cc",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CustomerSummary"
+              }
+            },
+            "Property": "TotalOrders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "101ff3a45e5a9b603056",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "CustomerSummary"
+              }
+            },
+            "Property": "TotalRevenue"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

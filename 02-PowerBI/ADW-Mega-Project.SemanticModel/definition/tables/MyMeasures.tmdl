@@ -2,28 +2,28 @@ table MyMeasures
 	lineageTag: 872739a5-9f66-454a-a5de-20fd3efe1846
 
 	measure 'Total Tax' = SUM(FactSales[TotalTax-Fixed])
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 01.Revenue metrics
 		lineageTag: b4fa57ef-3c46-4964-be40-f6eedb2a9355
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Total Freight' = SUM(FactSales[TotalFreight-Fixed])
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 01.Revenue metrics
 		lineageTag: 21589bb7-3d3a-4946-9d29-d588456d7a31
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Subtotal Amount' = SUM(FactSales[LineTotal])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 01.Revenue metrics
 		lineageTag: cfe4bab4-6eef-4f6e-b010-2638c690a229
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Total Revenue' = [Subtotal Amount] + [Total Freight] + [Total Tax]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 01.Revenue metrics
 		lineageTag: 157f5daf-cebe-4653-a50a-f7337d11abf7
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Revenue Variance' = [Total Revenue (Order-level)] - [Total Revenue]
 		displayFolder: 01.Revenue metrics
@@ -32,26 +32,24 @@ table MyMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Orders' = DISTINCTCOUNT(FactSales[SalesOrderID])
-		formatString: 0
+		formatString: #,0.000
 		displayFolder: 02.Order & Quantity
 		lineageTag: bcefa950-aeb3-49e4-a2f5-eb488397c72d
 
 	measure 'Total Quantity' = SUM(FactSales[OrderQty])
-		formatString: 0
+		formatString: #,0.00
 		displayFolder: 02.Order & Quantity
 		lineageTag: 3c3a89fa-bf32-413f-bab7-2258e067d10f
 
 	measure AOV = DIVIDE([Total Revenue], [Total Orders], 0)
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 02.Order & Quantity
 		lineageTag: 1b63b318-4335-4c33-af09-46688fb9d464
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Average Line Value' = DIVIDE([Subtotal Amount], COUNTROWS(FactSales), 0)
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 02.Order & Quantity
 		lineageTag: 3b8668a6-2995-4bb7-a96e-a103ba4851b6
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Lines per Order' = DIVIDE(COUNTROWS(FactSales), [Total Orders], 0)
 		displayFolder: 02.Order & Quantity
@@ -73,29 +71,30 @@ table MyMeasures
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Gross Profit' = SUM(FactSales[GrossProfit])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 03.Cost & Profit
 		lineageTag: 6f0a6eb1-bacc-4cd6-a47d-fc24f8f7869a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Gross Margin %' = DIVIDE([Gross Profit], [Total Revenue], 0)
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 03.Cost & Profit
 		lineageTag: aeda87f1-4486-4a62-9655-04cb921800e3
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Average Unit Cost' = DIVIDE([Total COGS], [Total Quantity], 0)
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 03.Cost & Profit
 		lineageTag: 317c9a03-45d8-4740-bd84-0c498c1d2472
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Average Unit Price' = DIVIDE([Subtotal Amount], [Total Quantity], 0)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 03.Cost & Profit
 		lineageTag: 057ecdf2-e5d1-4170-a30c-331adfdb0358
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Markup %' = DIVIDE([Average Unit Price] - [Average Unit Cost], [Average Unit Cost], 0)
 		displayFolder: 03.Cost & Profit
@@ -110,10 +109,9 @@ table MyMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Revenue YoY %' = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY], 0)
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 04.Time Intelligence
 		lineageTag: 7c83bb3d-f359-405e-9640-5b77594cce7f
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Revenue PM' = CALCULATE([Total Revenue], DATEADD(DimDate[Date], -1, MONTH))
 		displayFolder: 04.Time Intelligence
@@ -140,10 +138,11 @@ table MyMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Revenue YTD' = TOTALYTD([Total Revenue], DimDate[Date])
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 04.Time Intelligence
 		lineageTag: 1423cfcc-5837-4b59-9904-68ae89b55b56
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Orders YTD' = CALCULATE([Total Orders], DATESYTD(DimDate[Date]))
 		formatString: 0
@@ -198,20 +197,19 @@ table MyMeasures
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Customers (All)' = COUNTROWS(DimCustomer)
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer metrics
 		lineageTag: 52058cf5-259e-4ee3-b940-603a7688444f
 
 	measure 'Active Customers' = DISTINCTCOUNT(FactSales[CustomerID])
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer metrics
 		lineageTag: dd51f329-5980-42c6-a5d5-bdff33975b21
 
 	measure 'Customer Activation Rate' = DIVIDE([Active Customers], [Total Customers (All)], 0)
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 05.Customer metrics
 		lineageTag: b0bd207c-c0b7-4392-af4d-0ab2cea4cda1
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'New Customers' = ```
 			
@@ -223,12 +221,12 @@ table MyMeasures
 			            )
 			        RETURN COUNTROWS(EXCEPT(CurrentCustomers, PreviousCustomers))
 			```
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer metrics
 		lineageTag: 52f728c1-851f-4220-af42-6e446056adbf
 
 	measure 'Returning Customers' = [Active Customers] - [New Customers]
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer metrics
 		lineageTag: 33758a22-ca73-4833-828f-7438320cff42
 
@@ -252,13 +250,18 @@ table MyMeasures
 			    VAR PrevCust =
 			        CALCULATETABLE(
 			            VALUES(FactSales[CustomerID]),
-			            DATEADD(DimDate[Date], -1, YEAR)
+			            PARALLELPERIOD(DimDate[Date], -1, YEAR)
 			        )
 			    VAR CurrCust = VALUES(FactSales[CustomerID])
 			    VAR RetainedCust = COUNTROWS(INTERSECT(CurrCust, PrevCust))
 			    VAR PrevCustCount = COUNTROWS(PrevCust)
 			    RETURN
-			    DIVIDE(RetainedCust, PrevCustCount, 0)
+			    IF(
+			         PrevCustCount = 0 || ISBLANK(PrevCustCount),
+			        0,
+			        DIVIDE(RetainedCust, PrevCustCount)
+			    )
+			
 			```
 		displayFolder: 05.Customer metrics
 		lineageTag: a194407a-9d0e-4eba-ac03-8a8f31f8c2aa
@@ -327,10 +330,9 @@ table MyMeasures
 				0
 				)
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 07.Territory metrics
 		lineageTag: 53198812-4739-4295-92d4-ed6e458ed684
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Purchases' = ```
 			
@@ -354,7 +356,7 @@ table MyMeasures
 			                0
 			            )
 			```
-		formatString: 0
+		formatString: #,0
 		displayFolder: 09.Purchasing metrics
 		lineageTag: 593903d6-1303-43a7-aa89-1a3e24525036
 
@@ -378,7 +380,7 @@ table MyMeasures
 			            0
 			        )
 			```
-		formatString: 0
+		formatString: #,0.00
 		displayFolder: 09.Purchasing metrics
 		lineageTag: 62b1659d-8dff-4097-8477-31b391bd20f2
 
@@ -475,10 +477,9 @@ table MyMeasures
 			        RETURN
 			            TenureDays / 365.25
 			```
+		formatString: #,0.00
 		displayFolder: 11.Hr metrics
 		lineageTag: 831f1e42-3cb7-4c5f-ba87-da0bf8d657f2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Employee Age' = ```
 			
@@ -496,10 +497,9 @@ table MyMeasures
 			            DATEDIFF([BirthDate], MaxDate, DAY) / 365.25
 			)
 			```
+		formatString: #,0.00
 		displayFolder: 11.Hr metrics
 		lineageTag: 3b0f715a-cac4-44a2-8417-f3af2da46c79
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Revenue (order-level)' = ```
 			
@@ -512,11 +512,9 @@ table MyMeasures
 			        [Total Revenue (order-level)]
 			    )
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
 		displayFolder: 01.Revenue metrics
 		lineageTag: 2197dc97-31a3-4d71-b50d-807ac6f6bfd4
-
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure 'Turnover Rate %' = ```
 			
@@ -534,67 +532,23 @@ table MyMeasures
 			    RETURN
 			        DIVIDE(EmployeesLeft, AvgHeadcount, 0)
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 11.Hr metrics
 		lineageTag: 73c6d420-130c-4342-b6fc-dbb462b94f44
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Total Stock' = ```
-			
-			        SUM(FactInventory[Quantity])
-			```
-		formatString: 0
-		displayFolder: 08.Inventory metrics
-		lineageTag: abeeb056-a080-4b6f-b034-eb33b9225b7c
 
 	measure 'Total Inventory Value' = ```
 			
 			        SUM(FactInventory[InventoryValue])
 			```
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: 08.Inventory metrics
 		lineageTag: d1bdcb2c-9be2-4aff-a60d-d466a4c976f1
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Low Stock Items Count' =
-			
-			        CALCULATE(
-			            DISTINCTCOUNT(FactInventory[ProductID]),
-			            FactInventory[Quantity] < 100,
-						 FactInventory[Quantity] > 0  // Exclude zero stock
-			        )
-		formatString: 0
-		displayFolder: 08.Inventory metrics
-		lineageTag: 238f6b48-6b8d-44d9-9aa9-dca044a1492c
-
-	measure 'Out of Stock Items' =
-			
-			        CALCULATE(
-			            DISTINCTCOUNT(FactInventory[ProductID]),
-			            OR(
-							FactInventory[Quantity] = 0,
-							ISBLANK(FactInventory[Quantity])  // Include NULLs
-			    		)
-			        )
-		formatString: 0
-		displayFolder: 08.Inventory metrics
-		lineageTag: 744aebd4-f69d-4330-9211-088b2fc63502
-
-	measure 'Overstocked Items' = ```
-			
-			        CALCULATE(
-			            DISTINCTCOUNT(FactInventory[ProductID]),
-			            FactInventory[Quantity] >= 500
-			        )
-			```
-		formatString: 0
-		displayFolder: 08.Inventory metrics
-		lineageTag: f896e9e0-1f88-4d93-a34c-5cd499d4b615
-
 	measure 'Total Products in Inventory' = ```
 			
-			        DISTINCTCOUNT(FactInventory[ProductID])
+			        DISTINCTCOUNT(DimProduct[ProductID])
 			```
 		formatString: 0
 		displayFolder: 08.Inventory metrics
@@ -623,39 +577,39 @@ table MyMeasures
 
 	measure 'Stock Status' =
 			
-			        VAR CurrentStock = [Total Stock]  // ✅ This is UNITS, not $$$
+			        VAR CurrentStock = [Stock Qty (Product)]  //  This is UNITS, not $$$
 			        RETURN
 			            SWITCH(
 			                TRUE(),
-			               ISBLANK(CurrentStock), "Out of Stock",       // ✅ Handle NULLs first
-						   CurrentStock = 0, "Out of Stock",            // ✅ Zero stock
-						   CurrentStock < 50, "Critical",               // ✅ Less than 50 units
-						   CurrentStock < 100, "Low",                   // ✅ 50-99 units
-						   CurrentStock < 500, "Normal",                // ✅ 100-499 units
-							"Overstocked"                               // ✅ 500+ units
+			               ISBLANK(CurrentStock), "Out of Stock",       //  Handle NULLs first
+						   CurrentStock = 0, "Out of Stock",            //  Zero stock
+						   CurrentStock < 50, "Critical",               //  Less than 50 units
+						   CurrentStock < 100, "Low",                   //  50-99 units
+						   CurrentStock < 500, "Normal",                //  100-499 units
+							"Overstocked"                               //  500+ units
 			            )
 		displayFolder: 08.Inventory metrics
 		lineageTag: 93075eca-463e-435c-a1bb-b51f4ed8594c
 
 	measure 'Days of Supply' = ```
 			
-				VAR CurrentStock = [Total Stock]  // ✅ Use quantity, not value
-				VAR DailySales = 
-					CALCULATE(
-						DIVIDE(
-							SUM(FactSales[OrderQty]), 
-							DISTINCTCOUNT(FactSales[OrderDate])
-						),
-						ALL(DimDate)
-					)
-				RETURN
-					SWITCH(
-						TRUE(),
-						ISBLANK(CurrentStock), 0,                    // ✅ NULL stock = 0 days
-						CurrentStock = 0, 0,                          // ✅ Zero stock = 0 days
-						ISBLANK(DailySales) || DailySales = 0, 99999,// ✅ No sales = infinite days
-						DIVIDE(CurrentStock, DailySales, 0)           // ✅ Normal calculation
-			    )
+			        VAR CurrentStock = [Stock Qty (Product)]  //  Use quantity, not value
+			        VAR DailySales = 
+			            CALCULATE(
+			                DIVIDE(
+			                    SUM(FactSales[OrderQty]), 
+			                    DISTINCTCOUNT(FactSales[OrderDate])
+			                ),
+			                ALL(DimDate)
+			            )
+			        RETURN
+			            SWITCH(
+			                TRUE(),
+			                ISBLANK(CurrentStock), 0,                    //  NULL stock = 0 days
+			                CurrentStock = 0, 0,                          //  Zero stock = 0 days
+			                ISBLANK(DailySales) || DailySales = 0, 99999,//  No sales = infinite days
+			                DIVIDE(CurrentStock, DailySales, 0)           //  Normal calculation
+			        )
 			```
 		displayFolder: 08.Inventory metrics
 		lineageTag: 02c1fef5-12b7-4441-93b0-26e0d716dbe0
@@ -664,14 +618,14 @@ table MyMeasures
 
 	measure 'Stock to Sales Ratio' = ```
 			
-			    VAR CurrentStock = [Total Stock]
+			    VAR CurrentStock = [Stock Qty (Product)]
 			    VAR TotalSold = CALCULATE(SUM(FactSales[OrderQty]), ALL(DimDate))
 			    RETURN
 			        SWITCH(
 			            TRUE(),
-			            ISBLANK(CurrentStock), BLANK(),              // ✅ NULL stock = blank result
-			            ISBLANK(TotalSold) || TotalSold = 0, BLANK(),// ✅ No sales = blank result
-			            DIVIDE(CurrentStock, TotalSold, 0)            // ✅ Normal calculation
+			            ISBLANK(CurrentStock), BLANK(),              //  NULL stock = blank result
+			            ISBLANK(TotalSold) || TotalSold = 0, BLANK(),//  No sales = blank result
+			            DIVIDE(CurrentStock, TotalSold, 0)            //  Normal calculation
 			        )
 			```
 		displayFolder: 08.Inventory metrics
@@ -696,14 +650,16 @@ table MyMeasures
 
 	measure 'Needs Reorder' = ```
 			
-			    VAR CurrentStock = [Total Stock]
+			    VAR CurrentStock = [Stock Qty (Product)]
+			    VAR DaysOfSupply = [Days of Supply]
 			    RETURN
 			        SWITCH(
 			            TRUE(),
-			            ISBLANK(CurrentStock), "Yes",  // ✅ NULL = needs reorder
-			            CurrentStock = 0, "Yes",        // ✅ Zero stock = needs reorder
-			            CurrentStock < 100, "Yes",      // ✅ Low stock = needs reorder
-			            "No"                            // ✅ Normal/Overstocked = no reorder
+			            ISBLANK(CurrentStock), "Yes",   //  NULL = needs reorder
+			            DaysofSupply = 99999, "No",     //  No sales = infinite days
+			            CurrentStock = 0, "Yes",        //  Zero stock = needs reorder
+			            CurrentStock < 100, "Yes",      //  Low stock = needs reorder
+			            "No"                            //  Normal/Overstocked = no reorder
 			        )
 			```
 		displayFolder: 08.Inventory metrics
@@ -970,7 +926,7 @@ table MyMeasures
 			    COUNTROWS(CustomerRFM),
 			    CustomerRFM[RFM Segment] = "Potential Loyalists"
 			)
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer_segment_RFM
 		lineageTag: 92aa71ff-7532-4b36-bd26-10154a68e114
 
@@ -1010,7 +966,7 @@ table MyMeasures
 			    COUNTROWS(CustomerRFM),
 			    CustomerRFM[RFM Segment] = "Loyal Customers"
 			)
-		formatString: 0
+		formatString: #,0.0
 		displayFolder: 05.Customer_segment_RFM
 		lineageTag: 3e4b53ee-1141-4317-8904-cb88cd69edad
 
@@ -1068,10 +1024,9 @@ table MyMeasures
 						0
 					)
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: 07.Territory metrics
 		lineageTag: 538fc6cf-79f0-4c05-9bc9-e2611574238e
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Vendors Purchase Rank' = ```
 			
@@ -1086,6 +1041,111 @@ table MyMeasures
 		formatString: 0
 		displayFolder: 09.Purchasing metrics
 		lineageTag: 8aae0ec1-c62e-4192-ba42-e4916e54b405
+
+	measure 'Days of Supply (Display)' = ```
+			
+			        VAR DOS = [Days of Supply]
+			        RETURN
+			            IF(
+			                DOS >= 99999,
+			                "∞",
+			                FORMAT(DOS, "0.0")
+			            )
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: 9f39613f-fb86-4dd0-ae3e-2ad2f9d1a166
+
+	measure 'Days of Supply Status' = ```
+			
+			        VAR DOS = [Days of Supply]
+			        RETURN
+			        SWITCH(
+			            TRUE(),
+			            ISBLANK(DOS), "No Sales",
+			            DOS = 0, "Out of Stock",
+			            DOS > 1000, "Infinite",
+			            DOS < 7, "Under 1 Week",
+			            DOS < 30, "Under 1 Month",
+			            DOS < 90, "Under 3 Months",
+			            "Healthy"
+			        )
+			```
+		displayFolder: 08.Inventory metrics
+		lineageTag: d04b066e-cad7-4413-b860-775c6c4c5b86
+
+	measure 'Total Stock' = ```
+			
+			        SUMX(
+			            ADDCOLUMNS(
+			                ALL(DimProduct),
+			                "Qty", CALCULATE(SUM(FactInventory[Quantity]))
+			            ),
+			            COALESCE([Qty], 0)
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 5e4ed53a-7646-45fe-b6de-7894031f6cc2
+
+	measure 'Low Stock Items Count' = ```
+			
+			        VAR tbl =
+			            ADDCOLUMNS(
+			                ALL(DimProduct),
+			                "Qty", CALCULATE(SUM(FactInventory[Quantity]))
+			            )
+			        RETURN
+			        COUNTROWS(
+			            FILTER(tbl, COALESCE([Qty], 0) > 0 && COALESCE([Qty], 0) < 100)
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: b8d3c53d-e849-4636-b82e-93348b9b5e0f
+
+	measure 'Out of Stock Items' = ```
+			
+			        VAR tbl =
+			            ADDCOLUMNS(
+			                ALL(DimProduct),
+			                "Qty", CALCULATE(SUM(FactInventory[Quantity]))
+			            )
+			        RETURN
+			        COUNTROWS(
+			            FILTER(tbl, COALESCE([Qty], 0) = 0)
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 7fb8b9b4-b807-4e1a-8601-54493a3c57e2
+
+	measure 'Overstocked Items' = ```
+			
+			        VAR tbl =
+			            ADDCOLUMNS(
+			                ALL(DimProduct),
+			                "Qty", CALCULATE(SUM(FactInventory[Quantity]))
+			            )
+			        RETURN
+			        COUNTROWS(
+			            FILTER(tbl, COALESCE([Qty], 0) >= 500)
+			        )
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 409bd1bd-9c24-465f-ae13-21902d204b29
+
+	measure 'Stock Qty (Product)' = ```
+			
+			    VAR Qty = CALCULATE(
+			        SUM(FactInventory[Quantity]),
+			        KEEPFILTERS(DimProduct[ProductID])
+			    )
+			    RETURN IF(ISBLANK(Qty), 0, Qty)
+			```
+		formatString: 0
+		displayFolder: 08.Inventory metrics
+		lineageTag: 65973650-f7f0-4e75-b1d6-22e55c84f381
 
 	column Value
 		lineageTag: 48804b47-f8c2-4fc5-818f-ca109e79ae1b

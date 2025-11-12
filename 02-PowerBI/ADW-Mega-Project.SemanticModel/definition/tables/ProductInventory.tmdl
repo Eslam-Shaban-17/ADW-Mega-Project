@@ -4,7 +4,7 @@ table ProductInventory
 	column ProductID
 		formatString: 0
 		lineageTag: c5114b6d-c4d4-40f3-acbd-38ea867f63cb
-		summarizeBy: count
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: DimProduct[ProductID]
 
@@ -37,7 +37,7 @@ table ProductInventory
 	column StockQty
 		formatString: 0
 		lineageTag: b6ed0df2-5872-4cd0-b4e5-0b820dc8a487
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [StockQty]
 
@@ -46,7 +46,7 @@ table ProductInventory
 	column InventoryValue
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 19af2d8b-ebd3-4da9-a17e-2ea99e7e8bd4
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [InventoryValue]
 
@@ -74,16 +74,21 @@ table ProductInventory
 				        DimProduct[CategoryName],
 				        DimProduct[SubcategoryName]
 				    ),
-				    "StockQty", CALCULATE(SUM(FactInventory[Quantity])),
-				    "InventoryValue", CALCULATE(SUM(FactInventory[InventoryValue])),
+				    "StockQty",
+				        VAR Qty = CALCULATE(SUM(FactInventory[Quantity]))
+				        RETURN IF(ISBLANK(Qty), 0, Qty),
+				    "InventoryValue",
+				        VAR Inv = CALCULATE(SUM(FactInventory[InventoryValue]))
+				        RETURN IF(ISBLANK(Inv), 0, Inv),
 				
 				    -- Stock Status Column
 				    "StockStatus",
-				        VAR Stock = CALCULATE(SUM(FactInventory[Quantity]))
+				        VAR Stock =
+				            VAR Q = CALCULATE(SUM(FactInventory[Quantity]))
+				            RETURN IF(ISBLANK(Q), 0, Q)
 				        RETURN
 				            SWITCH(
 				                TRUE(),
-				                ISBLANK(Stock), "Out of Stock",
 				                Stock = 0, "Out of Stock",
 				                Stock < 50, "Critical",
 				                Stock < 100, "Low",

@@ -31,7 +31,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "true"
+                "Value": "false"
               }
             }
           }
@@ -48,6 +48,77 @@
           "name": "CY24SU10",
           "path": "BaseThemes/CY24SU10.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "bg-layout772076070290011.jpg",
+          "path": "bg-layout772076070290011.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "bg-layout9914353056561279.jpg",
+          "path": "bg-layout9914353056561279.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "01.overview8150175421878708.jpg",
+          "path": "01.overview8150175421878708.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "02.sales-performance8517293862452623.jpg",
+          "path": "02.sales-performance8517293862452623.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "03.customer-anlytics6832924556137534.jpg",
+          "path": "03.customer-anlytics6832924556137534.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "04.rfm-segment6020109028767668.jpg",
+          "path": "04.rfm-segment6020109028767668.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "05.product-performance36653257383091586.jpg",
+          "path": "05.product-performance36653257383091586.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "06.inventory-managment13796267139130125.jpg",
+          "path": "06.inventory-managment13796267139130125.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "07.profitability-analysis1862650845689291.jpg",
+          "path": "07.profitability-analysis1862650845689291.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "08.geographic-analysis873870623149126.jpg",
+          "path": "08.geographic-analysis873870623149126.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "09.hr-dashboard8363559069743333.jpg",
+          "path": "09.hr-dashboard8363559069743333.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "10.purchasing-vendor7672405973412434.jpg",
+          "path": "10.purchasing-vendor7672405973412434.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "mypic-circle9244758216252653.png",
+          "path": "mypic-circle9244758216252653.png",
+          "type": "Image"
         }
       ]
     }

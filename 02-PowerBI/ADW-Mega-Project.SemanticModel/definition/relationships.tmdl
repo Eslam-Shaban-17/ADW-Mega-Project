@@ -47,3 +47,7 @@ relationship 059c4320-b51e-0559-5a7f-572cd40c2354
 	fromColumn: FactPurchasing.OrderDate
 	toColumn: DimDate.Date
 
+relationship 153f19bf-28aa-7635-71e9-7f3cdf09d9aa
+	fromColumn: FactInventory.ProductID
+	toColumn: ProductInventory.ProductID
+

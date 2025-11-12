@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 5.0563237507118322
+        "x": 227.58729395855289,
+        "y": 0
       },
       "nodes": [
         {
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 857.84300368953291,
-            "y": 349.71000097318836
+            "x": 938.42816226569039,
+            "y": 461.8971825203879
           },
           "nodeIndex": "DimDepartment",
           "nodeLineageTag": "c783f976-d2ae-43ba-b269-22461dc3d4e9",
@@ -62,8 +62,8 @@
         },
         {
           "location": {
-            "x": 1144.0836491817342,
-            "y": 610.06676232055793
+            "x": 1155.144357221599,
+            "y": 687.49171859961109
           },
           "nodeIndex": "DimShift",
           "nodeLineageTag": "0ddb19e5-a5a8-4aa5-8216-45e0736c023f",
@@ -101,8 +101,8 @@
         },
         {
           "location": {
-            "x": 1148.7434188542891,
-            "y": 283.00221582442146
+            "x": 1186.6658464195395,
+            "y": 276.68181123021304
           },
           "nodeIndex": "FactEmployeeHistory",
           "nodeLineageTag": "f5c63dbc-bca7-4d2d-9a53-089282db0616",
@@ -114,7 +114,7 @@
         },
         {
           "location": {
-            "x": 837.25091772086648,
+            "x": 800.90859130416823,
             "y": 0
           },
           "nodeIndex": "FactInventory",
@@ -179,21 +179,8 @@
         },
         {
           "location": {
-            "x": 1505.5086054607875,
-            "y": 382.38447794960962
-          },
-          "nodeIndex": "CustomerCLV",
-          "nodeLineageTag": "68405980-1d63-4770-827c-7cc7361818a5",
-          "size": {
-            "height": 145,
-            "width": 188.17706669198878
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
             "x": 1489.7075939752665,
-            "y": 218.52227613552964
+            "y": 209.041669244217
           },
           "nodeIndex": "CustomerRFM",
           "nodeLineageTag": "c3d43bc3-13de-4a9e-b103-c54f22fa4929",
@@ -205,8 +192,8 @@
         },
         {
           "location": {
-            "x": 1508.8826800546221,
-            "y": 545.60321388581565
+            "x": 911.60444590192617,
+            "y": 234.32328762105081
           },
           "nodeIndex": "ProductInventory",
           "nodeLineageTag": "f4c65d6b-1e52-49e0-9e9b-830c78baa21d",
@@ -228,6 +215,18 @@
             "width": 175.53625750357196
           },
           "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 1505.5086054607875,
+            "y": 382.38447794960962
+          },
+          "nodeIndex": "CustomerSummary",
+          "size": {
+            "height": 145,
+            "width": 188.17706669198878
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

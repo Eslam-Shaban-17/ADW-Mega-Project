@@ -25,7 +25,7 @@ ref table DimVendor
 ref table DimDate
 ref table MyMeasures
 ref table DimCustomer
-ref table CustomerCLV
+ref table CustomerSummary
 ref table CustomerRFM
 ref table ProductInventory
 ref table ProfitSteps

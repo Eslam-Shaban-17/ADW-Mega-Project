@@ -14,5 +14,5 @@
     "11.supply_demand",
     "12.hr_metrics"
   ],
-  "defaultTab": "10.purchsing_metrics"
+  "defaultTab": "09.inventory_metrics"
 }

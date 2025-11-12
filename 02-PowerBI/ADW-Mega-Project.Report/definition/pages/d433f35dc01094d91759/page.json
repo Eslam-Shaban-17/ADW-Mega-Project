@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "d433f35dc01094d91759",
-  "displayName": "💰 Sales Performance",
+  "displayName": " Sales Performance",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -13,10 +13,45 @@
             "solid": {
               "color": {
                 "expr": {
-                  "Literal": {
-                    "Value": "'#CBECEE'"
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
                   }
                 }
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'02.sales-performance.jpg'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "02.sales-performance8517293862452623.jpg"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
               }
             }
           }
@@ -40,5 +75,32 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "ebdf778d0913e64ae8eb",
+      "target": "949dde3c0497307083b8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ebdf778d0913e64ae8eb",
+      "target": "dd06600b356ec0ad3bc3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ebdf778d0913e64ae8eb",
+      "target": "a592cc898d64a7007c81",
+      "type": "NoFilter"
+    },
+    {
+      "source": "dd06600b356ec0ad3bc3",
+      "target": "949dde3c0497307083b8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "dd06600b356ec0ad3bc3",
+      "target": "ebdf778d0913e64ae8eb",
+      "type": "NoFilter"
+    }
+  ]
 }

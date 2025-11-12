@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "23917401db2304bbe3bd",
-  "displayName": "👥 Customer Analytics",
+  "displayName": " Customer Analytics",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -22,6 +22,153 @@
           }
         }
       }
+    ],
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'03.customer-anlytics.jpg'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "03.customer-anlytics6832924556137534.jpg"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Normal'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "2a4d19fee2166aa72930",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "8d0430862d44e1240279",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "96f9ca7e07e5aac0a438",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "c32e8e75d487ddd79ad6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "220edae8a3956149cc36",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "088e39194352be17e7c3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "c05a9ab323630c11e975",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a2236e9d74d74e7100d9",
+      "target": "3cb026049e243076a73e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "a2236e9d74d74e7100d9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "8d0430862d44e1240279",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "96f9ca7e07e5aac0a438",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "c32e8e75d487ddd79ad6",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "220edae8a3956149cc36",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "088e39194352be17e7c3",
+      "type": "NoFilter"
+    },
+    {
+      "source": "3cb026049e243076a73e",
+      "target": "c05a9ab323630c11e975",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2a4d19fee2166aa72930",
+      "target": "8d0430862d44e1240279",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2a4d19fee2166aa72930",
+      "target": "a2236e9d74d74e7100d9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2a4d19fee2166aa72930",
+      "target": "3cb026049e243076a73e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f72a6307ec0604dbe53a",
+      "target": "a2236e9d74d74e7100d9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f72a6307ec0604dbe53a",
+      "target": "8d0430862d44e1240279",
+      "type": "NoFilter"
+    },
+    {
+      "source": "f72a6307ec0604dbe53a",
+      "target": "2a4d19fee2166aa72930",
+      "type": "NoFilter"
+    }
+  ]
 }

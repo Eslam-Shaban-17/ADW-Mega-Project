@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "4d2026fe1af11136fdf1",
   "position": {
-    "x": 0,
-    "y": 452.39248524661167,
+    "x": 192.52320760101389,
+    "y": 496.43484245690013,
     "z": 6000,
-    "height": 261.67800617205967,
-    "width": 703.72164371695146,
+    "height": 211.77552836111531,
+    "width": 600.94744086887908,
     "tabOrder": 8000
   },
   "visual": {
@@ -23,11 +23,26 @@
                       "Entity": "DimProduct"
                     }
                   },
+                  "Property": "ProductID"
+                }
+              },
+              "queryRef": "DimProduct.ProductID",
+              "nativeQueryRef": "ProductID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProduct"
+                    }
+                  },
                   "Property": "ProductName"
                 }
               },
               "queryRef": "DimProduct.ProductName",
-              "nativeQueryRef": "ProductName"
+              "nativeQueryRef": "Product",
+              "displayName": "Product"
             },
             {
               "field": {
@@ -41,7 +56,8 @@
                 }
               },
               "queryRef": "DimProduct.CategoryName",
-              "nativeQueryRef": "CategoryName"
+              "nativeQueryRef": "Category",
+              "displayName": "Category"
             },
             {
               "field": {
@@ -51,11 +67,12 @@
                       "Entity": "MyMeasures"
                     }
                   },
-                  "Property": "Total Stock"
+                  "Property": "Stock Qty (Product)"
                 }
               },
-              "queryRef": "MyMeasures.Total Stock",
-              "nativeQueryRef": "Total Stock"
+              "queryRef": "MyMeasures.Stock Qty (Product)",
+              "nativeQueryRef": "Total Stock",
+              "displayName": "Total Stock"
             },
             {
               "field": {
@@ -79,11 +96,11 @@
                       "Entity": "MyMeasures"
                     }
                   },
-                  "Property": "Days of Supply"
+                  "Property": "Days of Supply Status"
                 }
               },
-              "queryRef": "MyMeasures.Days of Supply",
-              "nativeQueryRef": "Days of Supply"
+              "queryRef": "MyMeasures.Days of Supply Status",
+              "nativeQueryRef": "Days of Supply Status"
             },
             {
               "field": {
@@ -112,7 +129,7 @@
                     "Entity": "MyMeasures"
                   }
                 },
-                "Property": "Total Stock"
+                "Property": "Stock Qty (Product)"
               }
             },
             "direction": "Descending"
@@ -124,61 +141,42 @@
       "values": [
         {
           "properties": {
-            "backColor": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColorPrimary": {
               "solid": {
                 "color": {
                   "expr": {
-                    "FillRule": {
-                      "Input": {
-                        "Measure": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Entity": "MyMeasures"
-                            }
-                          },
-                          "Property": "Total Stock"
-                        }
-                      },
-                      "FillRule": {
-                        "linearGradient2": {
-                          "min": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#EF1224'"
-                              }
-                            }
-                          },
-                          "max": {
-                            "color": {
-                              "Literal": {
-                                "Value": "'#de6a73'"
-                              }
-                            }
-                          },
-                          "nullColoringStrategy": {
-                            "strategy": {
-                              "Literal": {
-                                "Value": "'asZero'"
-                              }
-                            }
-                          }
-                        }
-                      }
+                    "Literal": {
+                      "Value": "'#605E5C'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#605E5C'"
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ],
-            "metadata": "MyMeasures.Total Stock"
           }
         },
         {
@@ -219,7 +217,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "'Overstocked'"
+                                "Value": "'Out of Stock'"
                               }
                             }
                           },
@@ -230,69 +228,7 @@
                         },
                         "Value": {
                           "Literal": {
-                            "Value": "'CircleBlackFill'"
-                          }
-                        }
-                      },
-                      {
-                        "Condition": {
-                          "Comparison": {
-                            "ComparisonKind": 0,
-                            "Left": {
-                              "Measure": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "MyMeasures"
-                                  }
-                                },
-                                "Property": "Stock Status"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "'Normal'"
-                              }
-                            }
-                          },
-                          "Annotations": {
-                            "PowerBI.SQExprEvaluationKind": 1,
-                            "PowerBI.SQExprTextOperatorOption": 2
-                          }
-                        },
-                        "Value": {
-                          "Literal": {
-                            "Value": "'CircleHigh'"
-                          }
-                        }
-                      },
-                      {
-                        "Condition": {
-                          "Comparison": {
-                            "ComparisonKind": 0,
-                            "Left": {
-                              "Measure": {
-                                "Expression": {
-                                  "SourceRef": {
-                                    "Entity": "MyMeasures"
-                                  }
-                                },
-                                "Property": "Stock Status"
-                              }
-                            },
-                            "Right": {
-                              "Literal": {
-                                "Value": "'Low'"
-                              }
-                            }
-                          },
-                          "Annotations": {
-                            "PowerBI.SQExprEvaluationKind": 1,
-                            "PowerBI.SQExprTextOperatorOption": 2
-                          }
-                        },
-                        "Value": {
-                          "Literal": {
-                            "Value": "'TrafficMedium'"
+                            "Value": "'CircleSymbolLow'"
                           }
                         }
                       },
@@ -323,7 +259,7 @@
                         },
                         "Value": {
                           "Literal": {
-                            "Value": "'CircleMedium'"
+                            "Value": "'CircleSymbolMedium'"
                           }
                         }
                       },
@@ -343,7 +279,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "'Out of Stock'"
+                                "Value": "'Low'"
                               }
                             }
                           },
@@ -354,7 +290,7 @@
                         },
                         "Value": {
                           "Literal": {
-                            "Value": "'CircleLow'"
+                            "Value": "'CircleMedium'"
                           }
                         }
                       }
@@ -376,11 +312,520 @@
           }
         }
       ],
+      "grid": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3D518C'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "84.95892462939715D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimTerritory.TerritoryName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139.00831274670932D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Territory Revenue %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.41674470086988D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Last Purchase Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.53340034196395D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.First Purchase Date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Returning Customers"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.33333333333334D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Customer Retention Rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.New Customers"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "102.26564680866818D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProduct.ProductName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "96.4086368496622D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Product Revenue %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.0059759533255D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Product Revenue Rank"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "105.13500199707096D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Total Revenue"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88.9184772122051D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProduct.CategoryName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "110.87485822907091D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Days of Supply Status"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "64.55200084131896D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Needs Reorder"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "68.84672096296757D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DimProduct.ProductID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "56.6361280285641D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Stock Qty (Product)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.74767887920355D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "MyMeasures.Stock Status"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "columnFormatting": [
         {
-          "properties": {},
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#AAAAC9'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
+              }
+            }
+          },
           "selector": {
-            "metadata": "MyMeasures.Total Stock"
+            "metadata": "MyMeasures.Stock Qty (Product)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F4E78'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E0E0E0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
           }
         }
       ]
@@ -390,7 +835,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "2bbf35297065318fd5bc",
+        "name": "47de2f11844bb380fa3c",
         "field": {
           "Measure": {
             "Expression": {
@@ -398,7 +843,7 @@
                 "Entity": "MyMeasures"
               }
             },
-            "Property": "Total Stock"
+            "Property": "Stock Qty (Product)"
           }
         },
         "type": "Advanced",
@@ -423,7 +868,7 @@
                           "Source": "m"
                         }
                       },
-                      "Property": "Total Stock"
+                      "Property": "Stock Qty (Product)"
                     }
                   },
                   "Right": {

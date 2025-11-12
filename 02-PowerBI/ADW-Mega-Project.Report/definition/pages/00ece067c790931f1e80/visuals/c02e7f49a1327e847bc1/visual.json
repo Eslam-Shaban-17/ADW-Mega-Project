@@ -1,0 +1,34 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "c02e7f49a1327e847bc1",
+  "position": {
+    "x": 8.4277042975182344,
+    "y": 0,
+    "z": 0,
+    "height": 62.064367537426506,
+    "width": 89.153638544938559
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "mypic-circle9244758216252653.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "f5bd4dcf567ccba2682c",
+  "howCreated": "InsertVisualButton"
+}
