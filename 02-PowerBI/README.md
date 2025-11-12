@@ -16,25 +16,27 @@ This Power BI project uses **PBIP format** (Project file) instead of PBIX, which
 ```
 02-PowerBI/
 ├── ADW-Mega-Project.pbip # Main project file (open this)
-├── ADW-Mega-Project.SemanticModel/    # Data model folder
-│   ├── definition/                     # Model definition files
-│   ├── DAXQueries/           # All DAX queries as .dax files
-│		│    ├── 📄 01.revenue_metrics.dax     # Revenue metrics
-│   │    ├── 📄 02.order_quantity.dax      # AOV, Total Quantity
-│   │    ├── 📄 03.cost_profit.dax         # COGS, Markup%, GM%
-│   │    ├── 📄 04.time_intelligence.dax   # YoY, MoM, YTD
-│		│		 ├── 📄 05.customer_metrics.dax    # CLV, retention, RFM
-│   │    ├── 📄 06.product_metrics.dax     # Product performance
-│   │    ├── 📄 07.territory_metrics.dax   # Territory performance
-│   │    ├── 📄 08.inventory_metrics.dax   # Stock & turnover
-│   │    ├── 📄 09.purchsing_metrics.dax   # Total Purchases
-│		│		 ├── 📄 10.supply_demand.dax       # Suplly &demand status
-│   │    └── 📄 11.hr_metrics.dax          # Employee metrics              │   │
-│   └── .pbi/                           # Power BI metadata
+├── ADW-Mega-Project.SemanticModel/             # Data model folder
+│   ├── definition/                             # Model definition files
+│   ├── DAXQueries/                             # All DAX queries as .dax files
+│	│	 ├── 📄 01.revenue_metrics.dax         # Revenue metrics
+│   │    ├── 📄 02.order_quantity.dax          # AOV, Total Quantity
+│   │    ├── 📄 03.cost_profit.dax             # COGS, Markup%, GM%
+│   │    ├── 📄 04.time_intelligence.dax       # YoY, MoM, YTD
+│	│    ├── 📄 05.customer_metrics.dax        # CLV, retention
+│   │    ├── 📄 06.customer_segment_RFM.dax    # RFM segmentation
+│   │    ├── 📄 07.product_metrics.dax         # Product performance
+│   │    ├── 📄 08.territory_metrics.dax       # Territory performance
+│   │    ├── 📄 09.inventory_metrics.dax       # Stock & turnover
+│   │    ├── 📄 10.purchsing_metrics.dax       # Total Purchases
+│	│	 ├── 📄 11.supply_demand.dax           # Supply & demand status
+│   │    └── 📄 12.hr_metrics.dax              # Employee metrics
+│   └── .pbi/                                  # Power BI metadata
 └── Data-Model/
-│    ├── PowerBI-DataModel-Setup.sql     # SQL views to run first
-│    └── DimDate-PowerQuery.txt          # Date table M code
-├── ADW-Mega-Project.Report/            # All Reports data
+│    ├── PowerBI_DataModel_Setup.sql           # SQL views to run first
+│    ├── data_modeling_diagram.png             # Data model diagram
+│    └── final_database_Diagram.png            # Final Data model diagram after adding calculated tables
+├── ADW-Mega-Project.Report/                   # All Reports data
 │		├── definition/
 │		├── StaticResources/
 │		└── .pbi/
@@ -73,6 +75,46 @@ I added these columns in Power BI (not in SQL):
 - `FreightAllocated` - Proportionally allocated freight per line
 - `LineTotalFull` - Line total including tax & freight
 
+### Calculated Tables
+
+I created these calculated tables to support advanced analytics:
+
+**1. CustomerRFM** - RFM segmentation table
+- Calculates Recency, Frequency, and Monetary values per customer
+- **Columns:**
+  - `LastPurchase` - Last purchase date
+  - `Frequency` - Number of distinct orders
+  - `Monetary` - Total revenue per customer
+  - `RecencyDays` - Days since last purchase
+  - `MaxDataDate` - Maximum date in dataset (calculated column)
+  - `RFM Recency Score` - Score 1-5 (calculated column)
+  - `RFM Frequency Score` - Score 1-5 (calculated column)
+  - `RFM Monetary Score` - Score 1-5 (calculated column)
+  - `RFM Score` - Combined score (R*100 + F*10 + M)
+  - `RFM Segment` - Customer segment (Champions, Loyal Customers, Potential Loyalists, Needs Attention, At Risk, Lost)
+
+**2. CustomerSummary** - Customer performance summary
+- Aggregates customer-level metrics
+- **Columns:**
+  - `TotalRevenue` - Total revenue per customer
+  - `TotalOrders` - Total order count
+  - `CLV` - Customer Lifetime Value (Revenue/Orders)
+  - `CLV Category` - CLV category 0-5 (calculated column)
+  - `CLV Range` - CLV range labels (calculated column)
+
+**3. ProductInventory** - Product inventory status
+- Combines product and inventory data with status indicators
+- **Columns:**
+  - `StockQty` - Current stock quantity
+  - `InventoryValue` - Total inventory value
+  - `StockStatus` - Status (Out of Stock, Critical, Low, Normal, Overstocked)
+
+**4. ProfitSteps** - Profit waterfall steps
+- Static table for profit decomposition visualization
+- **Columns:**
+  - `Step` - Profit step name (Revenue, COGS, Freight, Tax, Gross Profit)
+  - `SortOrder` - Display order
+
 ## DAX Measures (100+)
 
 All measures are organized in the **`📊 Measures`** table with folders:
@@ -83,11 +125,12 @@ All measures are organized in the **`📊 Measures`** table with folders:
 ├── 📦 Orders & Quantity/ (6 measures)
 ├── 💵 Cost & Profit/ (6 measures)
 ├── 📅 Time Intelligence/ (13 measures)
-├── 👥 Customers/ (8 measures)
-├── 🏆 Products/ (5 measures)
-├── 🌍 Territory/ (2 measures)
-├── 📦 Inventory/ (14 measures)
-├── 🏭 Purchasing/ (4 measures)
+├── 👥 Customers/ (13 measures)
+├── 👥 Customer_Segment_RFM/ (16 measures)
+├── 🏆 Products/ (8 measures)
+├── 🌍 Territory/ (3 measures)
+├── 📦 Inventory/ (17 measures)
+├── 🏭 Purchasing/ (5 measures)
 ├── 🔍 Supply-Demand/ (3 measures)
 └── 👔 HR/ (7 measures)
 
@@ -108,18 +151,20 @@ Customer Lifetime Value =
 
 ```
 
-## Dashboard Pages (10)
+## Dashboard Pages (12)
 
-1. **Executive Summary** - High-level KPIs
+1. **Overview Dashboard** - High-level KPIs & executive summary
 2. **Sales Performance** - Revenue trends & growth
 3. **Customer Analytics** - Segmentation & CLV
-4. **Product Performance** - Top products & margins
-5. **Inventory Management** - Stock levels & turnover
-6. **Profitability** - Margins & cost analysis
-7. **Geographic Analysis** - Regional performance
-8. **HR Dashboard** - Employee metrics
-9. **Purchasing** - Vendor analysis
-10. **Advanced Analytics** - Forecasting & insights
+4. **RFM Segmentation** - Customer RFM analysis & scoring
+5. **Product Performance** - Top products & margins
+6. **Inventory Management** - Stock levels & turnover
+7. **Profitability Analysis** - Margins & cost analysis
+8. **Geographic Analysis** - Regional performance
+9. **HR Dashboard** - Employee metrics
+10. **Purchasing & Vendor** - Vendor analysis
+11. **Advanced Analytics** - Forecasting & insights
+12. **Q&A Visual** - Natural language query interface
 
 ## Setup Instructions
 
@@ -127,7 +172,7 @@ Customer Lifetime Value =
 
 ```sql
 -- Run this script in SSMS against AdventureWorks2022:
--- Data-Model/PowerBI-DataModel-Setup.sql
+-- Data-Model/PowerBI_DataModel_Setup.sql
 
 ```
 
@@ -176,7 +221,7 @@ What I did to keep dashboard fast:
 
 ### "Can't find DimDate table"
 
-→ Create it using the M code in `Data-Model/DimDate-PowerQuery.txt`
+→ Create it using Power Query M code (Date table is created in the model)
 
 ### "Measures showing wrong values"
 

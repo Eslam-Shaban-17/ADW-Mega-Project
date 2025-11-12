@@ -16,8 +16,9 @@ The **AdventureWorks End-to-End Analytics Project** demonstrates full-stack busi
 * ✅ Advanced **SQL analysis** across 5 business domains
 * ✅ Dimensional **star schema modeling** for analytical efficiency
 * ✅ Over **100 DAX measures** including time intelligence
-* ✅ **10 interactive Power BI dashboards** built with business KPIs
+* ✅ **12 interactive Power BI dashboards** built with business KPIs
 * ✅ Deep **RFM customer segmentation** and profitability insights
+* ✅ **4 calculated tables** for advanced analytics (CustomerRFM, CustomerSummary, ProductInventory, ProfitSteps)
 
 **Duration:** 4 weeks
 **Database:** AdventureWorks2022 (SQL Server)
@@ -76,7 +77,8 @@ ADW-Mega-Project/
 ├── 02-PowerBI/              → Power BI files, DAX measures, data model
 ├── 03-Documentation/        → Business questions, methodology, insights
 ├── 04-Screenshots/          → Dashboard screenshots
-└── 05-Presentation/         → Project slides & summary
+├── 05-Presentation/         → Project slides & summary
+└── 05-Design/               → Project Designs files
 ```
 
 ---
@@ -131,16 +133,47 @@ ADW-Mega-Project/
 
 ## 📸 Dashboard Preview
 
-| Dashboard                    | Description                           |
-| ---------------------------- | ------------------------------------- |
-| **Executive Summary**        | Company-wide KPIs and trends          |
-| **Sales Performance**        | Revenue, growth, and top products     |
-| **Customer Analytics**       | RFM segmentation & CLV insights       |
-| **Product Performance**      | Profitability by category             |
-| **Inventory & Supply Chain** | Stock turnover and vendor performance |
-| **HR Dashboard**             | Headcount, tenure, turnover rates     |
+### Overview Dashboard
+![Overview Dashboard](04-Screenshots/01.overview-dashboard.jpg)
+*High-level KPIs, revenue trends, and executive summary metrics*
 
-📂 More previews in `/04-Screenshots/`
+### Sales Performance
+![Sales Performance](04-Screenshots/02.sales-performance.jpg)
+*Revenue trends, growth analysis, and top performing products*
+
+### Customer Analytics
+![Customer Analytics](04-Screenshots/03.customer-analytics.jpg)
+*Customer segmentation, CLV analysis, and retention insights*
+
+### RFM Segmentation
+![RFM Segmentation](04-Screenshots/04.rfm-segmentation.jpg)
+*Customer RFM scoring and segmentation analysis*
+
+### Product Performance
+![Product Performance](04-Screenshots/05.product-performance.jpg)
+*Product profitability, margins, and category performance*
+
+### Inventory Management
+![Inventory Management](04-Screenshots/06.inventory-managment.jpg)
+*Stock levels, turnover rates, and inventory status*
+
+### Profitability Analysis
+![Profitability Analysis](04-Screenshots/07.profitabliity-analysis.jpg)
+*Gross margins, cost analysis, and profit decomposition*
+
+### Geographic Analysis
+![Geographic Analysis](04-Screenshots/08.geographic-analysis.jpg)
+*Regional performance and territory insights*
+
+### HR Dashboard
+![HR Dashboard](04-Screenshots/09.hr-dashboard.jpg)
+*Employee metrics, headcount, tenure, and turnover analysis*
+
+### Purchasing & Vendor
+![Purchasing & Vendor](04-Screenshots/10.purchasing-vendor.jpg)
+*Vendor performance and purchasing analytics*
+
+📂 **Full PDF Report:** [ADW-Mega-Project.pdf](04-Screenshots/ADW-Mega-Project.pdf)
 
 ---
 
